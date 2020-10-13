@@ -1,0 +1,23 @@
+button {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 3px;
+  font-family: "Ubuntu", sans-serif;
+  font-size: calc(10px + 1vmin);
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #ffce00;
+}
+
+.registration-button {
+  padding: 10px 30px;
+}
+
+.login-button {
+  min-width: 100px;
+  max-width: 100px;
+}
