@@ -24,13 +24,13 @@ export default class Header extends Component {
 
   render() {
     return (
-      <header class="Header-group">
-        <div id="logo" class="Header-item">
+      <header className="Header-group">
+        <div id="logo" className="Header-item">
           <img src="#" alt="PLACEHOLDER TEXT" />
         </div>
-        <div id="username-and-menu" class="menu-group">
-          <p id="username" class="menu-item">{this.context.user.name}username</p>
-          <nav class="menu-item">
+        <div id="username-and-menu" className="menu-group">
+          <p id="username" className="menu-item">{this.context.user.name}username</p>
+          <nav className="menu-item">
             <HamburgerMenu 
               isOpen={this.state.menuOpen}
               menuClicked={this.handleMenuClick.bind(this)}
@@ -38,11 +38,12 @@ export default class Header extends Component {
             {this.state.menuOpen && <ul id="dropdown-menu">
               <li>              
                 <Link to="/">
-                  me
+                  Home
                 </Link>
               </li>
               <li>
-                <Link>
+                <Link to={`/profiles/${this.context.user.id}`}>
+                  Profile
                 </Link>
               </li>
             </ul>}

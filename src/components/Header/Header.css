@@ -33,6 +33,10 @@
   border: 3px solid #000;
 }
 
+#dropdown-menu > li {
+  border: 1px solid #000;
+}
+
 #logo {
   margin: 15px;
 }
