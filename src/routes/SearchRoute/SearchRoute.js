@@ -1,24 +1,40 @@
 import React, { Component } from 'react';
-import SearchSkillCard from '../../components/SearchSkillCard/SearchSkillCard';
+import ServiceCard from '../../components/ServiceCard/ServiceCard';
 
-const dummySkills = [
+const dummyServices = [
   {
     id: '1',
+    user: {
+      user_id: 1,
+      full_name: 'Jim Parsons',
+    },
     name: 'dodgeball',
     description: 'I dodge balls real good.',
   },
   {
     id: '2',
+    user: {
+      user_id: 1,
+      full_name: 'Jim Parsons',
+    },
     name: 'paint',
     description: 'I paint stuff real good.',
   },
   {
     id: '3',
+    user: {
+      user_id: 1,
+      full_name: 'Jim Parsons',
+    },
     name: 'move',
     description: 'I strong, help you move house real good.',
   },
   {
     id: '4',
+    user: {
+      user_id: 1,
+      full_name: 'Jim Parsons',
+    },
     name: 'design furniture',
     description: 'I design furnite real good, fair trade.',
   },
@@ -26,24 +42,24 @@ const dummySkills = [
 
 class SearchRoute extends Component {
 
-  renderSkillCards() {
-    return dummySkills.map((skill) =>
+  renderServiceCards() {
+    return dummyServices.map((service) =>
       <li>
-        <SearchSkillCard
-          key={skill.id}
-          name={skill.name}
-          description={skill.description}
+        <ServiceCard
+          key={service.id}
+          name={service.name}
+          description={service.description}
+          user={service.user}
         />
       </li>
     );
   }
 
-
   render() {
     return (
       <div className="SearchRoute">
-        <ul className="SearchRoute-skills-list">
-        {this.renderSkillCards()}
+        <ul className="SearchRoute-services-list">
+        {this.renderServiceCards()}
         </ul>
       </div>
     );

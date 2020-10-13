@@ -54,6 +54,9 @@ export default class App extends Component {
               path={'/search'}
               component={SearchRoute}
             />
+            <Route
+              component={NotFoundRoute}
+            />
           </Switch>
         </main>
       </div>
