@@ -38,6 +38,11 @@ export default class App extends Component {
               path={'/login'}
               component={LoginRoute}
             />
+            <Route 
+            //Double check route
+              path={'/profiles/:profile_id'}
+              component={EditProfile}
+            />
             <Route
               exact
               path={'/profiles/:profile_id'}
