@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Input, Label } from '../Form/Form';
 import UserContext from '../../contexts/UserContext';
 import Button from '../Button/Button';
+import './ServiceOfferForm.css';
 
 class LoginForm extends Component {
 
