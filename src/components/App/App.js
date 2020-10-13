@@ -39,9 +39,13 @@ export default class App extends Component {
               component={LoginRoute}
             />
             <Route 
-            //Double check route
+              exact
               path={'/profiles/:profile_id'}
               component={EditProfile}
+            />
+            <Route 
+              path={'/profiles/:profile_id/skills'}
+              component={UserSkills}
             />
             <Route
               exact
