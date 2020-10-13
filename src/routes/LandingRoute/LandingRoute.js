@@ -9,8 +9,8 @@ class LandingRoute extends Component {
   }
 
   handleRegistrationSuccess = () => {
-    const { history } = this.props
-    history.push('/login')
+    const { history } = this.props;
+    history.push('/login');
   }
 
   render() {
@@ -44,4 +44,4 @@ class LandingRoute extends Component {
   }
 }
 
-export default LandingRoute
+export default LandingRoute;
