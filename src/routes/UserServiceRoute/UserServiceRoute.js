@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ProfilePicture from '../../images/user-placeholder.jpg';
 
-export class SkillCardRoute extends Component {
+export class ServiceCardRoute extends Component {
   render() {
     return (
       <div>
@@ -16,4 +16,4 @@ export class SkillCardRoute extends Component {
   }
 }
 
-export default SkillCardRoute
+export default ServiceCardRoute
