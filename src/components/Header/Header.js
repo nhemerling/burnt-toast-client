@@ -28,13 +28,24 @@ export default class Header extends Component {
         <div id="logo" class="Header-item">
           <img src="#" alt="PLACEHOLDER TEXT" />
         </div>
-        <div id="username-and-menu" class="Header-itme menu-group">
-          <p id="username" class="menu-item">{this.context.user.name}USERNAMEEEEE</p>
+        <div id="username-and-menu" class="menu-group">
+          <p id="username" class="menu-item">{this.context.user.name}username</p>
           <nav class="menu-item">
             <HamburgerMenu 
               isOpen={this.state.menuOpen}
               menuClicked={this.handleMenuClick.bind(this)}
             />
+            {this.state.menuOpen && <ul id="dropdown-menu">
+              <li>              
+                <Link to="/">
+                  me
+                </Link>
+              </li>
+              <li>
+                <Link>
+                </Link>
+              </li>
+            </ul>}
           </nav>
         </div>
       </header>

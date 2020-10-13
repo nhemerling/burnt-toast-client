@@ -6,6 +6,7 @@
   text-align: left;
   border: 3px solid #000;
   margin: 10px;
+  position: relative;
 }
 
 .Header-item {
@@ -21,7 +22,15 @@
 .menu-item {
   flex: 1;
   margin: 5px;
-  justify-content: left;
+  justify-content: right;
+}
+
+#dropdown-menu {
+  list-style: none;
+  z-index: 2;
+  position: relative;
+  display: block;
+  border: 3px solid #000;
 }
 
 #logo {
