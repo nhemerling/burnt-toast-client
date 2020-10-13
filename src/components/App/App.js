@@ -8,6 +8,7 @@ import LoginRoute from '../../routes/LoginRoute/LoginRoute';
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute';
 import EditProfile from '../../routes/EditProfileRoute/EditProfileRoute';
 import UserSkills from '../../routes/UserSkillsRoute/UserSkillsRoute';
+import SearchRoute from '../../routes/SearchRoute/SearchRoute';
 import './App.css';
 
 export default class App extends Component {
@@ -37,17 +38,21 @@ export default class App extends Component {
               path={'/login'}
               component={LoginRoute}
             />
-            <Route 
+            <Route
               exact
               path={'/profiles/:profile_id'}
               component={EditProfile}
             />
-            <Route 
+            <Route
               path={'/profiles/:profile_id/skills'}
               component={UserSkills}
             />
             <Route
               component={NotFoundRoute}
+            />
+            <Route
+              path={'/search'}
+              component={SearchRoute}
             />
           </Switch>
         </main>
