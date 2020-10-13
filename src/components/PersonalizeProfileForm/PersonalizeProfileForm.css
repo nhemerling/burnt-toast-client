@@ -1,0 +1,12 @@
+.PersonalizeProfileForm {
+  border: 2px solid black;
+  margin: 20px; 
+}
+
+.PersonalizeProfile-form-div{
+  padding: 10px;
+}
+
+textarea {
+  width: 80%;
+}

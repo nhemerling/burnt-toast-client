@@ -6,6 +6,7 @@ import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute';
 import LandingRoute from '../../routes/LandingRoute/LandingRoute';
 import LoginRoute from '../../routes/LoginRoute/LoginRoute';
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute';
+import EditProfile from '../../routes/EditProfileRoute/EditProfileRoute';
 import './App.css';
 
 export default class App extends Component {
@@ -34,6 +35,11 @@ export default class App extends Component {
             <PublicOnlyRoute
               path={'/login'}
               component={LoginRoute}
+            />
+            <Route 
+            //Double check route
+              path={'/profiles/:profile_id'}
+              component={EditProfile}
             />
             <Route
               component={NotFoundRoute}
