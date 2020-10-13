@@ -1,0 +1,34 @@
+.Header-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  border: 3px solid #000;
+  margin: 10px;
+}
+
+.Header-item {
+  flex: 1;
+}
+
+.menu-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.menu-item {
+  flex: 1;
+  margin: 5px;
+  justify-content: left;
+}
+
+#logo {
+  margin: 15px;
+}
+
+#username-and-menu {
+  margin: 15px;
+  justify-content: flex-end;
+}
