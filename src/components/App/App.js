@@ -7,8 +7,7 @@ import LandingRoute from '../../routes/LandingRoute/LandingRoute';
 import LoginRoute from '../../routes/LoginRoute/LoginRoute';
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute';
 import EditProfile from '../../routes/EditProfileRoute/EditProfileRoute';
-import UserSkills from '../../routes/UserSkillsRoute/UserSkillsRoute';
-import SearchRoute from '../../routes/SearchRoute/SearchRoute';
+import UserServices from '../../routes/UserServiceRoute/UserServiceRoute';
 import './App.css';
 
 export default class App extends Component {
@@ -43,9 +42,9 @@ export default class App extends Component {
               path={'/profiles/:profile_id'}
               component={EditProfile}
             />
-            <Route
-              path={'/profiles/:profile_id/skills'}
-              component={UserSkills}
+            <Route 
+              path={'/profiles/:profile_id/services'}
+              component={UserServices}
             />
             <Route
               path={'/search'}

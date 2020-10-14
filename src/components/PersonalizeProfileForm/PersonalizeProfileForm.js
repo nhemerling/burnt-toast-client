@@ -44,8 +44,7 @@ export class PersonalizeProfileForm extends Component {
         <div className='PersonalizeProfile-form-div'>
         <Label htmFor="user-bio">Your Bio:</Label>
         <br/>
-        <Textarea id="user-bio" name="w3review" rows="4" cols="50">
-          (optional):
+        <Textarea id="user-bio" name="w3review" rows="4" cols="50" defaultValue='(optional)'>
         </Textarea>
         <Button type='submit' className='add-userBio-button'>
           Add Bio
