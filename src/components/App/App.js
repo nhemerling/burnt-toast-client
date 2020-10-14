@@ -49,6 +49,7 @@ export default class App extends Component {
             />
             <Route 
 <<<<<<< HEAD
+<<<<<<< HEAD
               path={'/profiles/:profile_id/services'}
               component={UserServices}
             />
@@ -59,6 +60,10 @@ export default class App extends Component {
               path={'/profiles/:profile_id/skills'}
               component={UserSkills}
 >>>>>>> user skills view
+=======
+              path={'/profiles/:profile_id/services'}
+              component={UserServices}
+>>>>>>> changes route from skills to services
             />
             <Route
               component={NotFoundRoute}
