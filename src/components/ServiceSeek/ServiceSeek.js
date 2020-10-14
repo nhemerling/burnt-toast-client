@@ -26,8 +26,8 @@ export class ServiceSeek extends Component {
     const { error } = this.state;
     const categories = ['Automotive & Industrial', 'Art', 'Beauty & Health', 'Computers', 'Education', 'Electronics','Food',
                         'Handmade','Home', 'Repair','Sports','Other',];
-    const categoryList = categories.map(category => {return (
-      <option value={category}>{category}</option>
+    const categoryList = categories.map((category, i) => {return (
+      <option key={i} value={category}>{category}</option>
     )})
     return (
       <form
