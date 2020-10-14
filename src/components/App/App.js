@@ -50,12 +50,8 @@ export default class App extends Component {
             <Route
               path={'/search'}
               component={SearchRoute}
-
-              path={'/profiles/:profile_id/skills'}
-              component={UserSkills}
-
-              path={'/profiles/:profile_id/services'}
-              component={UserServices}
+            />
+            <Route
               path={'/profiles/:profile_id/services'}
               component={UserServices}
             />
