@@ -46,8 +46,6 @@ class LoginForm extends Component {
   render() {
     const { error } = this.state;
     const primaryCategories = this.generateCategorySelection(STORE.CATEGORIES);
-    // const categories = ['Automotive & Industrial', 'Art', 'Beauty & Health', 'Computers', 'Education', 'Electronics','Food',
-    //                     'Handmade','Home', 'Repair','Sports','Other',];
     const categoryList = primaryCategories.map(category => {
       return (
         category
@@ -61,19 +59,6 @@ class LoginForm extends Component {
         <option key={i} value={category}>{category}</option>
       );
     })
-    console.log(servicesList)
-    // const secondaryCategoryList = this.state.selection 
-    //   ? this.state.generateSecondaryCatergories(key, obj=STORE.CATEGORIES) => {
-    //       let secondaryCategories = obj[key];
-    //       return secondaryCategories; 
-    //     }
-    //   : [];
-    //     console.log(secondaryCategoryList)
-    // const secondaryCategories = secondaryCategoryList.map((category, i) => {
-    //   return (
-    //     <option key={i} value={category}>{category}</option>
-    //   );
-    // })
 
     return (
       <form
@@ -85,12 +70,12 @@ class LoginForm extends Component {
         </div>
         <div className='ServiceOffer-form-div'>
           <div className='ServiceOffer-form-div'>
-            <Label htmlFor='service-category-selection'>
+            <Label htmlFor='primary-category-selection'>
               Select a category:
             </Label>
             <select
               name="categories"
-              id="service-category-selection"
+              id="primary-category-selection"
               form="ServiceOfferForm">
               {categoryList}
 
