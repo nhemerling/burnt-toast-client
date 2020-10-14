@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ServiceCard from '../../components/ServiceCard/ServiceCard';
+import store from '../../contexts/Store';
 
 const dummyServices = [
   {
@@ -44,12 +45,12 @@ class SearchRoute extends Component {
 
   state = {
     searchTerm: '',
+    searchCategory: '',
     skills: [],
   };
 
   handleSearch(e) {
     e.preventDefault();
-    console.log('I ran');
     // fetch(`BASE_URL/skills?${this.state.searchTerm}`)
     //   .then(res => res.json())
     //   .then(result => this.setState({skills: result}));
@@ -63,6 +64,11 @@ class SearchRoute extends Component {
   }
 
   renderSearchBar() {
+    const categories = Object.keys(store.CATEGORIES);
+    const searchOptions = categories.map(category => {
+      return <option value={category}>{category}</option>
+    })
+    
     return (
       <form id="search-bar" onSubmit={e => this.handleSearch(e)}>
         <label htmlFor="search"></label>
@@ -70,6 +76,10 @@ class SearchRoute extends Component {
           name="search" type="text" placeholder="🔍 Search" 
           onChange={e => this.handleSearchTerm(e)}>
         </input>
+        <label htmlFor="categories"></label>
+        <select name="categories">
+          {searchOptions}
+        </select>
       </form>
     );
   }

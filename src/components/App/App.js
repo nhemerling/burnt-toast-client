@@ -5,6 +5,7 @@ import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute';
 import LandingRoute from '../../routes/LandingRoute/LandingRoute';
 import LoginRoute from '../../routes/LoginRoute/LoginRoute';
+import SearchRoute from '../../routes/SearchRoute/SearchRoute';
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute';
 import EditProfile from '../../routes/EditProfileRoute/EditProfileRoute';
 import UserServices from '../../routes/UserServiceRoute/UserServiceRoute';
