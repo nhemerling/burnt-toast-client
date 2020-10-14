@@ -31,30 +31,30 @@ const serviceCards = {
         user_id: 1
       },
       {
-        description: string,
-        category: string,
-        service: string,
+        description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        category: 'Food',
+        service: 'Meal prep',
         user_id: 1
       },
       {
-        description: string,
-        category: string,
-        service: string,
+        description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        category: 'Health',
+        service: 'Hugs',
         user_id: 1
       },
       {
-        description: string,
-        category: string,
-        service: string,
+        description: 'Voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        category: 'Education',
+        service: 'Tutoring',
         user_id: 1
       },
       {
-        description: string,
-        category: string,
-        service: string,
+        description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        category: 'Other',
+        service: 'Plus one',
         user_id: 1
       },
     ]
 }
 
-export default {CATEGORIES};
+export default {CATEGORIES, serviceCards};
