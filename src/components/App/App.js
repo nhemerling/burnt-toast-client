@@ -44,8 +44,8 @@ export default class App extends Component {
               component={EditProfile}
             />
             <Route 
-              path={'/profiles/:profile_id/skills'}
-              component={UserSkills}
+              path={'/profiles/:profile_id/services'}
+              component={UserServices}
             />
             <Route
               exact
