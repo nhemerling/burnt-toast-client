@@ -42,6 +42,38 @@ const dummyServices = [
 
 class SearchRoute extends Component {
 
+  state = {
+    searchTerm: '',
+    skills: [],
+  };
+
+  handleSearch(e) {
+    e.preventDefault();
+    console.log('I ran');
+    // fetch(`BASE_URL/skills?${this.state.searchTerm}`)
+    //   .then(res => res.json())
+    //   .then(result => this.setState({skills: result}));
+  }
+
+  handleSearchTerm(e) {
+    console.log(this.state.searchTerm);
+    this.setState({
+      searchTerm: e.target.value
+    });
+  }
+
+  renderSearchBar() {
+    return (
+      <form id="search-bar" onSubmit={e => this.handleSearch(e)}>
+        <label htmlFor="search"></label>
+        <input 
+          name="search" type="text" placeholder="🔍 Search" 
+          onChange={e => this.handleSearchTerm(e)}>
+        </input>
+      </form>
+    );
+  }
+
   renderServiceCards() {
     return dummyServices.map((service, i) =>
       <li key={i}>
@@ -57,13 +89,16 @@ class SearchRoute extends Component {
 
   render() {
     return (
-      <div className="SearchRoute">
-        <ul className="SearchRoute-services-list">
-        {this.renderServiceCards()}
-        </ul>
-      </div>
+      <>
+        <div className="SearchRoute">
+          {this.renderSearchBar()}
+          <ul className="SearchRoute-services-list">
+          {this.renderServiceCards()}
+          </ul>
+        </div>
+      </>
     );
-  }
+  };
 }
 
 export default SearchRoute;
