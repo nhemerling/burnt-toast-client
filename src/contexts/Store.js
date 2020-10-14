@@ -15,4 +15,46 @@ const CATEGORIES = {
   Other: ['Active listening', 'Plus one', 'Dance partner']
 };
 
+const serviceCards = {
+  
+  cards: [
+      {
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        category: 'Art',
+        service: 'Commissions',
+        user_id: 1
+      },
+      {
+        description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.',
+        category: 'Repair',
+        service: 'Computers',
+        user_id: 1
+      },
+      {
+        description: string,
+        category: string,
+        service: string,
+        user_id: 1
+      },
+      {
+        description: string,
+        category: string,
+        service: string,
+        user_id: 1
+      },
+      {
+        description: string,
+        category: string,
+        service: string,
+        user_id: 1
+      },
+      {
+        description: string,
+        category: string,
+        service: string,
+        user_id: 1
+      },
+    ]
+}
+
 export default {CATEGORIES};
