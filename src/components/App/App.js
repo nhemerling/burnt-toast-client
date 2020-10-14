@@ -52,10 +52,6 @@ export default class App extends Component {
               component={SearchRoute}
             />
             <Route
-              path={'/profiles/:profile_id/services'}
-              component={UserServices}
-            />
-            <Route
               component={NotFoundRoute}
             />
           </Switch>
