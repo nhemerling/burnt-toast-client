@@ -48,14 +48,14 @@ export default class App extends Component {
               path={'/profiles/:profile_id'}
               component={EditProfile}
             />
-            <Route 
+            <Route  z
               path={'/profiles/:profile_id/services'}
               component={UserServices}
             />
             <Route
               path={'/search'}
               component={SearchRoute}
-            />
+              />
             <Route
               component={NotFoundRoute}
             />
