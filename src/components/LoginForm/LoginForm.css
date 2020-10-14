@@ -1,0 +1,25 @@
+.LoginForm input[type=text] , input[type=password] {
+  background-color: #4361EE;
+  border: none;
+  border-bottom: 2px whitesmoke solid;
+  margin-bottom: 5px;
+  color: whitesmoke;
+}
+
+.hidden {
+  display: none;
+}
+
+/* placeholder text across diff browsers */
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: whitesmoke;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: whitesmoke;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: whitesmoke;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: whitesmoke;
+}
