@@ -38,7 +38,7 @@ export default class App extends Component {
               path={'/login'}
               component={LoginRoute}
             />
-            <Route
+            <Route 
               exact
               path={'/profiles/:profile_id'}
               component={EditProfile}
@@ -50,6 +50,10 @@ export default class App extends Component {
             <Route
               path={'/search'}
               component={SearchRoute}
+            />
+            <Route
+              path={'/profiles/:profile_id/services'}
+              component={UserServices}
             />
             <Route
               component={NotFoundRoute}

@@ -63,7 +63,6 @@ class LoginForm extends Component {
     return (
       <form
         className='ServiceOfferForm'
-        onChange={this.handleSubmit}
       >
         <div className='form-div' role='alert'>
           {error && <p className='error'>{error}</p>}
@@ -76,7 +75,9 @@ class LoginForm extends Component {
             <select
               name="categories"
               id="primary-category-selection"
-              form="ServiceOfferForm">
+              form="ServiceOfferForm"
+              onChange={this.handleSubmit}
+              >
               {categoryList}
 
             </select>
@@ -88,7 +89,9 @@ class LoginForm extends Component {
             <select
               name="categories"
               id="service-category-selection"
-              form="ServiceOfferForm">
+              form="ServiceOfferForm"
+              //TODO: HANDLE THIS SELECTION VALUE
+              >
               {servicesList}
             </select>
           </div>
