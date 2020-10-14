@@ -38,18 +38,27 @@ export default class App extends Component {
               path={'/login'}
               component={LoginRoute}
             />
+<<<<<<< HEAD
             <Route
+=======
+            <Route 
+>>>>>>> user skills view
               exact
               path={'/profiles/:profile_id'}
               component={EditProfile}
             />
             <Route 
+<<<<<<< HEAD
               path={'/profiles/:profile_id/services'}
               component={UserServices}
             />
             <Route
               path={'/search'}
               component={SearchRoute}
+=======
+              path={'/profiles/:profile_id/skills'}
+              component={UserSkills}
+>>>>>>> user skills view
             />
             <Route
               component={NotFoundRoute}
