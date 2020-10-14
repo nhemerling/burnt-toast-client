@@ -8,10 +8,10 @@ const CATEGORIES = {
   Electronics: ['How to', 'Quick fix'],
   Food: ['Diet','Produce', 'Home cook', 'Meal prep',],              
   Handmade: ['BlackSmith','Knitting','Steelwork','Woodwork'],
-  Health: ['Exercise', 'Healing','Sound baths','Weightlifting'],
+  Health: ['Exercise', 'Healing', 'Hugs', 'Sound baths','Weightlifting'],
   Home: ['Decor','Painting','Repair', 'Roofing'], 
   Repair: ['Computers','Fences','Hearts'],
-  Sports: ['Better posture','Improving score', 'Team'],
+  Sports: ['Improving form','Improving score', 'Team'],
   Other: ['Active listening', 'Plus one', 'Dance partner']
 };
 
