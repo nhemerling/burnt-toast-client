@@ -48,9 +48,6 @@ export default class App extends Component {
               component={UserSkills}
             />
             <Route
-              component={NotFoundRoute}
-            />
-            <Route
               path={'/search'}
               component={SearchRoute}
             />

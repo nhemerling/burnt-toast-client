@@ -43,10 +43,10 @@ const dummyServices = [
 class SearchRoute extends Component {
 
   renderServiceCards() {
-    return dummyServices.map((service) =>
-      <li>
+    return dummyServices.map((service, i) =>
+      <li key={i}>
         <ServiceCard
-          key={service.id}
+          id={service.id}
           name={service.name}
           description={service.description}
           user={service.user}
