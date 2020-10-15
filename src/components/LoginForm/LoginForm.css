@@ -2,8 +2,9 @@
   background-color: #4361EE;
   border: none;
   border-bottom: 2px whitesmoke solid;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   color: whitesmoke;
+  font-size: 1.5em;
 }
 
 .hidden {
