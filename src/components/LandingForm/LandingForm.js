@@ -32,10 +32,6 @@ class LandingForm extends Component {
       });
   };
 
-  componentDidMount() {
-    this.firstInput.current.focus();
-  }
-
   render() {
     const { error } = this.state;
     return (
