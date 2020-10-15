@@ -19,12 +19,6 @@ export class ServiceCardRoute extends Component {
   // componentDidMount() {
   //   let userId = this.props.userId;
   //   BurntToastService.getProfileServices(userId)
-  //     .then(res => {
-  //       if(!res.ok) {
-  //         throw new Error(res.error);
-  //       }
-  //       return res.json()
-  //     })
   //     .then(res => 
   //       this.setState({
   //           services: res.services
