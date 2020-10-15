@@ -52,7 +52,7 @@ export default class App extends Component {
               path={'/profiles/:profile_id'}
               component={EditProfile}
             />
-            <Route  z
+            <Route  
               path={'/profiles/:profile_id/services'}
               component={UserServices}
             />
