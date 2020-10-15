@@ -7,11 +7,13 @@
   font-size: 1.5em;
 }
 
+/* removes standard form styles */
 .hidden {
   display: none;
 }
 
 /* placeholder text across diff browsers */
+
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: whitesmoke;
 }
