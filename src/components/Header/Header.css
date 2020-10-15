@@ -1,0 +1,47 @@
+.Header-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  border: 3px solid #000;
+  margin: 10px;
+  position: relative;
+}
+
+.Header-item {
+  flex: 1;
+}
+
+.menu-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.menu-item {
+  flex: 1;
+  margin: 5px;
+  justify-content: right;
+}
+
+#dropdown-menu {
+  list-style: none;
+  z-index: 2;
+  position: relative;
+  display: block;
+  border: 3px solid #000;
+}
+
+#dropdown-menu > li {
+  border: 1px solid #000;
+}
+
+#logo {
+  margin: 15px;
+}
+
+#username-and-menu {
+  margin: 15px;
+  justify-content: flex-end;
+}
