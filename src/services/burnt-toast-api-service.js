@@ -13,7 +13,7 @@ const BurntToastService = {
     );
   },
 
-  getProfileSkills(profileId) {
+  getProfileServices(profileId) {
     return fetch(`${config.API_ENDPOINT}/profile/${profileId}/skills`, {
       method: 'GET',
       headers: {
