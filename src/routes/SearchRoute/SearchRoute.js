@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ServiceCard from '../../components/ServiceCard/ServiceCard';
-import store from '../../contexts/Store';
 import BurntToastContext from '../../contexts/BurntToastContext';
 import CategorySelect from '../../components/CategorySelect/CategorySelect';
 
