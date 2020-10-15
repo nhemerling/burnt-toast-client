@@ -3,6 +3,7 @@ import { Input, Label } from '../Form/Form';
 import AuthApiService from '../../services/auth-api-service';
 import UserContext from '../../contexts/UserContext';
 import Button from '../Button/Button';
+import LoginIcon from '../../images/295128.svg'
 import './LoginForm.css'
 
 class LoginForm extends Component {
@@ -48,6 +49,7 @@ class LoginForm extends Component {
         className='LoginForm'
         onSubmit={this.handleSubmit}
       >
+        <img className='login-Icon' src={LoginIcon} alt=""></img>
         <div className='form-div' role='alert'>
           {error && <p className='error'>{error}</p>}
         </div>
