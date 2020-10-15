@@ -16,7 +16,7 @@ export class PersonalizeProfileForm extends Component {
 
     this.setState({ error: null });
 
-   
+
       // .catch(res => {
       //   this.setState({ error: res.error });
       // });
@@ -25,7 +25,7 @@ export class PersonalizeProfileForm extends Component {
 
   render() {
     const { error } = this.state;
-  
+
     return (
       <form
         className='PersonalizeProfileForm'
@@ -42,7 +42,7 @@ export class PersonalizeProfileForm extends Component {
         </Button>
         </div>
         <div className='PersonalizeProfile-form-div'>
-        <Label htmFor="user-bio">Your Bio:</Label>
+        <Label htmlFor="user-bio">Your Bio:</Label>
         <br/>
         <Textarea id="user-bio" name="w3review" rows="4" cols="50" defaultValue='(optional)'>
         </Textarea>
