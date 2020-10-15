@@ -70,7 +70,18 @@ const BurntToastService = {
     }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
-  }
+  },
+
+  getSearchServices(category, service, searchTerm) {
+    return fetch(`${config.API_ENDPOINT}/skills/?category=${category}?skill=${service}?searchTerm=${searchTerm}`, {
+      method: 'GET',
+      headers: {
+        authorization: `Bearer ${TokenService.getAuthToken()}`,
+      },
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
+  },
 };
 
 export default BurntToastService;
