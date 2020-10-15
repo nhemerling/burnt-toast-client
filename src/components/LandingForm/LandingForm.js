@@ -11,7 +11,6 @@ class LandingForm extends Component {
 
   state = { error: null };
 
-  firstInput = React.createRef();
 
   handleSubmit = ev => {
     ev.preventDefault();

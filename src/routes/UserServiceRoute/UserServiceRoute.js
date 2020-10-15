@@ -1,11 +1,42 @@
 import React, { Component } from 'react';
+import BurntToastService from '../../services/burnt-toast-api-service'
 import ProfilePicture from '../../images/user-placeholder.jpg';
 import STORE from '../../contexts/Store';
+import UserContext from '../../contexts/UserContext';
+
 import '../../components/ServiceCard/ServiceCard.css';
 import ServiceHolder from '../../images/service-placeholder.png';
 
 export class ServiceCardRoute extends Component {
+  state = {
+    services: [],
+    error: null
+  }
+
+  static contextType = UserContext;
+
+// TODO implement fetch call 
+  // componentDidMount() {
+  //   let userId = this.props.userId;
+  //   BurntToastService.getProfileServices(userId)
+  //     .then(res => {
+  //       if(!res.ok) {
+  //         throw new Error(res.error);
+  //       }
+  //       return res.json()
+  //     })
+  //     .then(res => 
+  //       this.setState({
+  //           services: res.services
+  //         })
+  //     )
+  //      .catch(res => {
+  //       this.setState({ error: res.error });
+  //     });
+  // }
+
   render() {
+    // const { error } = this.state;
     const services = STORE.serviceCards.cards;
     // TODO: ONLY POPULATE IF USER ID === PROFILE VISIT ID 
     const serviceList = services.map((services, i) => {
