@@ -46,17 +46,6 @@ class LandingForm extends Component {
           {error && <p className='error'>{error}</p>}
         </div>
         <div className='form-div'>
-          <Label htmlFor='registration-name-input'>
-            Enter your name<Required />
-          </Label>
-          <Input
-            ref={this.firstInput}
-            id='registration-name-input'
-            name='name'
-            required
-          />
-        </div>
-        <div className='form-div'>
           <Label htmlFor='registration-username-input'>
             Choose a username<Required />
           </Label>
