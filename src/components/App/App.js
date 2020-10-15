@@ -38,22 +38,18 @@ export default class App extends Component {
               path={'/login'}
               component={LoginRoute}
             />
-            <Route 
+            <Route
               exact
               path={'/profiles/:profile_id'}
               component={EditProfile}
             />
-            <Route 
+            <Route
               path={'/profiles/:profile_id/services'}
               component={UserServices}
             />
             <Route
               path={'/search'}
               component={SearchRoute}
-            />
-            <Route
-              path={'/profiles/:profile_id/services'}
-              component={UserServices}
             />
             <Route
               component={NotFoundRoute}
