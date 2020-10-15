@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Input, Label } from '../Form/Form';
 import AuthApiService from '../../services/auth-api-service';
+import TokenService from '../../services/token-service';
 import UserContext from '../../contexts/UserContext';
 import Button from '../Button/Button';
 
@@ -42,6 +43,7 @@ class LoginForm extends Component {
 
   render() {
     const { error } = this.state;
+    console.log(this.context.user)
     return (
       <form
         className='LoginForm'

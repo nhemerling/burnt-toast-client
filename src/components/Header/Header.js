@@ -65,8 +65,8 @@ export default class Header extends Component {
             />
             {this.state.menuOpen && <ul id="dropdown-menu">
               <li>
-                <Link to="/">
-                  Home
+                <Link to="/search">
+                  Search
                 </Link>
               </li>
               <li>
