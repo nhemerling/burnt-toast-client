@@ -61,7 +61,6 @@ export class ServiceSeek extends Component {
     return (
       <form
         className='ServiceSeekForm'
-        onChange={this.handleSubmit}
       >
         <div className='form-div' role='alert'>
           {error && <p className='error'>{error}</p>}
@@ -74,7 +73,9 @@ export class ServiceSeek extends Component {
             <select 
               name="categories" 
               id="primary-category-selection" 
-              form="ServiceSeekForm">
+              form="ServiceSeekForm"
+              onChange={this.handleSubmit}
+              >
               {categoryList}
             </select>
           </div>

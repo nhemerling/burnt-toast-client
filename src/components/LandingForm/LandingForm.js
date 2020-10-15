@@ -32,10 +32,6 @@ class LandingForm extends Component {
       });
   };
 
-  componentDidMount() {
-    this.firstInput.current.focus();
-  }
-
   render() {
     const { error } = this.state;
     return (
@@ -44,17 +40,6 @@ class LandingForm extends Component {
       >
         <div className='form-div' role='alert'>
           {error && <p className='error'>{error}</p>}
-        </div>
-        <div className='form-div'>
-          <Label htmlFor='registration-name-input'>
-            Enter your name<Required />
-          </Label>
-          <Input
-            ref={this.firstInput}
-            id='registration-name-input'
-            name='name'
-            required
-          />
         </div>
         <div className='form-div'>
           <Label htmlFor='registration-username-input'>
