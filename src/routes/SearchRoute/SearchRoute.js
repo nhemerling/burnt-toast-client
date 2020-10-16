@@ -47,6 +47,7 @@ class SearchRoute extends Component {
   state = {
     searchTerm: '',
     searchCategory: '',
+    searchService: '',
     skills: [],
   };
 
@@ -76,6 +77,7 @@ class SearchRoute extends Component {
         </input>
         <label htmlFor="categories"></label>
         <CategorySelect />
+        <button type="submit">Search</button>
       </form>
     );
   }
