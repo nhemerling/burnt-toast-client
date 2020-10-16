@@ -21,11 +21,21 @@ export default class Header extends Component {
   handleLogoutClick = () => {
     this.context.processLogout();
   };
-
+//  TODO: need to change this to a more generic generate links when logged in function 
   renderLogoutLink() {
     return (
       <div>
         <nav>
+           <li>
+                <Link to="/search">
+                  Search
+                </Link>
+              </li>
+              <li>
+                <Link to={`/profiles/${this.context.user.id}`}>
+                  Profile
+                </Link>
+              </li>
           <Link
             className='NavLink'
             onClick={this.handleLogoutClick}
@@ -44,8 +54,8 @@ export default class Header extends Component {
     return (
       <nav>
         <Link to='/login' className='NavLink'>Login</Link>
-        {/* {' | '}
-        <Link to='/register' className='NavLink'>Sign up</Link> */}
+        {' | '}
+        <Link to='/' className='NavLink'>Sign up</Link>
       </nav>
     )
   }
@@ -64,7 +74,7 @@ export default class Header extends Component {
               menuClicked={this.handleMenuClick.bind(this)}
             />
             {this.state.menuOpen && <ul id="dropdown-menu">
-              <li>
+              {/* <li>
                 <Link to="/search">
                   Search
                 </Link>
@@ -73,7 +83,7 @@ export default class Header extends Component {
                 <Link to={`/profiles/${this.context.user.id}`}>
                   Profile
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <div className='NavBar'>
                   {TokenService.hasAuthToken()
