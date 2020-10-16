@@ -4,6 +4,8 @@ import AuthApiService from '../../services/auth-api-service';
 import TokenService from '../../services/token-service';
 import UserContext from '../../contexts/UserContext';
 import Button from '../Button/Button';
+import LoginIcon from '../../images/295128.svg'
+import './LoginForm.css'
 
 class LoginForm extends Component {
   static defaultProps = {
@@ -14,7 +16,7 @@ class LoginForm extends Component {
 
   state = { error: null };
 
-  firstInput = React.createRef();
+  // firstInput = React.createRef();
 
   handleSubmit = ev => {
     ev.preventDefault();
@@ -37,40 +39,42 @@ class LoginForm extends Component {
       });
   };
 
-  componentDidMount() {
-    this.firstInput.current.focus();
-  }
+  // componentDidMount() {
+  //   this.firstInput.current.focus();
+  // }
 
   render() {
     const { error } = this.state;
-    console.log(this.context.user)
     return (
       <form
         className='LoginForm'
         onSubmit={this.handleSubmit}
       >
+        <img className='login-Icon' src={LoginIcon} alt=""></img>
         <div className='form-div' role='alert'>
           {error && <p className='error'>{error}</p>}
         </div>
         <div className='form-div'>
-          <Label htmlFor='login-username-input'>
+          <Label htmlFor='login-username-input' className='hidden'>
             Username
           </Label>
           <Input
-            ref={this.firstInput}
+            // ref={this.firstInput}
             id='login-username-input'
             name='username'
+            placeholder='username'
             required
           />
         </div>
         <div className='form-div'>
-          <Label htmlFor='login-password-input'>
+          <Label htmlFor='login-password-input' className='hidden'>
             Password
           </Label>
           <Input
             id='login-password-input'
             name='password'
             type='password'
+            placeholder='password'
             required
           />
         </div>

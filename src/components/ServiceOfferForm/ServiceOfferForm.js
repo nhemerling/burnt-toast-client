@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Input, Label } from '../Form/Form';
 import UserContext from '../../contexts/UserContext';
 import Button from '../Button/Button';
-import STORE from '../../contexts/Store'
+import STORE from '../../contexts/Store';
+import BurntToastService from '../../services/burnt-toast-api-service';
 import './ServiceOfferForm.css';
 
 class LoginForm extends Component {
@@ -12,22 +13,41 @@ class LoginForm extends Component {
   state = {
     error: null,
     generateSecondaryCatergories: () => { },
-    selection: null
+    selection: null,
+    category: null
   };
 
   handleSubmit = ev => {
     ev.preventDefault();
-    // const { } = ev.target;
-    let userSelection = ev.target.value;
+    let desc = ev.target.title.value;
+    let service = { 
+      skill_id: 1, 
+      skill_desc: desc
+    };
 
-    this.setState({
-      error: null,
-      selection: userSelection,
-    });
+    BurntToastService.postProfileService(service)
+    .then(res => console.log(res));
     // .catch(res => {
     //   this.setState({ error: res.error });
     // });
   };
+
+
+  handleSelection =ev => {
+    let userSelection = ev.target.value;
+    this.setState({
+      error: null,
+      selection: userSelection,
+    });
+  }
+
+  handleCategory =ev => {
+    let userSelection = ev.target.value;
+    this.setState({
+      error: null,
+      category: userSelection,
+    });
+  }
 
   generateCategorySelection(obj) {
     let categories = []
@@ -63,6 +83,7 @@ class LoginForm extends Component {
     return (
       <form
         className='ServiceOfferForm'
+        onSubmit={this.handleSubmit}
       >
         <div className='form-div' role='alert'>
           {error && <p className='error'>{error}</p>}
@@ -76,7 +97,7 @@ class LoginForm extends Component {
               name="categories"
               id="primary-category-selection"
               form="ServiceOfferForm"
-              onChange={this.handleSubmit}
+              onChange={this.handleSelection}
               >
               {categoryList}
 
@@ -91,6 +112,7 @@ class LoginForm extends Component {
               id="service-category-selection"
               form="ServiceOfferForm"
               //TODO: HANDLE THIS SELECTION VALUE
+              onChange={this.handleCategory}
               >
               {servicesList}
             </select>

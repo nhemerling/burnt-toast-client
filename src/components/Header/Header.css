@@ -4,9 +4,8 @@
   align-items: center;
   justify-content: space-between;
   text-align: left;
-  border: 3px solid #000;
-  margin: 10px;
   position: relative;
+  background-color: #3A0CA3;
 }
 
 .Header-item {
@@ -39,6 +38,10 @@
 
 #logo {
   margin: 15px;
+}
+
+#logo > img {
+  max-width: 50px;
 }
 
 #username-and-menu {

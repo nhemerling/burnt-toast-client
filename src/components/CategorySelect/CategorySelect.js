@@ -47,7 +47,7 @@ export default class CategorySelect extends Component {
     const serviceOptions = this.generateServiceOptions(services);
 
     return (
-      <form className="CategorySelect">
+      <div className="CategorySelect">
         <label htmlFor="categories">Category</label>
         <select name="categories" onChange={this.handleCategoryChange}>
           {categoryOptions}
@@ -56,7 +56,7 @@ export default class CategorySelect extends Component {
         <select name="services" onChange={this.handleServiceChange}>
           {serviceOptions}
         </select>
-      </form>
+      </div>
     );
   }
 }

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import HamburgerMenu from 'react-hamburger-menu';
 import TokenService from '../../services/token-service';
 import UserContext from '../../contexts/UserContext';
+import ToastIcon from '../../images/toast.svg'
 import './Header.css';
 
 export default class Header extends Component {
@@ -21,11 +22,21 @@ export default class Header extends Component {
   handleLogoutClick = () => {
     this.context.processLogout();
   };
-
+//  TODO: need to change this to a more generic generate links when logged in function 
   renderLogoutLink() {
     return (
       <div>
         <nav>
+           <li>
+                <Link to="/search">
+                  Search
+                </Link>
+              </li>
+              <li>
+                <Link to={`/profiles/${this.context.user.id}`}>
+                  Profile
+                </Link>
+              </li>
           <Link
             className='NavLink'
             onClick={this.handleLogoutClick}
@@ -44,8 +55,8 @@ export default class Header extends Component {
     return (
       <nav>
         <Link to='/login' className='NavLink'>Login</Link>
-        {/* {' | '}
-        <Link to='/register' className='NavLink'>Sign up</Link> */}
+        {' | '}
+        <Link to='/' className='NavLink'>Home</Link>
       </nav>
     )
   }
@@ -54,17 +65,17 @@ export default class Header extends Component {
     return (
       <header className="Header-group">
         <div id="logo" className="Header-item">
-          <img src="#" alt="PLACEHOLDER TEXT" />
+          <img src={ToastIcon} alt="PLACEHOLDER TEXT" />
         </div>
         <div id="username-and-menu" className="menu-group">
-          <p id="username" className="menu-item">{this.context.user.name}username</p>
+          <span id="username" className="menu-item">{this.context.user.username}</span>
           <nav className="menu-item">
             <HamburgerMenu
               isOpen={this.state.menuOpen}
               menuClicked={this.handleMenuClick.bind(this)}
             />
             {this.state.menuOpen && <ul id="dropdown-menu">
-              <li>
+              {/* <li>
                 <Link to="/search">
                   Search
                 </Link>
@@ -73,7 +84,7 @@ export default class Header extends Component {
                 <Link to={`/profiles/${this.context.user.id}`}>
                   Profile
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <div className='NavBar'>
                   {TokenService.hasAuthToken()

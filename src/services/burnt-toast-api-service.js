@@ -37,8 +37,8 @@ const BurntToastService = {
     );
   },
 
-  postProfileService(profileId, service) {
-    return fetch(`${config.API_ENDPOINT}/profiles/${profileId}`, {
+  postProfileService(service) {
+    return fetch(`${config.API_ENDPOINT}/user_skills`, {
       method: 'POST',
       headers: {
         authorization: `Bearer ${TokenService.getAuthToken()}`,

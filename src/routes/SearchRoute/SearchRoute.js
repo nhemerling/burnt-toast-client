@@ -2,45 +2,7 @@ import React, { Component } from 'react';
 import ServiceCard from '../../components/ServiceCard/ServiceCard';
 import BurntToastContext from '../../contexts/BurntToastContext';
 import CategorySelect from '../../components/CategorySelect/CategorySelect';
-
-const dummyServices = [
-  {
-    id: '1',
-    user: {
-      user_id: 1,
-      full_name: 'Jim Parsons',
-    },
-    name: 'dodgeball',
-    description: 'I dodge balls real good.',
-  },
-  {
-    id: '2',
-    user: {
-      user_id: 1,
-      full_name: 'Jim Parsons',
-    },
-    name: 'paint',
-    description: 'I paint stuff real good.',
-  },
-  {
-    id: '3',
-    user: {
-      user_id: 1,
-      full_name: 'Jim Parsons',
-    },
-    name: 'move',
-    description: 'I strong, help you move house real good.',
-  },
-  {
-    id: '4',
-    user: {
-      user_id: 1,
-      full_name: 'Jim Parsons',
-    },
-    name: 'design furniture',
-    description: 'I design furnite real good, fair trade.',
-  },
-];
+import BurntToastService from '../../services/burnt-toast-api-service';
 
 class SearchRoute extends Component {
 
@@ -49,9 +11,19 @@ class SearchRoute extends Component {
     searchCategory: '',
     searchService: '',
     skills: [],
+    services: []
   };
 
   static contextType = BurntToastContext;
+
+  componentDidMount() {
+    BurntToastService.getAllServices()
+    .then(res=>
+      this.setState({
+        services: res
+      })
+    )
+  }
 
   handleSearch(e) {
     e.preventDefault();
@@ -83,13 +55,13 @@ class SearchRoute extends Component {
   }
 
   renderServiceCards() {
-    return dummyServices.map((service, i) =>
+    let services = this.state.services
+    return services.map((service, i) =>
       <li key={i}>
         <ServiceCard
           id={service.id}
-          name={service.name}
-          description={service.description}
-          user={service.user}
+          service={service.skill_name}
+          description={service.skill_desc}
         />
       </li>
     );

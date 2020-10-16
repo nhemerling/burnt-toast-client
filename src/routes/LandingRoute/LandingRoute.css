@@ -1,0 +1,19 @@
+.LandingPage-hero > p{
+  margin: 10px;
+}
+
+.LandingPage-hero > a{
+  border: 2px solid black;
+  margin: 15px ;
+  padding: 5px 10px;
+}
+
+
+
+.periwinkle{
+  color: black;
+  background-color: #aebaf2;
+  min-height: 100px;
+  padding: 20px;
+  margin: 20px 0;
+}
