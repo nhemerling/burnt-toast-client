@@ -12,7 +12,7 @@ export default class Header extends Component {
     menuOpen: false,
   };
 
-  handleMenuClick  = () => {
+  handleMenuClick = () => {
     this.setState({
       menuOpen: !this.state.menuOpen
     });
@@ -21,6 +21,44 @@ export default class Header extends Component {
   handleLogoutClick = () => {
     this.context.processLogout();
   };
+//  TODO: need to change this to a more generic generate links when logged in function 
+  renderLogoutLink() {
+    return (
+      <div>
+        <nav>
+           <li>
+                <Link to="/search">
+                  Search
+                </Link>
+              </li>
+              <li>
+                <Link to={`/profiles/${this.context.user.id}`}>
+                  Profile
+                </Link>
+              </li>
+          <Link
+            className='NavLink'
+            onClick={this.handleLogoutClick}
+            to='/login'>
+            Logout
+          </Link>
+        </nav>
+        <span className='username'>
+          {this.context.user.name}
+        </span>
+      </div>
+    )
+  }
+
+  renderLoginLink() {
+    return (
+      <nav>
+        <Link to='/login' className='NavLink'>Login</Link>
+        {' | '}
+        <Link to='/' className='NavLink'>Sign up</Link>
+      </nav>
+    )
+  }
 
   render() {
     return (
@@ -31,20 +69,27 @@ export default class Header extends Component {
         <div id="username-and-menu" className="menu-group">
           <p id="username" className="menu-item">{this.context.user.name}username</p>
           <nav className="menu-item">
-            <HamburgerMenu 
+            <HamburgerMenu
               isOpen={this.state.menuOpen}
               menuClicked={this.handleMenuClick.bind(this)}
             />
             {this.state.menuOpen && <ul id="dropdown-menu">
-              <li>              
-                <Link to="/">
-                  Home
+              {/* <li>
+                <Link to="/search">
+                  Search
                 </Link>
               </li>
               <li>
                 <Link to={`/profiles/${this.context.user.id}`}>
                   Profile
                 </Link>
+              </li> */}
+              <li>
+                <div className='NavBar'>
+                  {TokenService.hasAuthToken()
+                    ? this.renderLogoutLink()
+                    : this.renderLoginLink()}
+                </div>
               </li>
             </ul>}
           </nav>

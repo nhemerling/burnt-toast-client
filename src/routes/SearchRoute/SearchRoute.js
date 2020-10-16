@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ServiceCard from '../../components/ServiceCard/ServiceCard';
-import store from '../../contexts/Store';
+import BurntToastContext from '../../contexts/BurntToastContext';
+import CategorySelect from '../../components/CategorySelect/CategorySelect';
 
 const dummyServices = [
   {
@@ -49,6 +50,8 @@ class SearchRoute extends Component {
     skills: [],
   };
 
+  static contextType = BurntToastContext;
+
   handleSearch(e) {
     e.preventDefault();
     // fetch(`BASE_URL/skills?${this.state.searchTerm}`)
@@ -64,22 +67,15 @@ class SearchRoute extends Component {
   }
 
   renderSearchBar() {
-    const categories = Object.keys(store.CATEGORIES);
-    const searchOptions = categories.map(category => {
-      return <option value={category}>{category}</option>
-    })
-    
     return (
       <form id="search-bar" onSubmit={e => this.handleSearch(e)}>
         <label htmlFor="search"></label>
-        <input 
-          name="search" type="text" placeholder="🔍 Search" 
+        <input
+          name="search" type="text" placeholder="🔍 Search"
           onChange={e => this.handleSearchTerm(e)}>
         </input>
         <label htmlFor="categories"></label>
-        <select name="categories">
-          {searchOptions}
-        </select>
+        <CategorySelect />
       </form>
     );
   }
