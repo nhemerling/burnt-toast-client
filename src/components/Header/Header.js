@@ -67,7 +67,7 @@ export default class Header extends Component {
           <img src="#" alt="PLACEHOLDER TEXT" />
         </div>
         <div id="username-and-menu" className="menu-group">
-          <p id="username" className="menu-item">{this.context.user.name}username</p>
+          <span id="username" className="menu-item">{this.context.user.username}</span>
           <nav className="menu-item">
             <HamburgerMenu
               isOpen={this.state.menuOpen}
