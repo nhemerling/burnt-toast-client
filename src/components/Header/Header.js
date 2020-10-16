@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import HamburgerMenu from 'react-hamburger-menu';
 import TokenService from '../../services/token-service';
 import UserContext from '../../contexts/UserContext';
+import ToastIcon from '../../images/toast.svg'
 import './Header.css';
 
 export default class Header extends Component {
@@ -64,7 +65,7 @@ export default class Header extends Component {
     return (
       <header className="Header-group">
         <div id="logo" className="Header-item">
-          <img src="#" alt="PLACEHOLDER TEXT" />
+          <img src={ToastIcon} alt="PLACEHOLDER TEXT" />
         </div>
         <div id="username-and-menu" className="menu-group">
           <span id="username" className="menu-item">{this.context.user.username}</span>
