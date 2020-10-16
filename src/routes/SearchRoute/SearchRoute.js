@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ServiceCard from '../../components/ServiceCard/ServiceCard';
 import BurntToastContext from '../../contexts/BurntToastContext';
 import CategorySelect from '../../components/CategorySelect/CategorySelect';
+import BurntToastService from '../../services/burnt-toast-api-service';
 
 const dummyServices = [
   {
@@ -48,9 +49,19 @@ class SearchRoute extends Component {
     searchTerm: '',
     searchCategory: '',
     skills: [],
+    services: []
   };
 
   static contextType = BurntToastContext;
+
+  componentDidMount() {
+    BurntToastService.getAllServices()
+    .then(res=> 
+      this.setState({
+        services: res
+      })
+    )
+  }
 
   handleSearch(e) {
     e.preventDefault();
@@ -81,13 +92,13 @@ class SearchRoute extends Component {
   }
 
   renderServiceCards() {
-    return dummyServices.map((service, i) =>
+    let services = this.state.services
+    return services.map((service, i) =>
       <li key={i}>
         <ServiceCard
           id={service.id}
-          name={service.name}
-          description={service.description}
-          user={service.user}
+          service={service.skill_name}
+          description={service.skill_desc}
         />
       </li>
     );

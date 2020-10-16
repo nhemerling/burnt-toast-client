@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Input, Label } from '../Form/Form';
 import UserContext from '../../contexts/UserContext';
 import Button from '../Button/Button';
-import STORE from '../../contexts/Store'
+import STORE from '../../contexts/Store';
+import BurntToastService from '../../services/burnt-toast-api-service';
 import './ServiceOfferForm.css';
 
 class LoginForm extends Component {
@@ -19,11 +20,19 @@ class LoginForm extends Component {
     ev.preventDefault();
     // const { } = ev.target;
     let userSelection = ev.target.value;
+    let service = { 
+      skill_id: 1, 
+      skill_desc: 'Test'
+    };
+
+    BurntToastService.postProfileService(service)
+    .then(res => console.log(res));
 
     this.setState({
       error: null,
       selection: userSelection,
     });
+    
     // .catch(res => {
     //   this.setState({ error: res.error });
     // });
