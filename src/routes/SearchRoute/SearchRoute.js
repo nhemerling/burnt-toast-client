@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import ServiceCard from '../../components/ServiceCard/ServiceCard';
 import BurntToastContext from '../../contexts/BurntToastContext';
 import CategorySelect from '../../components/CategorySelect/CategorySelect';
@@ -10,30 +11,32 @@ class SearchRoute extends Component {
     searchTerm: '',
     searchCategory: '',
     searchService: '',
-    skills: [],
-    services: []
+    serviceResults: []
   };
 
   static contextType = BurntToastContext;
 
-  componentDidMount() {
-    BurntToastService.getAllServices()
-    .then(res=>
-      this.setState({
-        services: res
-      })
-    )
-  }
+  // componentDidMount() {
+  //   BurntToastService.getAllServices()
+  //   .then(services =>
+  //     this.setState({
+  //       services
+  //     })
+  //   )
+  // }
 
   handleSearch(e) {
     e.preventDefault();
-    // fetch(`BASE_URL/skills?${this.state.searchTerm}`)
-    //   .then(res => res.json())
-    //   .then(result => this.setState({skills: result}));
+    const { searchService, searchTerm } = this.state;
+    BurntToastService.getSearchServices(searchService, searchTerm)
+    .then(serviceResults => {
+      this.setState({
+        serviceResults
+      })
+    })
   }
 
   handleSearchTerm(e) {
-    console.log(this.state.searchTerm);
     this.setState({
       searchTerm: e.target.value
     });
@@ -55,14 +58,20 @@ class SearchRoute extends Component {
   }
 
   renderServiceCards() {
-    let services = this.state.services
-    return services.map((service, i) =>
+    const { serviceResults, searchService } = this.state;
+    return serviceResults.map((service, i) =>
       <li key={i}>
-        <ServiceCard
-          id={service.id}
-          service={service.skill_name}
-          description={service.skill_desc}
-        />
+        <Link to={`/profiles/${service.fk_user_id}/services`}>
+          <ServiceCard
+            id={service.id}
+            user_id={service.fk_user_id}
+            service_id={service.fk_skill_id}
+            service={searchService}
+            type={service.user_skill_type}
+            image={service.primary_img_url}
+            description={service.primary_description}
+          />
+        </Link>
       </li>
     );
   }
