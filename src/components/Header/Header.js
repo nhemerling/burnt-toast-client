@@ -56,7 +56,7 @@ export default class Header extends Component {
       <nav>
         <Link to='/login' className='NavLink'>Login</Link>
         {' | '}
-        <Link to='/' className='NavLink'>Sign up</Link>
+        <Link to='/' className='NavLink'>Home</Link>
       </nav>
     )
   }

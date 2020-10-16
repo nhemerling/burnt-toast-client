@@ -3,10 +3,8 @@
   margin-top: 30px;
   margin-bottom: 30px;
 }
-.LoginForm {
-  
-}
-.LoginForm input[type=text] , input[type=password] {
+
+.register-Form, .LoginForm input[type=text] , input[type=password] {
   background-color: #4361EE;
   border: none;
   border-bottom: 2px whitesmoke solid;
