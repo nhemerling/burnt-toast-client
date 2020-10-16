@@ -72,8 +72,8 @@ const BurntToastService = {
     );
   },
 
-  getSearchServices(category, service, searchTerm) {
-    return fetch(`${config.API_ENDPOINT}/skills/?category=${category}?skill=${service}?searchTerm=${searchTerm}`, {
+  getSearchServices(serviceId, searchTerm) {
+    return fetch(`${config.API_ENDPOINT}/skills/${serviceId}?q=${searchTerm}`, {
       method: 'GET',
       headers: {
         authorization: `Bearer ${TokenService.getAuthToken()}`,

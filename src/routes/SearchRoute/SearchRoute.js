@@ -4,50 +4,12 @@ import BurntToastContext from '../../contexts/BurntToastContext';
 import CategorySelect from '../../components/CategorySelect/CategorySelect';
 import BurntToastService from '../../services/burnt-toast-api-service';
 
-const dummyServices = [
-  {
-    id: '1',
-    user: {
-      user_id: 1,
-      full_name: 'Jim Parsons',
-    },
-    name: 'dodgeball',
-    description: 'I dodge balls real good.',
-  },
-  {
-    id: '2',
-    user: {
-      user_id: 1,
-      full_name: 'Jim Parsons',
-    },
-    name: 'paint',
-    description: 'I paint stuff real good.',
-  },
-  {
-    id: '3',
-    user: {
-      user_id: 1,
-      full_name: 'Jim Parsons',
-    },
-    name: 'move',
-    description: 'I strong, help you move house real good.',
-  },
-  {
-    id: '4',
-    user: {
-      user_id: 1,
-      full_name: 'Jim Parsons',
-    },
-    name: 'design furniture',
-    description: 'I design furnite real good, fair trade.',
-  },
-];
-
 class SearchRoute extends Component {
 
   state = {
     searchTerm: '',
     searchCategory: '',
+    searchService: '',
     skills: [],
     services: []
   };
@@ -56,7 +18,7 @@ class SearchRoute extends Component {
 
   componentDidMount() {
     BurntToastService.getAllServices()
-    .then(res=> 
+    .then(res=>
       this.setState({
         services: res
       })
@@ -87,6 +49,7 @@ class SearchRoute extends Component {
         </input>
         <label htmlFor="categories"></label>
         <CategorySelect />
+        <button type="submit">Search</button>
       </form>
     );
   }
