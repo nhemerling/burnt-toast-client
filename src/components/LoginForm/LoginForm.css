@@ -1,0 +1,58 @@
+.login-Icon{
+  max-width: 70px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.register-Form, .LoginForm input[type=text] , input[type=password] {
+  background-color: #4361EE;
+  border: none;
+  border-bottom: 2px whitesmoke solid;
+  margin-bottom: 15px;
+  color: whitesmoke;
+  font-size: 1.5em;
+}
+
+/* removes standard form styles */
+.hidden {
+  display: none;
+}
+
+input:focus, textarea:focus, select:focus{
+  outline: none;
+}
+/* placeholder text across diff browsers */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+  -webkit-box-shadow: 0 0 0 30px #4361EE inset !important;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: whitesmoke;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+  color: whitesmoke;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: whitesmoke;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: whitesmoke;
+}
+
+
+/* button styling  */
+
+.login-button{
+  background-color: #273b7a;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2em;
+  color: whitesmoke;
+  box-shadow: 5px 5px 5px #48386c;
+  min-width: 200px;
+}

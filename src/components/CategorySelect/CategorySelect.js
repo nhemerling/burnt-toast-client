@@ -35,14 +35,14 @@ export default class CategorySelect extends Component {
     const serviceOptions = this.generateServiceOptions(services);
 
     return (
-      <form className="CategorySelect">
+      <div className="CategorySelect">
         <select name="categories" onChange={this.handleCategoryChange}>
           {categoryOptions}
         </select>
         <select name="services">
           {serviceOptions}
         </select>
-      </form>
+      </div>
     );
   }
 }
