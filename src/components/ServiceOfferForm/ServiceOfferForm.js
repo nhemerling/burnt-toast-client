@@ -4,29 +4,32 @@ import UserContext from '../../contexts/UserContext';
 import Button from '../Button/Button';
 import STORE from '../../contexts/Store';
 import BurntToastService from '../../services/burnt-toast-api-service';
+import BurntToastContext from '../../contexts/BurntToastContext';
 import './ServiceOfferForm.css';
 
 class LoginForm extends Component {
 
-  static contextType = UserContext;
+  static contextType = BurntToastContext;
 
   state = {
     error: null,
     generateSecondaryCatergories: () => { },
     selection: null,
-    category: null
+    category: null,
+    services: []
   };
 
   handleSubmit = ev => {
     ev.preventDefault();
-    let desc = ev.target.title.value;
-    let service = { 
-      skill_id: 1, 
-      skill_desc: desc
-    };
+    console.log(this.state.category)
+    // let desc = ev.target.title.value;
+    // let service = { 
+    //   skill_id: 1, 
+    //   skill_desc: desc
+    // };
 
-    BurntToastService.postProfileService(service)
-    .then(res => console.log(res));
+    // BurntToastService.postProfileService(service)
+    // .then(res => console.log(res));
     // .catch(res => {
     //   this.setState({ error: res.error });
     // });
@@ -35,9 +38,22 @@ class LoginForm extends Component {
 
   handleSelection =ev => {
     let userSelection = ev.target.value;
+    let services = this.context.services;
+    this.setState({
+      category: null
+    })
+
+    let matchingServices = [];
+    for (let i = 0; i < services.length; i++) {
+      if (userSelection == services[i].fk_category_id) {
+        matchingServices.push(services[i]);
+      }
+    }
+    let serviceOptions = this.generateServiceSelection(matchingServices);
     this.setState({
       error: null,
       selection: userSelection,
+      services: serviceOptions
     });
   }
 
@@ -49,36 +65,27 @@ class LoginForm extends Component {
     });
   }
 
-  generateCategorySelection(obj) {
-    let categories = []
-    let i = 0;
-    for (let key in obj) {
-      let option = (<option key={i} value={key}>{key}</option>);
-      categories.push(option);
-      i++;
+  generateServiceSelection(arr) {
+   let services = [];
+    for (let i = 0; i < arr.length; i++) {
+      let option = (<option key={i} value={arr[i].id}>{arr[i].skill_name}</option>);
+      services.push(option);
     }
-    return categories;
+    return services;
   };
 
  
 
 
   render() {
-    const { error } = this.state;
-    const primaryCategories = this.generateCategorySelection(STORE.CATEGORIES);
-    const categoryList = primaryCategories.map(category => {
-      return (
-        category
-      )
-    });
-
-    const primaryServices = this.state.selection ? STORE.CATEGORIES[this.state.selection] : [];
-
-    const servicesList = primaryServices.map((category, i) => {
-      return (
-        <option key={i} value={category}>{category}</option>
-      );
+    let categories = this.context.categories ? this.context.categories : [];
+    const categoryList = categories.map(category => {
+      return (<option key={category.id} value={category.id}>{category.category_name}</option>)
     })
+    const { error } = this.state;
+
+
+    const primaryServices = this.state.services ? this.state.services : [];
 
     return (
       <form
@@ -99,6 +106,7 @@ class LoginForm extends Component {
               form="ServiceOfferForm"
               onChange={this.handleSelection}
               >
+              <option value=''>------SELECT------</option>
               {categoryList}
 
             </select>
@@ -114,17 +122,18 @@ class LoginForm extends Component {
               //TODO: HANDLE THIS SELECTION VALUE
               onChange={this.handleCategory}
               >
-              {servicesList}
+              <option value=''>------SELECT------</option>
+              {primaryServices}
             </select>
           </div>
-          <Label htmlFor='service-title-input'>
+          {/* <Label htmlFor='service-title-input'>
             Title/Header
           </Label>
           <Input
             id='service-title-input'
             name='title'
             required
-          />
+          /> */}
         </div>
 
         <Button type='submit' className='add-service-button'>
