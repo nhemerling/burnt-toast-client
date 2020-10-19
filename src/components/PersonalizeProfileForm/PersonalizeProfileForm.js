@@ -34,7 +34,7 @@ export class PersonalizeProfileForm extends Component {
         <div className='form-div' role='alert'>
           {error && <p className='error'>{error}</p>}
         </div>
-
+        <h3>Personalize Profile Form</h3>
         <div className='PersonalizeProfile-form-div'>
         <Label htmlFor="user-photo-Upload">Upload a picture:</Label>
         <Input type="file" id="user-photo-Upload" name="filename"/>

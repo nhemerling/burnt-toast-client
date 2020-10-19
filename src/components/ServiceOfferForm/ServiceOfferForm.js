@@ -94,6 +94,7 @@ class LoginForm extends Component {
         <div className='form-div' role='alert'>
           {error && <p className='error'>{error}</p>}
         </div>
+        <h3>Service Offer Form</h3>
         <div className='ServiceOffer-form-div'>
           <div className='ServiceOffer-form-div'>
             <Label htmlFor='primary-category-selection'>
