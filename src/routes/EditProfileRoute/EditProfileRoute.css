@@ -11,6 +11,7 @@ select {
   background-color: #aebaf2;
   margin: 25px 20px;
   border-radius: 5px;
+  box-shadow: 5px 10px 10px #877575;
 }
 
 .periwinkle-Form {
