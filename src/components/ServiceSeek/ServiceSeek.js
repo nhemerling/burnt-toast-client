@@ -67,26 +67,26 @@ export class ServiceSeek extends Component {
         </div>
         <div className='ServiceSeek-form-div'>
           <div className='ServiceSeek-form-div'>
-            <Label htmlFor='primary-category-selection'>
+            <Label htmlFor='primary-category-selection-seekForm'>
               Select a category:
-          </Label>
             <select 
               name="categories" 
-              id="primary-category-selection" 
+              id="primary-category-selection-seekForm" 
               form="ServiceSeekForm"
               onChange={this.handleSubmit}
               >
               {categoryList}
             </select>
+          </Label>
           </div>
 
           <div className='ServiceOffer-form-div'>
-            <Label htmlFor='service-category-selection'>
+            <Label htmlFor='service-category-selection-seekForm'>
               Select a service:
             </Label>
             <select
-              name="categories"
-              id="service-category-selection"
+              name="services"
+              id="service-category-selection-seekForm"
               form="ServiceOfferForm">
               {servicesList}
             </select>

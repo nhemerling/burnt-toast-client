@@ -115,7 +115,7 @@ class LoginForm extends Component {
               Select a service:
             </Label>
             <select
-              name="categories"
+              name="services"
               id="service-category-selection"
               form="ServiceOfferForm"
               //TODO: HANDLE THIS SELECTION VALUE
@@ -126,8 +126,9 @@ class LoginForm extends Component {
             </select>
           </div>
           <Label htmlFor='service-title-input'>
-            Title/Header
+          Service Title/Header 
           </Label>
+          <br/>
           <Input
             id='service-title-input'
             name='title'
