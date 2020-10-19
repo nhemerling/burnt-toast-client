@@ -40,7 +40,6 @@ export default class App extends Component {
   }
 
   setSearchService = (searchService) => {
-    console.log(searchService)
     this.setState({
       searchService
     })
@@ -50,6 +49,7 @@ export default class App extends Component {
     const value = {
       categories: this.state.categories,
       services: this.state.services,
+      searchService: this.state.searchService,
       setSearchService: this.setSearchService,
     }
 

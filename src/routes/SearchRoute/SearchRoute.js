@@ -11,24 +11,19 @@ class SearchRoute extends Component {
     searchTerm: '',
     searchCategory: '',
     searchService: '',
-    serviceResults: []
+    searchType: 'PROVIDER',
+    searchZip: '',
+    serviceResults: [],
   };
 
   static contextType = BurntToastContext;
 
-  // componentDidMount() {
-  //   BurntToastService.getAllServices()
-  //   .then(services =>
-  //     this.setState({
-  //       services
-  //     })
-  //   )
-  // }
-
   handleSearch(e) {
     e.preventDefault();
-    const { searchService, searchTerm } = this.state;
-    BurntToastService.getSearchServices(searchService, searchTerm)
+    const { searchTerm, searchType, searchZip } = this.state;
+    const { searchService } = this.context;
+
+    BurntToastService.getSearchServices(searchService, searchTerm, searchType, searchZip)
     .then(serviceResults => {
       this.setState({
         serviceResults
@@ -42,6 +37,20 @@ class SearchRoute extends Component {
     });
   }
 
+  handleTypeChange = (ev) => {
+    const searchType = ev.target.value;
+    this.setState({
+      searchType,
+    })
+  }
+
+  handleZipChange = (ev) => {
+    const searchZip = ev.target.value;
+    this.setState({
+      searchZip,
+    })
+  }
+
   renderSearchBar() {
     return (
       <form id="search-bar" onSubmit={e => this.handleSearch(e)}>
@@ -52,6 +61,13 @@ class SearchRoute extends Component {
         </input>
         <label htmlFor="categories"></label>
         <CategorySelect />
+        <label htmlFor="type">What are you looking for?</label>
+        <select name="type" onChange={this.handleTypeChange}>
+          <option key={1} value="PROVIDER">People PROVIDING this service.</option>
+          <option key={2} value="SEEKER">People SEEKING this service.</option>
+        </select>
+        <label htmlFor="zipcode">Zipcode</label>
+        <input type="text" name="zipcode" onChange={this.handleZipChange} />
         <button type="submit">Search</button>
       </form>
     );
