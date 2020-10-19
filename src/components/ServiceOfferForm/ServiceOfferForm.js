@@ -21,18 +21,17 @@ class LoginForm extends Component {
 
   handleSubmit = ev => {
     ev.preventDefault();
-    console.log(this.state.category)
-    // let desc = ev.target.title.value;
-    // let service = { 
-    //   skill_id: 1, 
-    //   skill_desc: desc
-    // };
+  
+    let service = { 
+      skill_id: this.state.category, 
+      skill_desc: ev.target.title.value
+    };
 
-    // BurntToastService.postProfileService(service)
-    // .then(res => console.log(res));
-    // .catch(res => {
-    //   this.setState({ error: res.error });
-    // });
+    BurntToastService.postProfileService(service)
+    .then(res => console.log(res))
+    .catch(res => {
+      this.setState({ error: res.error });
+    });
   };
 
 
@@ -126,14 +125,14 @@ class LoginForm extends Component {
               {primaryServices}
             </select>
           </div>
-          {/* <Label htmlFor='service-title-input'>
+          <Label htmlFor='service-title-input'>
             Title/Header
           </Label>
           <Input
             id='service-title-input'
             name='title'
             required
-          /> */}
+          />
         </div>
 
         <Button type='submit' className='add-service-button'>
