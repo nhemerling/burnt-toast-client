@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './ServiceCard.css'
+import ServiceHolder from '../../images/service-placeholder.png';
 
 // id={service.id}
 // user_id={service.fk_user_id}
