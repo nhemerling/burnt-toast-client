@@ -1,36 +1,74 @@
 import React, { Component } from 'react';
-import ProfilePicture from '../../images/user-placeholder.jpg';
-import STORE from '../../contexts/Store';
 import '../../components/ServiceCard/ServiceCard.css';
-import ServiceHolder from '../../images/service-placeholder.png';
+// import ServiceHolder from '../../images/service-placeholder.png';
+import BurntToastService from '../../services/burnt-toast-api-service';
+import ServiceCard from '../../components/ServiceCard/ServiceCard';
 
 export class ServiceCardRoute extends Component {
+  static defaultProps = {
+    match: {
+      params: {
+        profile_id: 1
+      }
+    }
+  }
+
+  state = {
+    user: {},
+    userId: 1,
+    userServices: []
+  };
+
+  componentDidMount() {
+    let currentUserId = this.props.match.params.profile_id;
+
+    // this.setState({user: BurntToastService.getProfile(this.props.match.params.profile_id).then(res => res)});
+    // this.setState({userServices: BurntToastService.getProfileServices(this.props.match.params.profile_id).then(res => res)});
+    BurntToastService.getProfile(currentUserId).then(res => {
+      this.setState({user: res, userId: currentUserId});
+    });
+    BurntToastService.getProfileServices(currentUserId).then(res => {
+      this.setState({userServices: res});
+    });
+  }
+
   render() {
-    const services = STORE.serviceCards.cards;
-    // TODO: ONLY POPULATE IF USER ID === PROFILE VISIT ID 
-    const serviceList = services.map((services, i) => {
+    const services = this.state.userServices;
+    console.log(services);
+
+    const serviceList = this.state.userServices.map((service, i) => {
+      console.log(service);
       return (
-        <div key={services.id} className='serviceDisplayCard'>
-          <img src={ServiceHolder} alt='image with chart of different service categories' className='service-img'></img>
-          <h3>{services.category}</h3>
-          <h3>{services.service}</h3>
-          <p>{services.description}</p>
+        <div key={i} className='service'>
+          <ServiceCard
+            image={service.primary_img_url}
+            service={service.skill_name}
+            category={service.category_name}
+            description={service.primary_description}
+          />
         </div>
       )
     })
-    return (
-      <div>
-        <h2>Username's Profile and Skills they offer</h2>
-        <section className='user-info-section' style={{ border: '2px solid black', width: '80%', margin: 'auto' }}>
-          <img style={{ maxWidth: 60 }} src={ProfilePicture} alt='user profile picture' className='userProfilePhoto'></img>
-          <p>Username</p>
-          <p>Bio if provided</p>
-        </section>
 
-        {serviceList}
-      </div>
-    )
+    console.log(this.state.user);
+    console.log(this.state.userId);
+    console.log(this.state.userServices);
+
+    if (this.state.user) {
+      return (<div>
+      <h2>{this.state.user.full_name}'s Profile</h2>
+      <section className='user-info-section' style={{ border: '2px solid black', width: '80%', margin: 'auto' }}>
+        <img style={{ maxWidth: 60 }} src={this.state.user.profile_img_url} alt='user profile picture' className='user-profile-photo'></img>
+        <p>{this.state.user.profile_desc}</p>
+      </section>
+
+      {serviceList}
+    </div>);
+    } else {
+      return <h1>YOU DONE EFFED UP</h1>;
+    }
   }
 }
 
-export default ServiceCardRoute
+export default ServiceCardRoute;
+

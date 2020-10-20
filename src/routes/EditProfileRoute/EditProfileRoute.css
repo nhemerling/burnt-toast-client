@@ -11,9 +11,15 @@ select {
   background-color: #aebaf2;
   margin: 25px 20px;
   border-radius: 5px;
-  box-shadow: 5px 10px 10px #877575;
+  box-shadow: 5px 10px 10px #29387e;
 }
 
-.periwinkle-Form {
-  
+.add-service-button {
+  background-color: #273b7a;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2em;
+  color: whitesmoke;
+  box-shadow: 5px 5px 5px #6b5898;
+  min-width: 190px;
 }
