@@ -3,7 +3,7 @@ import TokenService from './token-service';
 
 const BurntToastService = {
   getProfile(profileId) {
-    return fetch(`${config.API_ENDPOINT}/profile/${profileId}`, {
+    return fetch(`${config.API_ENDPOINT}/profiles/${profileId}`, {
       method: 'GET',
       headers: {
         authorization: `Bearer ${TokenService.getAuthToken()}`,
@@ -14,7 +14,7 @@ const BurntToastService = {
   },
 
   getProfileServices(profileId) {
-    return fetch(`${config.API_ENDPOINT}/profile/${profileId}/skills`, {
+    return fetch(`${config.API_ENDPOINT}/user_skills/${profileId}`, {
       method: 'GET',
       headers: {
         authorization: `Bearer ${TokenService.getAuthToken()}`,
