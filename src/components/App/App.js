@@ -14,6 +14,11 @@ import './App.css';
 import BurntToastContext from '../../contexts/BurntToastContext';
 
 export default class App extends Component {
+  static defaultProps = {
+    categories: [],
+    services: [],
+  }
+
   state = {
     hasError: false,
     categories: [],
