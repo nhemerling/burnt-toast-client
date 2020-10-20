@@ -26,7 +26,7 @@ export default class App extends Component {
     return { hasError: true };
   }
 
-  componentDidMount() {
+  getCategoriesAndServices = () => {
     BurntToastService.getAllCategories().then(categories =>
       this.setState({
         categories
@@ -51,6 +51,7 @@ export default class App extends Component {
       services: this.state.services,
       searchService: this.state.searchService,
       setSearchService: this.setSearchService,
+      getCategoriesAndServices: this.getCategoriesAndServices,
     }
 
     const { hasError } = this.state;
