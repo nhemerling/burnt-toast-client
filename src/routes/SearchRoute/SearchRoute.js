@@ -12,8 +12,8 @@ class SearchRoute extends Component {
     searchTerm: '',
     searchCategory: '',
     searchService: '',
-    categories: [],
-    services: [],
+    // categories: [],
+    // services: [],
     searchType: 'PROVIDER',
     searchZip: '',
     serviceResults: [],
@@ -22,16 +22,17 @@ class SearchRoute extends Component {
   static contextType = BurntToastContext;
 
   componentDidMount() {
-    BurntToastService.getAllCategories().then(categories =>
-      this.setState({
-        categories
-      })
-    );
-    BurntToastService.getAllServices().then(services =>
-      this.setState({
-        services
-      })
-    );
+    this.context.getCategoriesAndServices();
+    // BurntToastService.getAllCategories().then(categories =>
+    //   this.setState({
+    //     categories
+    //   })
+    // );
+    // BurntToastService.getAllServices().then(services =>
+    //   this.setState({
+    //     services
+    //   })
+    // );
   }
 
   handleSearch(e) {
@@ -70,7 +71,7 @@ class SearchRoute extends Component {
   }
 
   renderSearchBar() {
-    const { categories, services } = this.state;
+    const { categories, services } = this.context;
     return (
       <form id="search-bar" onSubmit={e => this.handleSearch(e)}>
         <label htmlFor="search"></label>
