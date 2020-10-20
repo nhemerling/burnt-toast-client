@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import LandingForm from '../../components/LandingForm/LandingForm';
+import HeroImg from '../../images/hero.png'
 import './LandingRoute.css'
 class LandingRoute extends Component {
   static defaultProps = {
@@ -20,7 +21,7 @@ class LandingRoute extends Component {
       <div className="LandingPage">
         <section className="LandingPage-hero blue">
           <h1>Burt-Toast-App-Name</h1>
-          <p>This is where our copy goes.</p>
+          <img src={HeroImg} className='hero-image'></img>
           <p>This is where our copy goes.</p>
           <p>This is where our copy goes.</p>
           {/* TODO: make a button?  */}
@@ -30,7 +31,7 @@ class LandingRoute extends Component {
                 </a>
         </section>
         <section className="LandingPage-general periwinkle">
-          <h2>General Information</h2>
+          <h2>Our Philosophy</h2>
           <p>This is where our copy goes.</p>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
