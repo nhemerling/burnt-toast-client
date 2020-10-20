@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ServiceOfferForm from '../../components/ServiceOfferForm/ServiceOfferForm';
 import ServiceSeek from '../../components/ServiceSeek/ServiceSeek';
 import PersonalizeProfile from '../../components/PersonalizeProfileForm/PersonalizeProfileForm';
+import './EditProfileRoute.css'
 
 export class EditProfileRoute extends Component {
 

@@ -5,9 +5,9 @@ class ServiceCard extends Component {
   render() {
     return(
         <div className="ServiceCard" >
-          <img src="" alt={this.props.category} />
-          <p>{this.props.service}</p>
-          <p>{this.props.description}</p>
+          <p>Category: {this.props.category}</p>
+          <p>Service: {this.props.service}</p>
+          <p>Description: {this.props.description}</p>
         </div>
     );
   }

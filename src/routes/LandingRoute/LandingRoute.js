@@ -18,12 +18,13 @@ class LandingRoute extends Component {
   render() {
     return (
       <div className="LandingPage">
-        <section className="LandingPage-hero">
+        <section className="LandingPage-hero blue">
           <h1>Burt-Toast-App-Name</h1>
           <p>This is where our copy goes.</p>
           <p>This is where our copy goes.</p>
           <p>This is where our copy goes.</p>
           {/* TODO: make a button?  */}
+          <br/>
           <a href="#register-Form" className='signUp-focus'>
                   Sign up today!
                 </a>
@@ -34,7 +35,7 @@ class LandingRoute extends Component {
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </section>
-        <section className="LandingPage-how-it-works">
+        <section className="LandingPage-how-it-works blue">
           <h2>How It Works</h2>
           <p>This is where our copy goes.</p>
           <p>Screenshots as well here.</p>

@@ -1,0 +1,19 @@
+select {
+  width:90%;
+  padding:5px;
+  border-radius:10px;
+  font-family: Tahoma;
+}
+
+.ServiceOfferForm, .ServiceSeekForm, .PersonalizeProfileForm {
+  padding: 20px 10px;
+  color: black;
+  background-color: #aebaf2;
+  margin: 25px 20px;
+  border-radius: 5px;
+  box-shadow: 5px 10px 10px #877575;
+}
+
+.periwinkle-Form {
+  
+}

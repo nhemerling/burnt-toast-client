@@ -11,6 +11,8 @@ class SearchRoute extends Component {
     searchTerm: '',
     searchCategory: '',
     searchService: '',
+    categories: [],
+    services: [],
     searchType: 'PROVIDER',
     searchZip: '',
     serviceResults: [],
@@ -18,17 +20,32 @@ class SearchRoute extends Component {
 
   static contextType = BurntToastContext;
 
+  componentDidMount() {
+    BurntToastService.getAllCategories().then(categories =>
+      this.setState({
+        categories
+      })
+    );
+    BurntToastService.getAllServices().then(services =>
+      this.setState({
+        services
+      })
+    );
+  }
+
   handleSearch(e) {
     e.preventDefault();
     const { searchTerm, searchType, searchZip } = this.state;
     const { searchService } = this.context;
+    console.log('searchService in context: ', searchService)
 
     BurntToastService.getSearchServices(searchService, searchTerm, searchType, searchZip)
     .then(serviceResults => {
+      console.log(serviceResults)
       this.setState({
         serviceResults
       })
-    })
+    });
   }
 
   handleSearchTerm(e) {
@@ -41,17 +58,18 @@ class SearchRoute extends Component {
     const searchType = ev.target.value;
     this.setState({
       searchType,
-    })
+    });
   }
 
   handleZipChange = (ev) => {
     const searchZip = ev.target.value;
     this.setState({
       searchZip,
-    })
+    });
   }
 
   renderSearchBar() {
+    const { categories, services } = this.state;
     return (
       <form id="search-bar" onSubmit={e => this.handleSearch(e)}>
         <label htmlFor="search"></label>
@@ -60,7 +78,7 @@ class SearchRoute extends Component {
           onChange={e => this.handleSearchTerm(e)}>
         </input>
         <label htmlFor="categories"></label>
-        <CategorySelect />
+        <CategorySelect categories={categories} services={services} />
         <label htmlFor="type">What are you looking for?</label>
         <select name="type" onChange={this.handleTypeChange}>
           <option key={1} value="PROVIDER">People PROVIDING this service.</option>
@@ -74,15 +92,17 @@ class SearchRoute extends Component {
   }
 
   renderServiceCards() {
-    const { serviceResults, searchService } = this.state;
+    const { serviceResults } = this.state;
+    // const { searchService } = this.context;
     return serviceResults.map((service, i) =>
+      // console.log(service)
       <li key={i}>
         <Link to={`/profiles/${service.fk_user_id}/services`}>
           <ServiceCard
             id={service.id}
             user_id={service.fk_user_id}
             service_id={service.fk_skill_id}
-            service={searchService}
+            service={service.skill_name}
             type={service.user_skill_type}
             image={service.primary_img_url}
             description={service.primary_description}

@@ -15,7 +15,7 @@ export default class CategorySelect extends Component {
     })
     let serviceIds = [];
     let categoryServices = this.context.services.filter(service => Number(service.fk_category_id) === Number(selectedCategoryId));
-    categoryServices.forEach((service) => serviceIds.push(service.id));
+    categoryServices.forEach((service) => serviceIds.push(service));
 
     this.context.setSearchService(serviceIds[0]);
   }
@@ -40,7 +40,7 @@ export default class CategorySelect extends Component {
   };
 
   render() {
-    const { categories, services } = this.context;
+    const { categories, services } = this.props;
     const categoryOptions = categories.map(category => {
       return <option key={category.id} value={category.id}>{category.category_name}</option>
     })
@@ -50,10 +50,12 @@ export default class CategorySelect extends Component {
       <div className="CategorySelect">
         <label htmlFor="categories">Category</label>
         <select name="categories" onChange={this.handleCategoryChange}>
+          <option key='0' value=''>SELECT</option>
           {categoryOptions}
         </select>
         <label htmlFor="services">Service</label>
         <select name="services" onChange={this.handleServiceChange}>
+          <option key='0' value=''>SELECT</option>
           {serviceOptions}
         </select>
       </div>
