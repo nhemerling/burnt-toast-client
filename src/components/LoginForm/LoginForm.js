@@ -4,7 +4,7 @@ import AuthApiService from '../../services/auth-api-service';
 import TokenService from '../../services/token-service';
 import UserContext from '../../contexts/UserContext';
 import Button from '../Button/Button';
-import LoginIcon from '../../images/295128.svg'
+import LoginIcon from '../../images/userLogin.png'
 import './LoginForm.css'
 
 class LoginForm extends Component {

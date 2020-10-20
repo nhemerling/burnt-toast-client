@@ -6,7 +6,8 @@
   align-items: center;
   justify-content: space-between;
   text-align: left;
-  background-color: #3A0CA3;
+  position: relative;
+  background-color: #530985;
 }
 /*logo*/
 #logo {

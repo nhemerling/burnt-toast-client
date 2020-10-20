@@ -1,5 +1,5 @@
 #registration-username-input {
-  background-color: #4361EE;
+  background-color: hsl(229, 72%, 82%, .6);
   border: none;
   border-bottom: 2px whitesmoke solid;
   margin-bottom: 15px;
@@ -8,7 +8,7 @@
 }
 
 .registration-button {
-  background-color: #273b7a;
+  background-color: #4e2bc1;
   border: none;
   border-radius: 50px;
   font-size: 1.2em;
