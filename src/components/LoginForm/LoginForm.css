@@ -1,15 +1,15 @@
 .login-Icon{
-  max-width: 70px;
+  max-width: 100px;
   margin-top: 30px;
   margin-bottom: 30px;
 }
 
 .register-Form, .LoginForm input[type=text] , input[type=password] {
-  background-color: #4361EE;
+  background-color: hsl(229, 72%, 82%, .6);
   border: none;
   border-bottom: 2px whitesmoke solid;
   margin-bottom: 15px;
-  color: whitesmoke;
+  color: #1b1b1b;
   font-size: 1.5em;
 }
 
@@ -48,7 +48,7 @@ input:-webkit-autofill:active  {
 /* button styling  */
 
 .login-button{
-  background-color: #273b7a;
+  background-color: #4e2bc1;
   border: none;
   border-radius: 50px;
   font-size: 1.2em;
