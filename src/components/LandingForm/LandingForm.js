@@ -23,9 +23,10 @@ class LandingForm extends Component {
       password: password.value,
     })
       .then(user => {
-        name.value = '';
-        username.value = '';
-        password.value = '';
+        // TODO: THESE VALUES ARE undefined AND CRASH PROGRAM. NEED TO SEE IF ANYTHING ELSE BREAKS BEFORE REMOVING THEM COMPLETELY
+        // name.value = '';
+        // username.value = '';
+        // password.value = '';
         this.props.onRegistrationSuccess();
       })
       .catch(res => {

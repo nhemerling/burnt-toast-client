@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import BurntToastContext from '../../contexts/BurntToastContext';
+import './CategorySelect.css'
 
 export default class CategorySelect extends Component {
   state = {
