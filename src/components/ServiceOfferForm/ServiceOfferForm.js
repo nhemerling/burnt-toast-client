@@ -21,10 +21,10 @@ class LoginForm extends Component {
 
   handleSubmit = ev => {
     ev.preventDefault();
-  
-    let service = { 
-      skill_id: this.state.category, 
-      skill_desc: ev.target.title.value
+
+    let service = {
+      skill_id: this.state.category,
+      skill_desc: ev.target['service-title-input'].value
     };
 
     BurntToastService.postProfileService(service)
@@ -73,7 +73,7 @@ class LoginForm extends Component {
     return services;
   };
 
- 
+
 
 
   render() {
@@ -127,7 +127,7 @@ class LoginForm extends Component {
             </select>
           </div>
           <Label htmlFor='service-title-input'>
-          Service Title/Header 
+          Service Title/Header
           </Label>
           <br/>
           <Input

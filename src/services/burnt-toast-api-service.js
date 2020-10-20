@@ -73,6 +73,7 @@ const BurntToastService = {
   },
 
   getSearchServices(serviceId, searchTerm, searchType, zipcode) {
+    // console.log('getSearchServices: ', serviceId, searchTerm, searchType, zipcode)
     return fetch(`${config.API_ENDPOINT}/user_skills/skills/${serviceId}?q=${searchTerm}&t=${searchType}&z=${zipcode}`, {
       method: 'GET',
       headers: {
