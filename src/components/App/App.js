@@ -7,6 +7,7 @@ import LandingRoute from '../../routes/LandingRoute/LandingRoute';
 import LoginRoute from '../../routes/LoginRoute/LoginRoute';
 import SearchRoute from '../../routes/SearchRoute/SearchRoute';
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute';
+import ChatRoom from '../../routes/ChatRoute/ChatRoute';
 import EditProfile from '../../routes/EditProfileRoute/EditProfileRoute';
 import UserServices from '../../routes/UserServiceRoute/UserServiceRoute';
 import BurntToastService from '../../services/burnt-toast-api-service';
@@ -86,6 +87,10 @@ export default class App extends Component {
                 path={'/search'}
                 component={SearchRoute}
               />
+              <Route
+                path={'/'}
+                component={ChatRoom}
+                />
               <Route
                 component={NotFoundRoute}
                 />
