@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import HamburgerMenu from 'react-hamburger-menu';
 import TokenService from '../../services/token-service';
 import UserContext from '../../contexts/UserContext';
 import ToastIcon from '../../images/toast.svg'
@@ -25,77 +24,73 @@ export default class Header extends Component {
 //  TODO: need to change this to a more generic generate links when logged in function 
   renderLogoutLink() {
     return (
-      <div>
-        <nav>
-           <li>
-                <Link to="/search">
-                  Search
-                </Link>
-              </li>
-              <li>
-                <Link to={`/profiles/${this.context.user.id}`}>
-                  Profile
-                </Link>
-              </li>
+      <>
+        <li>
+          <Link onClick={this.handleMenuClick} to="/search">
+              Search
+          </Link>
+        </li>
+        <li>
+          <Link onClick={this.handleMenuClick} to={`/profiles/${this.context.user.id}`}>
+            Profile
+          </Link>
+        </li>
+        <li>
           <Link
             className='NavLink'
             onClick={this.handleLogoutClick}
             to='/login'>
             Logout
           </Link>
-        </nav>
+        </li>
         <span className='username'>
           {this.context.user.name}
         </span>
-      </div>
+     </>
     )
   }
 
   renderLoginLink() {
     return (
-      <nav>
-        <Link to='/login' className='NavLink'>Login</Link>
-        {' | '}
-        <Link to='/' className='NavLink'>Home</Link>
-      </nav>
+      <>
+        <li>
+          <Link onClick={this.handleMenuClick} to='/login' className='NavLink'>Login</Link>
+        </li>
+        <li>
+          <Link onClick={this.handleMenuClick} to='/' className='NavLink'>Home</Link>
+        </li>
+      </>
     )
+  }
+  handleToggle = (event) => {
+    event.preventDefault();
+    this.setState({menuOpen: !this.state.menuOpen})
   }
 
   render() {
     return (
-      <header className="Header-group">
-        <div id="logo" className="Header-item">
-          <img src={ToastIcon} alt="PLACEHOLDER TEXT" />
-        </div>
-        <div id="username-and-menu" className="menu-group">
+      <>
+        <header className="Header">
+          <div id="logo" className="Header-item">
+            <img src={ToastIcon} alt="PLACEHOLDER TEXT" />
+          </div>
           <span id="username" className="menu-item">{this.context.user.username}</span>
-          <nav className="menu-item">
-            <HamburgerMenu
-              isOpen={this.state.menuOpen}
-              menuClicked={this.handleMenuClick.bind(this)}
-            />
-            {this.state.menuOpen && <ul id="dropdown-menu">
-              {/* <li>
-                <Link to="/search">
-                  Search
-                </Link>
-              </li>
-              <li>
-                <Link to={`/profiles/${this.context.user.id}`}>
-                  Profile
-                </Link>
-              </li> */}
-              <li>
-                <div className='NavBar'>
-                  {TokenService.hasAuthToken()
-                    ? this.renderLogoutLink()
-                    : this.renderLoginLink()}
-                </div>
-              </li>
-            </ul>}
-          </nav>
-        </div>
-      </header>
+          <div id="username-and-menu" className="menu-group">
+            <div onClick={this.handleToggle} className='hamburger-menu'>
+              <span className={this.state.menuOpen ? 'rotateDown': ''}></span>
+              <span className={this.state.menuOpen ? 'hide': ''}></span>
+              <span className={this.state.menuOpen ? 'rotateUp': ''}></span>
+            </div>
+          </div>
+        </header>
+        <nav className={this.state.menuOpen ? 'nav' : 'hide'}>
+          {<ul id="dropdown-menu">
+                {TokenService.hasAuthToken()
+                  ? this.renderLogoutLink()
+                  : this.renderLoginLink()}
+          </ul>}
+        </nav>
+      </>
     );
   };
 }
