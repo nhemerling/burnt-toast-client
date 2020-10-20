@@ -28,13 +28,15 @@ export class ServiceCardRoute extends Component {
     const services = this.state.userServices;
     console.log(services);
 
-    const serviceList = this.state.userServices.map((services, i) => {
+    const serviceList = this.state.userServices.map((service, i) => {
+      console.log(service);
       return (
         <div key={i} className='service'>
           <ServiceCard 
-            // image
-            // service
-            // description
+            image={service.primary_img_url}
+            service={service.skill_name}
+            category={service.category_name}
+            description={service.primary_description}
           />
         </div>
       )
