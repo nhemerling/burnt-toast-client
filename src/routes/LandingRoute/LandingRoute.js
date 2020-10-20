@@ -9,7 +9,7 @@ class LandingRoute extends Component {
   }
 
   handleRegistrationSuccess = () => {
-    const { history } = this.props;
+    const { history } = this.props
     history.push('/login');
   }
 
