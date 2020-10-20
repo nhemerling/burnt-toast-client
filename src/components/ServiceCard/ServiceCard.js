@@ -13,15 +13,9 @@ class ServiceCard extends Component {
   render() {
     return(
         <div className="ServiceCard" >
-<<<<<<< HEAD
           {this.props.image && <img src={this.props.image} alt="service provided image" />}
           {this.props.service && <h3>{this.props.service}</h3>}
           {this.props.description && <p>{this.props.description}</p>}
-=======
-          <p>Category: {this.props.category}</p>
-          <p>Service: {this.props.service}</p>
-          <p>Description: {this.props.description}</p>
->>>>>>> main
         </div>
     );
   }
