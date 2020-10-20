@@ -3,6 +3,11 @@ import BurntToastContext from '../../contexts/BurntToastContext';
 import './CategorySelect.css'
 
 export default class CategorySelect extends Component {
+  static defaultProps = {
+    categories: [],
+    services: [],
+  }
+
   state = {
     selectedCategoryId: 1,
   }
@@ -62,9 +67,4 @@ export default class CategorySelect extends Component {
       </div>
     );
   }
-}
-
-CategorySelect.defaultProps = {
-  categories: [],
-  services: [],
 }
