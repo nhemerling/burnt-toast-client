@@ -1,4 +1,6 @@
-.Header-group {
+/* nav bar */
+.Header{
+  /* header container */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -7,44 +9,92 @@
   position: relative;
   background-color: #530985;
 }
-
-.Header-item {
-  flex: 1;
+/*logo*/
+#logo {
+  margin-left: 20px;
+  padding: 5px;
 }
-
+#logo > img {
+  max-width: 50px;
+}
+#username-and-menu {
+ 
+}
 .menu-group {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
-
-.menu-item {
-  flex: 1;
-  margin: 5px;
-  justify-content: right;
-}
-
-#dropdown-menu {
-  list-style: none;
-  z-index: 2;
+.nav {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  align-items: center;
+  margin-bottom: -60px; 
+  width: 100vw;
+  height: 100vh;
   position: relative;
-  display: block;
-  border: 3px solid #000;
+  z-index: 50;
+}
+.nav ul{
+  margin: 2em auto;
+  padding: 3em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 30vh;
 }
 
-#dropdown-menu > li {
-  border: 1px solid #000;
+
+.nav li a{
+  font-size: 2em;
+  color: black;
+  margin: 1 auto;
+  padding: .3em 1em;
+  border-radius: 15px;
+  transition-duration: 100ms;
+}
+.nav li a:hover{
+  color: white;
+  background-color: #3A0CA3;
+}
+.hamburger-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  justify-content: space-evenly;
+  transition-duration: 300ms ;
+  padding: 15px;
+  position: relative;
+  
+}
+.hamburger-menu:hover{
+  transform: scale(1.15);
+  cursor: pointer;
 }
 
-#logo {
-  margin: 15px;
+.rotateUp{
+  transform: rotateZ(45deg);
+  position: absolute;
+  right: 15px;
+}
+.rotateDown{
+  transform: rotateZ(-45deg);
+  position: absolute;
+  right: 15px;
+}
+.hide{
+  display: none;
+}
+.hamburger-menu span{
+  width: 50px;
+  height: 2px;
+  border: 1px solid white;
+  background-color: white;
+  transition-duration: 200ms;
 }
 
-#logo > img {
-  max-width: 50px;
-}
 
-#username-and-menu {
-  margin: 15px;
-  justify-content: flex-end;
-}
+
