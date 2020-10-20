@@ -73,27 +73,30 @@ export default class App extends Component {
                 exact
                 path={'/'}
                 component={LandingRoute}
-                />
+              />
               <PublicOnlyRoute
+                exact
                 path={'/login'}
                 component={LoginRoute}
-                />
+              />
               <Route
                 exact
-                path={'/profiles/:profile_id'}
-                component={EditProfile}
-                />
-              <Route
-                path={'/profiles/:profile_id/services'}
-                component={UserServices}
-                />
-              <Route
                 path={'/search'}
                 component={SearchRoute}
               />
               <Route
+                exact
+                path={'/profiles/:profile_id'}
+                component={EditProfile}
+              />
+              <Route
+                exact
+                path={'/profiles/:profile_id/services'}
+                component={UserServices}
+              />
+              <Route
                 component={NotFoundRoute}
-                />
+              />
             </Switch>
           </main>
         </BurntToastContext.Provider>
