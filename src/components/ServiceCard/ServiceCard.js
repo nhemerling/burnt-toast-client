@@ -1,15 +1,23 @@
 import React, { Component } from 'react';
 import './ServiceCard.css'
-import ServiceHolder from '../../images/service-placeholder.png';
+
+// id={service.id}
+// user_id={service.fk_user_id}
+// service_id={service.fk_skill_id}
+// service={searchService}
+// type={service.user_skill_type}
+// image={service.primary_img_url}
+// description={service.primary_description}
 
 class ServiceCard extends Component {
   render() {
     return(
         <div className="ServiceCard" >
-          <img src={ServiceHolder} className='service-img'></img>
-          <p>Category: {this.props.category}</p>
-          <p>Service: {this.props.service}</p>
-          <p>Description: {this.props.description}</p>
+          {this.props.image && <img src={this.props.image} alt="service provided image" />}
+          {this.props.service && <h3>{this.props.service}</h3>}
+          {this.props.category && <h4>{this.props.category}</h4>}
+          {this.props.type && <h5>{this.props.type}</h5>}
+          {this.props.description && <p>{this.props.description}</p>}
         </div>
     );
   }
