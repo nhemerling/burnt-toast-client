@@ -20,29 +20,29 @@ class LandingRoute extends Component {
     return (
       <div className="LandingPage">
         <section className="LandingPage-hero blue">
-          <h1>Burt-Toast-App-Name</h1>
+          <h1>Burt Toast</h1>
           <img src={HeroImg} className='hero-image'></img>
-          <p>This is where our copy goes.</p>
-          <p>This is where our copy goes.</p>
+          <p>Helping users barter services transparently.</p>
+          <p>Post what you can provide or what service you seek and get connected..</p>
           {/* TODO: make a button?  */}
           <br/>
           <a href="#register-Form" className='signUp-focus'>
                   Sign up today!
                 </a>
         </section>
-        <section className="LandingPage-general periwinkle">
-          <h2>Our Philosophy</h2>
+        <section className="LandingPage-general">
+          <h2 className='periwinkle'>Our Philosophy</h2>
           <p>This is where our copy goes.</p>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </section>
-        <section className="LandingPage-how-it-works blue">
+        <section className="LandingPage-how-it-works">
           <h2>How It Works</h2>
           <p>This is where our copy goes.</p>
           <p>Screenshots as well here.</p>
         </section>
-        <section className="LandingPage-why periwinkle">
-          <h2>Why Use Burnt Toast?</h2>
+        <section className="LandingPage-why">
+          <h2 className='periwinkle'>Why Use Burnt Toast?</h2>
           <p>This is where our copy goes.</p>
         </section>
         <section className="LandingPage-register">

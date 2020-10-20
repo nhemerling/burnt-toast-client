@@ -1,11 +1,13 @@
 .LandingPage-hero > h1 {
-  font-size: 1.8em;
+  font-size: 2em;
   font-weight: 600;
   text-align: left;
+  margin-left: 20px;
 }
 
 .LandingPage-hero > p {
-  margin: 10px;
+  max-width: 80%;
+  margin: 10px auto;
 }
 
 .LandingPage-hero > a {
@@ -20,16 +22,16 @@
 }
 
 .periwinkle {
-  color: black;
-  background-color: hsl(229, 72%, 82%, .6);
-  border-radius: 10px;
-  max-width: 85%;
-  min-height: 140px;
+  background-color: hsla(229, 72%, 82%, 0.6);
+  border-radius: 0 10px 10px 0;
+  max-width: 70%;
   padding: 20px;
-  margin: 20px auto;
+  margin: 10px 0;
+  text-align: left;
 }
 
-.blue {
+.LandingPage-how-it-works {
+  background-color: #F2DFC9;
   min-height: 140px;
   padding: 20px;
   margin: 20px 0;
