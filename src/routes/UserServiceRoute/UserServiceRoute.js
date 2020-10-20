@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 import '../../components/ServiceCard/ServiceCard.css';
-import ServiceHolder from '../../images/service-placeholder.png';
+// import ServiceHolder from '../../images/service-placeholder.png';
 import BurntToastService from '../../services/burnt-toast-api-service';
 import ServiceCard from '../../components/ServiceCard/ServiceCard';
 
 export class ServiceCardRoute extends Component {
+  static defaultProps = {
+    match: {
+      params: {
+        profile_id: 1
+      }
+    }
+  }
+
   state = {
     user: {},
     userId: 1,
@@ -32,7 +40,7 @@ export class ServiceCardRoute extends Component {
       console.log(service);
       return (
         <div key={i} className='service'>
-          <ServiceCard 
+          <ServiceCard
             image={service.primary_img_url}
             service={service.skill_name}
             category={service.category_name}
