@@ -63,3 +63,8 @@ export default class CategorySelect extends Component {
     );
   }
 }
+
+CategorySelect.defaultProps = {
+  categories: [],
+  services: [],
+}
