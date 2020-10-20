@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import BurntToastContext from '../../contexts/BurntToastContext';
+import './CategorySelect.css'
 
 export default class CategorySelect extends Component {
   state = {
@@ -48,14 +49,14 @@ export default class CategorySelect extends Component {
 
     return (
       <div className="CategorySelect">
-        <label htmlFor="categories">Category</label>
-        <select name="categories" onChange={this.handleCategoryChange}>
-          <option key='0' value=''>SELECT</option>
+        <label htmlFor="categories">Category </label>
+        <select name="categories" id='categories' onChange={this.handleCategoryChange}>
+          <option key='0' value=''>SELECT </option>
           {categoryOptions}
         </select>
-        <label htmlFor="services">Service</label>
-        <select name="services" onChange={this.handleServiceChange}>
-          <option key='0' value=''>SELECT</option>
+        <label htmlFor="services">Service </label>
+        <select name="services" id='services' onChange={this.handleServiceChange}>
+          <option key='0' value=''>SELECT </option>
           {serviceOptions}
         </select>
       </div>

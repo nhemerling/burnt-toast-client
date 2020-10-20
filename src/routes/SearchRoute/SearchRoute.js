@@ -4,6 +4,7 @@ import ServiceCard from '../../components/ServiceCard/ServiceCard';
 import BurntToastContext from '../../contexts/BurntToastContext';
 import CategorySelect from '../../components/CategorySelect/CategorySelect';
 import BurntToastService from '../../services/burnt-toast-api-service';
+import './SearchRoute.css'
 
 class SearchRoute extends Component {
 
@@ -74,19 +75,20 @@ class SearchRoute extends Component {
       <form id="search-bar" onSubmit={e => this.handleSearch(e)}>
         <label htmlFor="search"></label>
         <input
-          name="search" type="text" placeholder="🔍 Search"
+          name="search" id='search' type="text" placeholder="🔍 Search"
           onChange={e => this.handleSearchTerm(e)}>
         </input>
         <label htmlFor="categories"></label>
         <CategorySelect categories={categories} services={services} />
         <label htmlFor="type">What are you looking for?</label>
-        <select name="type" onChange={this.handleTypeChange}>
+        <select name="type" id='type' onChange={this.handleTypeChange}>
           <option key={1} value="PROVIDER">People PROVIDING this service.</option>
           <option key={2} value="SEEKER">People SEEKING this service.</option>
         </select>
         <label htmlFor="zipcode">Zipcode</label>
-        <input type="text" name="zipcode" onChange={this.handleZipChange} />
-        <button type="submit">Search</button>
+        <input type="text" name="zipcode" id='zipcode' onChange={this.handleZipChange} />
+        <br/>
+        <button type="submit" className='search-button'>Search</button>
       </form>
     );
   }
