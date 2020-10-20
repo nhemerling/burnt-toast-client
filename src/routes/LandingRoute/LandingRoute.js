@@ -20,7 +20,7 @@ class LandingRoute extends Component {
     return (
       <div className="LandingPage">
         <section className="LandingPage-hero blue">
-          <h1>Burt Toast</h1>
+          <h1>Burnt Toast</h1>
           <img src={HeroImg} className='hero-image'></img>
           <p>Helping users barter services transparently.</p>
           <p>Post what you can provide or what service you seek and get connected..</p>
