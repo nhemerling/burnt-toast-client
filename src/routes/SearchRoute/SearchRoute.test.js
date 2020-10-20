@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Header from './Header';
+import SearchRoute from './SearchRoute';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
-    <Header />,
+      <SearchRoute />,
     div
   );
   ReactDOM.unmountComponentAtNode(div);

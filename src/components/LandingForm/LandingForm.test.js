@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Header from './Header';
+import { BrowserRouter } from 'react-router-dom';
+import LandingForm from './LandingForm';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
-    <Header />,
+    <BrowserRouter>
+      <LandingForm />
+    </BrowserRouter>,
     div
   );
   ReactDOM.unmountComponentAtNode(div);

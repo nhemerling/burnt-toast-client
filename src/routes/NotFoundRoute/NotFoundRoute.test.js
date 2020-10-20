@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Header from './Header';
+import NotFoundRoute from './NotFoundRoute';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
-    <Header />,
+      <NotFoundRoute />,
     div
   );
   ReactDOM.unmountComponentAtNode(div);
