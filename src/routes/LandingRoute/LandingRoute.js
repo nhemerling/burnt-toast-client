@@ -33,7 +33,7 @@ class LandingRoute extends Component {
             <div className= 'hero-content-paragraphs'>
               <p>Helping users barter services transparently.</p>
               <p>Post what you can provide or what service you seek and get connected...</p>
-              <p>No currency exchanged! Only the knowledge and the passion for your craft &#59;&#41;. </p>
+              <p>No currency is ever exchanged! You only swap the knowledge and the passion for your craft &#59;&#41;. </p>
             </div>
           </div>
 
