@@ -1,66 +1,88 @@
 import React, { Component } from 'react';
 import { Input, Label } from '../Form/Form';
-import UserContext from '../../contexts/UserContext';
+import BurntToastContext from '../../contexts/BurntToastContext';
 import Button from '../Button/Button';
-import STORE from '../../contexts/Store'
+import BurntToastService from '../../services/burnt-toast-api-service';
 import './ServiceSeek.css'
 
 export class ServiceSeek extends Component {
-  static contextType = UserContext;
-
+  
   state = {
     error: null,
-    generateSecondaryCategories: () => { },
-    selection: null
+    selection: null,
+    category: null,
+    services: []
   };
-
+  
+  static contextType = BurntToastContext;
+  
   handleSubmit = ev => {
     ev.preventDefault();
-    // const { } = ev.target;
-    let userSelection = ev.target.value;
-
-    this.setState({
-      error: null,
-      selection: userSelection,
-    });
+    console.log('this is working')
+    let service = {
+      user_skill_type: 'SEEKER',
+      skill_id: this.state.category,
+    };
+    // BurntToastService.postProfileService(service)
+    // .then(res => console.log(res))
     // .catch(res => {
     //   this.setState({ error: res.error });
     // });
   };
 
-  generateCategorySelection(obj) {
-    let categories = []
-    let i = 0;
-    for (let key in obj) {
-      let option = (<option key={i} value={key}>{key}</option>);
-      categories.push(option);
-      i++;
+  handleSelection =ev => {
+    let userSelection = ev.target.value;
+    let services = this.context.services;
+    this.setState({
+      category: null
+    })
+
+    let matchingServices = [];
+    for (let i = 0; i < services.length; i++) {
+      if (userSelection == services[i].fk_category_id) {
+        matchingServices.push(services[i]);
+      }
     }
-    return categories;
-  };
+    let serviceOptions = this.generateServiceSelection(matchingServices);
+    this.setState({
+      error: null,
+      selection: userSelection,
+      services: serviceOptions
+    });
+  }
+
+  handleCategory =ev => {
+    let userSelection = ev.target.value;
+    this.setState({
+      error: null,
+      category: userSelection,
+    });
+  }
+
+  generateServiceSelection(arr) {
+    let services = [];
+     for (let i = 0; i < arr.length; i++) {
+       let option = (<option key={i} value={arr[i].id}>{arr[i].skill_name}</option>);
+       services.push(option);
+     }
+     return services;
+   };
 
  
 
 
   render() {
     const { error } = this.state;
-    const primaryCategories = this.generateCategorySelection(STORE.CATEGORIES);
-    const categoryList = primaryCategories.map(category => {
-      return (
-        category
-      )
-    });
-
-    const primaryServices = this.state.selection ? STORE.CATEGORIES[this.state.selection] : [];
-
-    const servicesList = primaryServices.map((category, i) => {
-      return (
-        <option key={i} value={category}>{category}</option>
-      );
+    let categories = this.context.categories ? this.context.categories : [];
+    const categoryList = categories.map(category => {
+      return (<option key={category.id} value={category.id}>{category.category_name}</option>)
     })
+    const primaryServices = this.state.services ? this.state.services : [];
+
     return (
       <form
         className='ServiceSeekForm'
+        onChange={this.handleSubmit}
       >
         <div className='form-div' role='alert'>
           {error && <p className='error'>{error}</p>}
@@ -74,8 +96,10 @@ export class ServiceSeek extends Component {
               name="categories" 
               id="primary-category-selection-seekForm" 
               form="ServiceSeekForm"
-              onChange={this.handleSubmit}
+              onChange={this.handleSelection}
+
               >
+              <option value=''>------SELECT------</option>
               {categoryList}
             </select>
           </Label>
@@ -88,8 +112,11 @@ export class ServiceSeek extends Component {
             <select
               name="services"
               id="service-category-selection-seekForm"
-              form="ServiceOfferForm">
-              {servicesList}
+              form="ServiceOfferForm"
+              onChange={this.handleCategory}
+              >
+              <option value=''>------SELECT------</option>
+              {primaryServices}
             </select>
           </div>
         </div>
