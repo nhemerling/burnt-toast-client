@@ -23,11 +23,11 @@ export class ServiceSeek extends Component {
       user_skill_type: 'SEEKER',
       skill_id: this.state.category,
     };
-    // BurntToastService.postProfileService(service)
-    // .then(res => console.log(res))
-    // .catch(res => {
-    //   this.setState({ error: res.error });
-    // });
+    BurntToastService.postProfileService(service)
+    .then(res => console.log(res))
+    .catch(res => {
+      this.setState({ error: res.error });
+    });
   };
 
   handleSelection =ev => {
