@@ -5,8 +5,9 @@
 }
 
 #search > label, input {
-  padding: 2px;
+  padding: 5px;
   font-size: 1.1em;
+  border-radius: 10px;
 }
 
 label {
@@ -28,8 +29,18 @@ label {
   color: #777777;
 }
 
+select {
+  width:90%;
+  padding:5px;
+  border-radius:10px;
+  background-color:#b0bcf299;
+  text-align: center;
+  font-family: Tahoma;
+}
+
+
 .search-button {
-  background-color: #273b7a;
+  background-color: #4e2bc1;
   border: none;
   border-radius: 50px;
   font-size: 1.2em;

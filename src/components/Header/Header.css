@@ -17,8 +17,8 @@
 #logo > img {
   max-width: 50px;
 }
-#username-and-menu {
- 
+#username {
+  color: #f8f8ff;
 }
 .menu-group {
   display: flex;

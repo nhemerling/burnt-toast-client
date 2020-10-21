@@ -1,9 +1,4 @@
-select {
-  width:90%;
-  padding:5px;
-  border-radius:10px;
-  font-family: Tahoma;
-}
+
 
 .ServiceOfferForm, .ServiceSeekForm, .PersonalizeProfileForm {
   padding: 20px 10px;
