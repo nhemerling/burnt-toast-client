@@ -18,3 +18,7 @@
   box-shadow: 5px 5px 5px #48386c;
   min-width: 190px;
 }
+
+.login-redirect{
+  color: #d58c04;
+}

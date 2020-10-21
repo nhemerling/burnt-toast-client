@@ -74,7 +74,7 @@ class LandingForm extends Component {
           <br/>
           <br/>
           {' '}
-          <Link to='/login'>Already have an account?</Link>
+          <Link to='/login' className='login-redirect'>Already have an account?</Link>
         </footer>
       </form>
     );
