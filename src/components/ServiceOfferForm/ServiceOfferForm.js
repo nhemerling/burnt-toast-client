@@ -13,7 +13,6 @@ class LoginForm extends Component {
 
   state = {
     error: null,
-    generateSecondaryCatergories: () => { },
     selection: null,
     category: null,
     services: []
