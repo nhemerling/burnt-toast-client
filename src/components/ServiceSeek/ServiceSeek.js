@@ -82,7 +82,7 @@ export class ServiceSeek extends Component {
     return (
       <form
         className='ServiceSeekForm'
-        onChange={this.handleSubmit}
+        onSubmit={this.handleSubmit}
       >
         <div className='form-div' role='alert'>
           {error && <p className='error'>{error}</p>}
