@@ -95,6 +95,9 @@
   background-color: white;
   transition-duration: 200ms;
 }
+#username{
+  font-size: 2em;
+}
 
 
 
