@@ -23,6 +23,7 @@ class LoginForm extends Component {
     ev.preventDefault();
 
     let service = {
+      user_skill_type: 'PROVIDER',
       skill_id: this.state.category,
       skill_desc: ev.target['service-title-input'].value
     };
