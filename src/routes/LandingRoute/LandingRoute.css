@@ -1,3 +1,6 @@
+.LandingPage-hero {
+  margin-bottom: 50px;
+}
 .LandingPage-hero > h1 {
   font-size: 2em;
   font-weight: 600;
@@ -5,16 +8,22 @@
   margin-left: 20px;
 }
 
-.LandingPage-hero > p {
+.hero-content-paragraphs {
   max-width: 80%;
+  margin: 20px auto;
+}
+.hero-content-paragraphs > p {
   margin: 10px auto;
 }
 
 .LandingPage-hero > a {
-  border: 2px solid black;
-  margin: 15px ;
-  padding: 5px 10px;
   background-color: #4e2bc1;
+  color: whitesmoke;
+  border-radius: 50px;
+  box-shadow: 5px 5px 5px #48386c;
+  font-size: 1.4em;
+  padding: 10px 15px;
+  /* min-width: 190px; */
 }
 
 .hero-image {
@@ -22,7 +31,7 @@
 }
 
 .periwinkle {
-  background-color: hsla(229, 72%, 82%, 0.6);
+  background-color: hsla(229, 50%, 76%, 0.6);
   border-radius: 0 10px 10px 0;
   max-width: 70%;
   padding: 20px;
@@ -37,3 +46,53 @@
   margin: 20px 0;
 }
 
+.how-it-works-img {
+  max-width: 120px;
+  margin: 10px auto;
+}
+.LandingPage-how-it-works > p {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.LandingPage-register {
+  padding: 10px 10px 30px 10px;
+}
+
+.register-img {
+  max-width: 250px;
+}
+
+
+@media all and (min-width: 540px) {
+  .hero-content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .LandingPage-hero > h1 {
+    font-size: 4em;
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  .hero-content-paragraphs {
+    max-width: 80%;
+    margin-left: 60px;
+    margin-right: 60px;
+  }
+
+  .hero-content-paragraphs > p {
+    max-width: 300px;
+    margin: 20px 0;
+  }
+  
+  .periwinkle {
+    text-align: center;
+  }
+
+  .how-it-works-img {
+    max-width: 200px;
+    margin: 40px 0;
+  }
+}

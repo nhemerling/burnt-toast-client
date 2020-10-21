@@ -1,17 +1,14 @@
-select {
-  width:90%;
-  padding:5px;
-  border-radius:10px;
-  font-family: Tahoma;
+.ServiceOfferForm, .ServiceSeekForm, .PersonalizeProfileForm {
+  padding: 0 0 20px 0 ;
+  color: black;
+  border-radius: 5px;
+  border-bottom: 2px solid #B0BCF2;
 }
 
-.ServiceOfferForm, .ServiceSeekForm, .PersonalizeProfileForm {
-  padding: 20px 10px;
-  color: black;
-  background-color: #aebaf2;
-  margin: 25px 20px;
-  border-radius: 5px;
-  box-shadow: 5px 10px 10px #29387e;
+.ServiceOfferForm > h3, .ServiceSeekForm > h3, .PersonalizeProfileForm > h3{
+  border-top: 2px solid #B0BCF2;
+  border-bottom: 2px solid #B0BCF2;
+  padding: 10px 0;
 }
 
 .add-service-button {
@@ -22,4 +19,24 @@ select {
   color: whitesmoke;
   box-shadow: 5px 5px 5px #6b5898;
   min-width: 190px;
+}
+
+.manage-profile-img {
+  max-width: 50%;
+}
+
+@media all and (min-width: 540px) {
+  .ServiceOfferForm, .ServiceSeekForm, .PersonalizeProfileForm {
+   max-width: 80%;
+   margin: 0 auto 30px auto;
+   border: 2px solid #B0BCF2;
+   box-shadow: 5px 5px 5px #9ea9d7;
+  }
+
+  .ServiceOfferForm > h3, .ServiceSeekForm > h3, .PersonalizeProfileForm > h3{
+    border-top: none;
+    border-bottom: 2px solid #B0BCF2;
+    padding: 10px 20px;
+    text-align: left;
+  }
 }

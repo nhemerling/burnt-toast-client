@@ -18,3 +18,7 @@ code {
 a{
   color: whitesmoke;
 }
+
+.hide {
+  display: none;
+}
