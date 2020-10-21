@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import LandingForm from '../../components/LandingForm/LandingForm';
-import HeroImg from '../../images/hero.png'
+import HeroImg from '../../images/LandingPage/hero.png';
+import PostImg from '../../images/LandingPage/forms.png';
+import SearchImg from '../../images/LandingPage/searchPosts.png';
+import ChatImg from '../../images/LandingPage/chat.png';
+import SwapImg from '../../images/LandingPage/swap.png';
+import SignupImg from '../../images/LandingPage/signup.png';
 import './LandingRoute.css'
 class LandingRoute extends Component {
   static defaultProps = {
@@ -23,7 +28,8 @@ class LandingRoute extends Component {
           <h1>Burnt Toast</h1>
           <img src={HeroImg} className='hero-image'></img>
           <p>Helping users barter services transparently.</p>
-          <p>Post what you can provide or what service you seek and get connected..</p>
+          <p>Post what you can provide or what service you seek and get connected...</p>
+          <p>No currency exchanged! Only the knowledge and the passion for your craft &#59;&#41;. </p>
           {/* TODO: make a button?  */}
           <br/>
           <a href="#register-Form" className='signUp-focus'>
@@ -38,18 +44,30 @@ class LandingRoute extends Component {
         </section>
         <section className="LandingPage-how-it-works">
           <h2>How It Works</h2>
-          <p>This is where our copy goes.</p>
-          <p>Screenshots as well here.</p>
-        </section>
-        <section className="LandingPage-why">
-          <h2 className='periwinkle'>Why Use Burnt Toast?</h2>
-          <p>This is where our copy goes.</p>
+          <img src={PostImg} className='how-it-works-img'></img>
+          <p>1. Make a post! </p> 
+          <p>Are you offering up your awesome painting skills? Seeking someone who knows Web Design? </p>
+          <img src={SearchImg} className='how-it-works-img'></img>
+          <p>2. Search your local postings! </p>
+
+          <img src={ChatImg} className='how-it-works-img'></img>
+          <p>3. If you find a match... chat it up!</p>
+
+          <img src={SwapImg} className='how-it-works-img'></img>
+          <p>4. Swap services. Repeat.</p>
         </section>
         <section className="LandingPage-register">
-          <h2>Sign up</h2>
+          <h2>Join the Toasty Community!</h2>
+          <img src={SignupImg} className='register-img'></img>
+          <br/>
+
           <LandingForm
             onRegistrationSuccess={this.handleRegistrationSuccess}
             />
+        </section>
+        <section className="LandingPage-why">
+          <h2 className='periwinkle'>Still Not Convinced?</h2>
+          <p>Read some reviews of our satisfied users</p>
         </section>
       </div>
     );

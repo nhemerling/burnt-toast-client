@@ -8,6 +8,8 @@
   background-color: hsl(229, 72%, 82%, .6);
   border: none;
   border-bottom: 2px #b0bcf299 solid;
+  border-radius: 15px;
+  padding: 5px 10px;
   margin-bottom: 15px;
   color: #1b1b1b;
   font-size: 1.5em;
@@ -31,17 +33,17 @@ input:-webkit-autofill:active  {
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: #545973;
+  color: #959595;
 }
 
 ::-moz-placeholder { /* Firefox 19+ */
-  color: #545973;
+  color: #959595;
 }
 :-ms-input-placeholder { /* IE 10+ */
-  color: #545973;
+  color: #959595;
 }
 :-moz-placeholder { /* Firefox 18- */
-  color: #545973;
+  color: #959595;
 }
 
 

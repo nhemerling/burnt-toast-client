@@ -1,3 +1,6 @@
+.LandingPage-hero {
+  margin-bottom: 50px;
+}
 .LandingPage-hero > h1 {
   font-size: 2em;
   font-weight: 600;
@@ -11,10 +14,13 @@
 }
 
 .LandingPage-hero > a {
-  border: 2px solid black;
-  margin: 15px ;
-  padding: 5px 10px;
   background-color: #4e2bc1;
+  color: whitesmoke;
+  border-radius: 50px;
+  box-shadow: 5px 5px 5px #48386c;
+  font-size: 1.4em;
+  padding: 10px 15px;
+  /* min-width: 190px; */
 }
 
 .hero-image {
@@ -37,3 +43,15 @@
   margin: 20px 0;
 }
 
+.how-it-works-img {
+  max-width: 120px;
+  margin: 10px auto;
+}
+.LandingPage-how-it-works > p {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.register-img {
+  max-width: 250px;
+}
