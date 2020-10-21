@@ -1,18 +1,27 @@
-#registration-username-input {
-  background-color: #4361EE;
+#registration-username-input,
+#registration-fullname-input,
+#registration-email-input,
+#registration-zipcode-input {
+  background-color: hsl(229, 72%, 82%, .6);
   border: none;
-  border-bottom: 2px whitesmoke solid;
+  border-bottom: 2px #b0bcf299 solid;
+  border-radius: 15px;
+  padding: 5px 10px;
   margin-bottom: 15px;
   color: whitesmoke;
   font-size: 1.5em;
 }
 
 .registration-button {
-  background-color: #273b7a;
+  background-color: #4e2bc1;
   border: none;
   border-radius: 50px;
   font-size: 1.2em;
   color: whitesmoke;
   box-shadow: 5px 5px 5px #48386c;
   min-width: 190px;
+}
+
+.login-redirect{
+  color: #d58c04;
 }

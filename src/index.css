@@ -5,8 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #4361EE;
-  color: whitesmoke;
+  background-color: #f8f8ff;
+  color: #1b1b1b;
   padding-bottom: 50px;
 }
 
@@ -17,4 +17,8 @@ code {
 
 a{
   color: whitesmoke;
+}
+
+.hide {
+  display: none;
 }

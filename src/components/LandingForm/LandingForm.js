@@ -16,16 +16,19 @@ class LandingForm extends Component {
 
   handleSubmit = ev => {
     ev.preventDefault();
-    const { name, username, password } = ev.target;
+    const { fullname, username, password, email, zipcode } = ev.target;
     AuthApiService.postUser({
-      name: name.value,
+      full_name: fullname.value,
       username: username.value,
       password: password.value,
+      email: email.value,
+      zip: zipcode.value,
     })
       .then(user => {
-        name.value = '';
-        username.value = '';
-        password.value = '';
+        // TODO: THESE VALUES ARE undefined AND CRASH PROGRAM. NEED TO SEE IF ANYTHING ELSE BREAKS BEFORE REMOVING THEM COMPLETELY
+        // name.value = '';
+        // username.value = '';
+        // password.value = '';
         this.props.onRegistrationSuccess();
       })
       .catch(res => {
@@ -42,6 +45,17 @@ class LandingForm extends Component {
       >
         <div className='form-div' role='alert'>
           {error && <p className='error'>{error}</p>}
+        </div>
+        <div className='form-div'>
+          <Label htmlFor='registration-fullname-input' className='hidden'>
+            Your full name<Required />
+          </Label>
+          <Input
+            id='registration-fullname-input'
+            name='fullname'
+            placeholder='fullname'
+            required
+          />
         </div>
         <div className='form-div'>
           <Label htmlFor='registration-username-input' className='hidden'>
@@ -66,6 +80,29 @@ class LandingForm extends Component {
             required
           />
         </div>
+        <div className='form-div'>
+          <Label htmlFor='registration-email-input' className='hidden'>
+            Your email<Required />
+          </Label>
+          <Input
+            id='registration-email-input'
+            name='email'
+            type='email'
+            placeholder='email'
+            required
+          />
+        </div>
+        <div className='form-div'>
+          <Label htmlFor='registration-zipcode-input' className='hidden'>
+            Your Zipcode (optional)
+          </Label>
+          <Input
+            id='registration-zipcode-input'
+            name='zipcode'
+            type='zipcode'
+            placeholder='zipcode'
+          />
+        </div>
         <footer>
           <Button type='submit' className='registration-button'>
             Sign up
@@ -73,7 +110,7 @@ class LandingForm extends Component {
           <br/>
           <br/>
           {' '}
-          <Link to='/login'>Already have an account?</Link>
+          <Link to='/login' className='login-redirect'>Already have an account?</Link>
         </footer>
       </form>
     );

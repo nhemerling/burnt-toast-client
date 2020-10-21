@@ -10,8 +10,8 @@ class LoginRoute extends Component {
   };
 
   handleLoginSuccess = () => {
-    const { location, history } = this.props;
-    const destination = (location.state || {}).from || '/search';
+    const { history } = this.props;
+    const destination = '/search';
     history.push(destination);
   };
 
@@ -19,7 +19,7 @@ class LoginRoute extends Component {
     return (
       <section>
         <h2 className='hidden'>Login</h2>
-        <LoginForm 
+        <LoginForm
           onLoginSuccess={this.handleLoginSuccess}
         />
       </section>

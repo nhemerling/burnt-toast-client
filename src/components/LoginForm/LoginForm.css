@@ -1,15 +1,17 @@
 .login-Icon{
-  max-width: 70px;
+  max-width: 100px;
   margin-top: 30px;
   margin-bottom: 30px;
 }
 
 .register-Form, .LoginForm input[type=text] , input[type=password] {
-  background-color: #4361EE;
+  background-color: hsl(229, 72%, 82%, .6);
   border: none;
-  border-bottom: 2px whitesmoke solid;
+  border-bottom: 2px #b0bcf299 solid;
+  border-radius: 15px;
+  padding: 5px 10px;
   margin-bottom: 15px;
-  color: whitesmoke;
+  color: #1b1b1b;
   font-size: 1.5em;
 }
 
@@ -27,28 +29,28 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
 input:-webkit-autofill:active  {
-  -webkit-box-shadow: 0 0 0 30px #4361EE inset !important;
+  -webkit-box-shadow: 0 0 0 30px #b0bcf2 inset !important;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: whitesmoke;
+  color: #959595;
 }
 
 ::-moz-placeholder { /* Firefox 19+ */
-  color: whitesmoke;
+  color: #959595;
 }
 :-ms-input-placeholder { /* IE 10+ */
-  color: whitesmoke;
+  color: #959595;
 }
 :-moz-placeholder { /* Firefox 18- */
-  color: whitesmoke;
+  color: #959595;
 }
 
 
 /* button styling  */
 
 .login-button{
-  background-color: #273b7a;
+  background-color: #4e2bc1;
   border: none;
   border-radius: 50px;
   font-size: 1.2em;

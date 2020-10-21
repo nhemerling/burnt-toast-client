@@ -65,7 +65,7 @@ export class ServiceSeek extends Component {
         <div className='form-div' role='alert'>
           {error && <p className='error'>{error}</p>}
         </div>
-        <h3>Service Seeking Form</h3>
+        <h3>Add New 'Seeking Service' Post</h3>
         <div className='ServiceSeek-form-div'>
           <div className='ServiceSeek-form-div'>
             <Label htmlFor='primary-category-selection-seekForm'>

@@ -23,6 +23,7 @@ class LoginForm extends Component {
     ev.preventDefault();
 
     let service = {
+      user_skill_type: 'PROVIDER',
       skill_id: this.state.category,
       skill_desc: ev.target['service-title-input'].value
     };
@@ -94,7 +95,7 @@ class LoginForm extends Component {
         <div className='form-div' role='alert'>
           {error && <p className='error'>{error}</p>}
         </div>
-        <h3>Service Offer Form</h3>
+        <h3>Add New 'Service Offer' Post</h3>
         <div className='ServiceOffer-form-div'>
           <div className='ServiceOffer-form-div'>
             <Label htmlFor='primary-category-selection'>

@@ -9,3 +9,14 @@
 textarea {
   width: 80%;
 }
+
+
+.add-userBio-button {
+  background-color: #4e2bc1;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2em;
+  color: whitesmoke;
+  box-shadow: 5px 5px 5px #6b5898;
+  min-width: 190px;
+}

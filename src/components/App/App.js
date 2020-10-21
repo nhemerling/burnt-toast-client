@@ -15,6 +15,11 @@ import './App.css';
 import BurntToastContext from '../../contexts/BurntToastContext';
 
 export default class App extends Component {
+  static defaultProps = {
+    categories: [],
+    services: [],
+  }
+
   state = {
     hasError: false,
     categories: [],
@@ -69,8 +74,9 @@ export default class App extends Component {
                 exact
                 path={'/'}
                 component={LandingRoute}
-                />
+              />
               <PublicOnlyRoute
+                exact
                 path={'/login'}
                 component={LoginRoute}
                 />
@@ -94,7 +100,7 @@ export default class App extends Component {
                 />
               <Route
                 component={NotFoundRoute}
-                />
+              />
             </Switch>
           </main>
         </BurntToastContext.Provider>
