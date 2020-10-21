@@ -16,11 +16,13 @@ class LandingForm extends Component {
 
   handleSubmit = ev => {
     ev.preventDefault();
-    const { name, username, password } = ev.target;
+    const { fullname, username, password, email, zipcode } = ev.target;
     AuthApiService.postUser({
-      name: name.value,
+      full_name: fullname.value,
       username: username.value,
       password: password.value,
+      email: email.value,
+      zip: zipcode.value,
     })
       .then(user => {
         // TODO: THESE VALUES ARE undefined AND CRASH PROGRAM. NEED TO SEE IF ANYTHING ELSE BREAKS BEFORE REMOVING THEM COMPLETELY
@@ -45,6 +47,17 @@ class LandingForm extends Component {
           {error && <p className='error'>{error}</p>}
         </div>
         <div className='form-div'>
+          <Label htmlFor='registration-fullname-input' className='hidden'>
+            Your full name<Required />
+          </Label>
+          <Input
+            id='registration-fullname-input'
+            name='fullname'
+            placeholder='fullname'
+            required
+          />
+        </div>
+        <div className='form-div'>
           <Label htmlFor='registration-username-input' className='hidden'>
             Choose a username<Required />
           </Label>
@@ -65,6 +78,29 @@ class LandingForm extends Component {
             type='password'
             placeholder='password'
             required
+          />
+        </div>
+        <div className='form-div'>
+          <Label htmlFor='registration-email-input' className='hidden'>
+            Your email<Required />
+          </Label>
+          <Input
+            id='registration-email-input'
+            name='email'
+            type='email'
+            placeholder='email'
+            required
+          />
+        </div>
+        <div className='form-div'>
+          <Label htmlFor='registration-zipcode-input' className='hidden'>
+            Your Zipcode (optional)
+          </Label>
+          <Input
+            id='registration-zipcode-input'
+            name='zipcode'
+            type='zipcode'
+            placeholder='zipcode'
           />
         </div>
         <footer>

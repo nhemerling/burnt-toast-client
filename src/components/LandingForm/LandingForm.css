@@ -1,4 +1,7 @@
-#registration-username-input {
+#registration-username-input,
+#registration-fullname-input,
+#registration-email-input,
+#registration-zipcode-input {
   background-color: hsl(229, 72%, 82%, .6);
   border: none;
   border-bottom: 2px #b0bcf299 solid;
