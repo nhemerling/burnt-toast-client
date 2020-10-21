@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Header from '../Header/Header';
-// import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute';
 import LandingRoute from '../../routes/LandingRoute/LandingRoute';
 import LoginRoute from '../../routes/LoginRoute/LoginRoute';
+import Chat from '../ChatMessage/Chat'
 import SearchRoute from '../../routes/SearchRoute/SearchRoute';
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute';
 import EditProfile from '../../routes/EditProfileRoute/EditProfileRoute';
@@ -73,19 +74,24 @@ export default class App extends Component {
                 path={'/login'}
                 component={LoginRoute}
                 />
-              <Route
+              <PrivateRoute
                 exact
                 path={'/profiles/:profile_id'}
                 component={EditProfile}
                 />
-              <Route
+              <PrivateRoute
                 path={'/profiles/:profile_id/services'}
                 component={UserServices}
                 />
-              <Route
+              <PrivateRoute
                 path={'/search'}
                 component={SearchRoute}
               />
+              <PrivateRoute
+                exact
+                path={'/chat'}
+                component={Chat}
+                />
               <Route
                 component={NotFoundRoute}
                 />

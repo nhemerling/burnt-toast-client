@@ -13,13 +13,7 @@ export class PersonalizeProfileForm extends Component {
   handleSubmit = ev => {
     ev.preventDefault();
     const { } = ev.target;
-
     this.setState({ error: null });
-
-
-      // .catch(res => {
-      //   this.setState({ error: res.error });
-      // });
   };
 
 
