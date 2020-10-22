@@ -48,3 +48,16 @@ select {
   box-shadow: 5px 5px 5px #48386c;
   min-width: 190px;
 }
+@media all and (min-device-width: 800px){
+  .SearchRoute-services-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  .SearchRoute-services-list li {
+    margin: 0 auto;
+  }
+}

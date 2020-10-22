@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import '../../components/ServiceCard/ServiceCard.css';
-// import ServiceHolder from '../../images/service-placeholder.png';
 import BurntToastService from '../../services/burnt-toast-api-service';
 import ServiceCard from '../../components/ServiceCard/ServiceCard';
+import './UserServiceRoute.css'
 
 export class ServiceCardRoute extends Component {
   static defaultProps = {
@@ -21,9 +21,6 @@ export class ServiceCardRoute extends Component {
 
   componentDidMount() {
     let currentUserId = this.props.match.params.profile_id;
-
-    // this.setState({user: BurntToastService.getProfile(this.props.match.params.profile_id).then(res => res)});
-    // this.setState({userServices: BurntToastService.getProfileServices(this.props.match.params.profile_id).then(res => res)});
     BurntToastService.getProfile(currentUserId).then(res => {
       this.setState({user: res, userId: currentUserId});
     });
@@ -33,37 +30,34 @@ export class ServiceCardRoute extends Component {
   }
 
   render() {
-    const services = this.state.userServices;
-    console.log(services);
-
     const serviceList = this.state.userServices.map((service, i) => {
-      console.log(service);
       return (
-        <div key={i} className='service'>
+        
           <ServiceCard
+            key={i}
             image={service.primary_img_url}
             service={service.skill_name}
             category={service.category_name}
             description={service.primary_description}
           />
-        </div>
       )
     })
-
-    console.log(this.state.user);
-    console.log(this.state.userId);
-    console.log(this.state.userServices);
-
     if (this.state.user) {
-      return (<div>
+      return (
+      <>
       <h2>{this.state.user.full_name}'s Profile</h2>
-      <section className='user-info-section' style={{ border: '2px solid black', width: '80%', margin: 'auto' }}>
-        <img style={{ maxWidth: 60 }} src={this.state.user.profile_img_url} alt='user profile picture' className='user-profile-photo'></img>
-        <p>{this.state.user.profile_desc}</p>
+      <section className='profile-info'>
+        <img src={this.state.user.profile_img_url} alt='user profile picture' className='user-profile-photo'></img>
+        <div>
+          <p>{this.state.user.profile_desc}</p>
+          <button type='submit'>Contact</button>
+        </div>
       </section>
-
-      {serviceList}
-    </div>);
+      <div className='service-card-list'>
+        {serviceList}
+      </div>
+    </>
+    );
     } else {
       return <h1>YOU DONE EFFED UP</h1>;
     }
