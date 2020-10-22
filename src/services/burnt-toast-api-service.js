@@ -71,6 +71,18 @@ const BurntToastService = {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
+  updateProfile(userbio) {
+    return fetch(`${config.API_ENDPOINT}/profiles`, {
+      method: 'PATCH',
+      headers: {
+        authorization: `Bearer ${TokenService.getAuthToken()}`,
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(userbio),
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
+  },
 
   getSearchServices(serviceId, searchTerm, searchType, zipcode) {
     return fetch(`${config.API_ENDPOINT}/user_skills/skills/${serviceId}?q=${searchTerm}&t=${searchType}&z=${zipcode}`, {
