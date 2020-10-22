@@ -23,6 +23,10 @@ export class EditProfileRoute extends Component {
     deleteClicked: false
   }
 
+  state = {
+    userServices: []
+  }
+
   static contextType = BurntToastContext;
 
   componentDidMount() {
