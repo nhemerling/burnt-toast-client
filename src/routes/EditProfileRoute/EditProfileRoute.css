@@ -1,3 +1,14 @@
+.success, .error {
+  margin-top: 15px;
+}
+
+.error { 
+  color: rgb(210, 70, 70);
+}
+.success {
+  color: #4862d7;
+}
+
 .ServiceOfferForm, .ServiceSeekForm, .PersonalizeProfileForm {
   padding: 0 0 20px 0 ;
   color: black;
@@ -27,7 +38,7 @@
 
 @media all and (min-width: 540px) {
   .ServiceOfferForm, .ServiceSeekForm, .PersonalizeProfileForm {
-   max-width: 80%;
+   max-width: 60%;
    margin: 0 auto 30px auto;
    border: 2px solid #B0BCF2;
    box-shadow: 5px 5px 5px #9ea9d7;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Input, Textarea, Label } from '../Form/Form';
 import UserContext from '../../contexts/UserContext';
+import BurntToastService from '../../services/burnt-toast-api-service';
 import Button from '../Button/Button';
 import './PersonalizeProfileForm.css';
 
@@ -8,44 +9,59 @@ import './PersonalizeProfileForm.css';
 export class PersonalizeProfileForm extends Component {
   static contextType = UserContext;
 
-  state = { error: null };
+  state = { 
+    success: null,
+    error: null 
+  };
 
   handleSubmit = ev => {
     ev.preventDefault();
-    const { } = ev.target;
+    console.log('this works')
 
-    this.setState({ error: null });
+    this.setState({
+      error: null
+    })
+
+    let userbio = {
+      profile_desc: ev.target.bio.value
+    };
 
 
-      // .catch(res => {
-      //   this.setState({ error: res.error });
-      // });
+    BurntToastService.updateProfile(userbio)
+    .then(res => {
+      this.setState({
+        success: "Updated Bio Successfully"
+      })
+
+      setTimeout(() => {
+        this.setState({
+          success: false
+        })
+      }, 4000)
+    })
+      .catch(res => {
+       this.setState({ error: res.error });
+      });
   };
 
 
   render() {
-    const { error } = this.state;
+    const { error, success} = this.state;
 
     return (
       <form
         className='PersonalizeProfileForm'
         onSubmit={this.handleSubmit}
       >
-        <div className='form-div' role='alert'>
+          <div className='form-div' role='alert'>
           {error && <p className='error'>{error}</p>}
+          {success && <p className='success'>{success}</p>}
         </div>
         <h3>Personalize Profile Form</h3>
         <div className='PersonalizeProfile-form-div'>
-        <Label htmlFor="user-photo-Upload">Upload a picture:</Label>
-        <Input type="file" id="user-photo-Upload" name="filename"/>
-        <Button type='submit' className='add-userPhoto-button'>
-          Add Photo
-        </Button>
-        </div>
-        <div className='PersonalizeProfile-form-div'>
         <Label htmlFor="user-bio">Your Bio:</Label>
         <br/>
-        <Textarea id="user-bio" name="w3review" rows="4" cols="50" defaultValue='(optional)'>
+        <Textarea id="user-bio" name="bio" rows="4" cols="50" placeholder='(optional)' maxLength='300'>
         </Textarea>
         <Button type='submit' className='add-userBio-button'>
           Add Bio

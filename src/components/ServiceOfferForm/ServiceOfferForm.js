@@ -12,6 +12,7 @@ class LoginForm extends Component {
   static contextType = BurntToastContext;
 
   state = {
+    success: null,
     error: null,
     selection: null,
     category: null,
@@ -28,7 +29,17 @@ class LoginForm extends Component {
     };
 
     BurntToastService.postProfileService(service)
-    .then(res => console.log(res))
+    .then(res => {
+      this.setState({
+        success: "Added 'Service Offer' Successfully"
+      })
+
+      setTimeout(() => {
+        this.setState({
+          success: false
+        })
+      }, 4000)
+    })
     .catch(res => {
       this.setState({ error: res.error });
     });
@@ -77,13 +88,11 @@ class LoginForm extends Component {
 
 
   render() {
+    const { error, success} = this.state;
     let categories = this.context.categories ? this.context.categories : [];
     const categoryList = categories.map(category => {
       return (<option key={category.id} value={category.id}>{category.category_name}</option>)
     })
-    const { error } = this.state;
-
-
     const primaryServices = this.state.services ? this.state.services : [];
 
     return (
@@ -93,6 +102,7 @@ class LoginForm extends Component {
       >
         <div className='form-div' role='alert'>
           {error && <p className='error'>{error}</p>}
+          {success && <p className='success'>{success}</p>}
         </div>
         <h3>Add New 'Service Offer' Post</h3>
         <div className='ServiceOffer-form-div'>
