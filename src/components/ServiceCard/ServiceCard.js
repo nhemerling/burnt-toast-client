@@ -11,9 +11,10 @@ import ServiceHolder from '../../images/service-placeholder.png';
 // description={service.primary_description}
 
 class ServiceCard extends Component {
+
   render() {
     return(
-        <div className="ServiceCard" >
+        <div className="service-card" >
           {this.props.image && <img src={this.props.image} alt="service provided image" className='service-img'/>}
           {this.props.service && <h3>{this.props.service}</h3>}
           {this.props.category && <h4>{this.props.category}</h4>}
