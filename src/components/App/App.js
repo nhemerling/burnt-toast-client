@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Header from '../Header/Header';
-// import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute';
 import LandingRoute from '../../routes/LandingRoute/LandingRoute';
 import LoginRoute from '../../routes/LoginRoute/LoginRoute';
@@ -12,11 +12,13 @@ import UserServices from '../../routes/UserServiceRoute/UserServiceRoute';
 import BurntToastService from '../../services/burnt-toast-api-service';
 import './App.css';
 import BurntToastContext from '../../contexts/BurntToastContext';
+import TokenService from '../../services/token-service';
 
 export default class App extends Component {
   static defaultProps = {
     categories: [],
     services: [],
+    hasToken: TokenService.hasAuthToken(),
   }
 
   state = {
@@ -79,17 +81,17 @@ export default class App extends Component {
                 path={'/login'}
                 component={LoginRoute}
               />
-              <Route
+              <PrivateRoute
                 exact
                 path={'/search'}
                 component={SearchRoute}
               />
-              <Route
+              <PrivateRoute
                 exact
                 path={'/profiles/:profile_id'}
                 component={EditProfile}
               />
-              <Route
+              <PrivateRoute
                 exact
                 path={'/profiles/:profile_id/services'}
                 component={UserServices}
