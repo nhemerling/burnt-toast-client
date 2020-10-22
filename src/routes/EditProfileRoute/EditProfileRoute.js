@@ -9,6 +9,12 @@ import ProfileEditImg from '../../images/profile-edit.png'
 import BurntToastContext from '../../contexts/BurntToastContext';
 
 export class EditProfileRoute extends Component {
+  static defaultProps = {
+    location: {},
+    history: {
+      push: () => { },
+    },
+  };
 
   state = {
     error: null,
@@ -57,10 +63,12 @@ export class EditProfileRoute extends Component {
   };
 
   handleDeleteConfirmation = () => {
+    const { history } = this.props;
+    const destination = '/';
     BurntToastService.deleteProfile()
     .then(res => 
       // will need to log out and send to home
-      console.log('deleted')
+      history.push(destination)
     )
     .catch(res => {
     this.setState({ error: res.error });
