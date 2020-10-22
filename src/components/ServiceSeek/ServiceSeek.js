@@ -8,6 +8,7 @@ import './ServiceSeek.css'
 export class ServiceSeek extends Component {
   
   state = {
+    success: null,
     error: null,
     selection: null,
     category: null,
@@ -18,13 +19,22 @@ export class ServiceSeek extends Component {
   
   handleSubmit = ev => {
     ev.preventDefault();
-    console.log('this is working')
     let service = {
       user_skill_type: 'SEEKER',
       skill_id: this.state.category,
     };
     BurntToastService.postProfileService(service)
-    .then(res => console.log(res))
+    .then(res => {
+      this.setState({
+        success: "Added 'Service Seek' Successfully"
+      })
+
+      setTimeout(() => {
+        this.setState({
+          success: false
+        })
+      }, 4000)
+    })
     .catch(res => {
       this.setState({ error: res.error });
     });
@@ -72,7 +82,7 @@ export class ServiceSeek extends Component {
 
 
   render() {
-    const { error } = this.state;
+    const { error, success} = this.state;
     let categories = this.context.categories ? this.context.categories : [];
     const categoryList = categories.map(category => {
       return (<option key={category.id} value={category.id}>{category.category_name}</option>)
@@ -86,6 +96,7 @@ export class ServiceSeek extends Component {
       >
         <div className='form-div' role='alert'>
           {error && <p className='error'>{error}</p>}
+          {success && <p className='success'>{success}</p>}
         </div>
         <h3>Add New 'Seeking Service' Post</h3>
         <div className='ServiceSeek-form-div'>
