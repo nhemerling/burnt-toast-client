@@ -11,6 +11,7 @@ import BurntToastContext from '../../contexts/BurntToastContext';
 export class EditProfileRoute extends Component {
 
   state = {
+    error: null,
     provided: [],
     seeking: [],
     deleteClicked: false
@@ -40,17 +41,33 @@ export class EditProfileRoute extends Component {
     });
   }
 
-  handleDeleteClick = () => {
+  handleServiceDelete = (ev) => {
+    ev.preventDefault();
+    this.setState({error: null})
+    BurntToastService.deleteProfileService(ev.target.value)
+      .catch(res => {
+        this.setState({ error: res.error });
+      });
+  };
+
+  handleProfileDelete = () => {
     this.setState({
       deleteClicked: true
     });
   };
 
   handleDeleteConfirmation = () => {
-
+    BurntToastService.deleteProfile()
+    .then(res => 
+      // will need to log out and send to home
+      console.log('deleted')
+    )
+    .catch(res => {
+    this.setState({ error: res.error });
+     });
   };
 
-  handleKeepAccountClick = () => {
+  handleKeepAccount = () => {
     this.setState({
       deleteClicked: false
     })
@@ -58,13 +75,13 @@ export class EditProfileRoute extends Component {
 
   renderDeleteConfirmation = () => {
     return (
-    <div className='delete-confirmation'>
-      <p>You will not be able to recover your profile after deleting.</p>
-      <p style={{fontWeight:'bold'}}>PLEASE CONFIRM YOUR DELETE REQUEST</p>
-      <Button type='button' className='delete-button-keep' onClick={this.handleKeepAccountClick}>Keep account</Button>
-      <br/>
-      <Button type='button' className='delete-button' onClick={this.handleDeleteConfirmation}>Confirm Delete</Button>
-    </div>
+      <div className='delete-confirmation'>
+        <p>You will not be able to recover your profile after deleting.</p>
+        <p style={{ fontWeight: 'bold' }}>PLEASE CONFIRM YOUR DELETE REQUEST</p>
+        <Button type='button' className='delete-button-keep' onClick={this.handleKeepAccount}>Keep account</Button>
+        <br />
+        <Button type='button' className='delete-button' onClick={this.handleDeleteConfirmation}>Confirm Delete</Button>
+      </div>
     );
   };
 
@@ -78,7 +95,7 @@ export class EditProfileRoute extends Component {
           <h3>{offer.skill_name}</h3>
           <p>{offer.primary_description}</p>
         </div>
-        <Button type='button' className='delete-service-item'>remove</Button>
+        <Button type='button' className='delete-service-item' value={offer.id} onClick={this.handleServiceDelete}>remove</Button>
       </div>))
 
     let seeks = serviceSeek.map((seek, i) => (
@@ -86,12 +103,12 @@ export class EditProfileRoute extends Component {
         <div>
           <h3>{seek.skill_name}</h3>
         </div>
-        <Button type='button' className='delete-service-item'>remove</Button>
+        <Button type='button' className='delete-service-item' value={seek.id} onClick={this.handleServiceDelete}>remove</Button>
       </div>))
 
-    let deleteButton = this.state.deleteClicked 
-      ? this.renderDeleteConfirmation() 
-      : (<Button type='button' className='delete-button' onClick={this.handleDeleteClick}> Delete Profile </Button>);
+    let deleteButton = this.state.deleteClicked
+      ? this.renderDeleteConfirmation()
+      : (<Button type='button' className='delete-button' onClick={this.handleProfileDelete}> Delete Profile </Button>);
 
     return (
       <div>

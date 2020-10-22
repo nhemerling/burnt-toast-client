@@ -49,6 +49,17 @@ const BurntToastService = {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
+  deleteProfileService(serviceId) {
+    return fetch(`${config.API_ENDPOINT}/user_skills/${serviceId}`, {
+      method: 'DELETE',
+      headers: {
+        authorization: `Bearer ${TokenService.getAuthToken()}`,
+        'content-type': 'application/json',
+      }
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
+  },
 
   getAllCategories() {
     return fetch(`${config.API_ENDPOINT}/categories`, {
@@ -83,7 +94,17 @@ const BurntToastService = {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
-
+  deleteProfile() {
+    return fetch(`${config.API_ENDPOINT}/users`, {
+      method: 'DELETE',
+      headers: {
+        authorization: `Bearer ${TokenService.getAuthToken()}`,
+        'content-type': 'application/json',
+      }
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
+  },
   getSearchServices(serviceId, searchTerm, searchType, zipcode) {
     return fetch(`${config.API_ENDPOINT}/user_skills/skills/${serviceId}?q=${searchTerm}&t=${searchType}&z=${zipcode}`, {
       method: 'GET',
