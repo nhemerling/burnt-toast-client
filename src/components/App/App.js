@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Header from '../Header/Header';
-// import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute';
 import LandingRoute from '../../routes/LandingRoute/LandingRoute';
 import LoginRoute from '../../routes/LoginRoute/LoginRoute';
@@ -81,17 +81,17 @@ export default class App extends Component {
                 path={'/login'}
                 component={LoginRoute}
               />
-              <Route
+              <PrivateRoute
                 exact
                 path={'/search'}
-                component={this.state.hasToken ? SearchRoute : LoginRoute}
+                component={SearchRoute}
               />
-              <Route
+              <PrivateRoute
                 exact
                 path={'/profiles/:profile_id'}
                 component={EditProfile}
               />
-              <Route
+              <PrivateRoute
                 exact
                 path={'/profiles/:profile_id/services'}
                 component={UserServices}

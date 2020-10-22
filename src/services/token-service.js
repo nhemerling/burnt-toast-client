@@ -2,7 +2,7 @@ import jwtDecode from 'jwt-decode'
 import config from '../config'
 
 let _timeoutId
-const _THREE_HOURS_IN_MS = 108 // 00000;
+const _THREE_HOURS_IN_MS = 10800000;
 
 const TokenService = {
   saveAuthToken(token) {
