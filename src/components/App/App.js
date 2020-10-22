@@ -12,11 +12,13 @@ import UserServices from '../../routes/UserServiceRoute/UserServiceRoute';
 import BurntToastService from '../../services/burnt-toast-api-service';
 import './App.css';
 import BurntToastContext from '../../contexts/BurntToastContext';
+import TokenService from '../../services/token-service';
 
 export default class App extends Component {
   static defaultProps = {
     categories: [],
     services: [],
+    hasToken: TokenService.hasAuthToken(),
   }
 
   state = {
@@ -82,7 +84,7 @@ export default class App extends Component {
               <Route
                 exact
                 path={'/search'}
-                component={SearchRoute}
+                component={this.state.hasToken ? SearchRoute : LoginRoute}
               />
               <Route
                 exact
