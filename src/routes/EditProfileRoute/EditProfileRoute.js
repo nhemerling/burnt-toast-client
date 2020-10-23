@@ -28,6 +28,8 @@ export class EditProfileRoute extends Component {
       bio: '',
       zip: '',
     },
+    bioError: null,
+    bioSuccess: null,
   }
 
   state = {
@@ -118,10 +120,17 @@ export class EditProfileRoute extends Component {
     ev.preventDefault();
     const { bio } = this.state.profile;
     const reqBio = { profile_desc: bio };
-    console.log(reqBio)
+    this.setState({ bioError: null })
     BurntToastService.updateProfile(reqBio)
-      .then(res => this.setState({ profile: { bio } }))
-      .catch(res => this.setState({ error: res.error }));
+      .then(res => {
+        this.setState({ bioSuccess: "Updated Bio Successfully" })
+        setTimeout(() => {
+          this.setState({
+            success: false
+          })
+        }, 4000)
+      })
+      .catch(res => this.setState({ bioError: res.error }));
   }
 
   renderDeleteConfirmation = () => {
@@ -140,6 +149,7 @@ export class EditProfileRoute extends Component {
     let serviceOffer = this.state.provided ? this.state.provided : [];
     let serviceSeek = this.state.seeking ? this.state.seeking : [];
     let bio = this.state.profile ? this.state.profile.bio : '';
+    const { bioError, bioSuccess } = this.state;
 
     let offers = serviceOffer.map((offer, i) => (
       <div key={i} className='user-card-item'>
@@ -187,6 +197,8 @@ export class EditProfileRoute extends Component {
         <section>
           <PersonalizeProfile
             bio={bio}
+            error={bioError}
+            success={bioSuccess}
             handleEditBio={this.handleEditBio}
             handleSubmitEditBio={this.handleSubmitEditBio}
           />

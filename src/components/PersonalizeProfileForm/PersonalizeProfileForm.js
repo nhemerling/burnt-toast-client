@@ -9,44 +9,44 @@ import './PersonalizeProfileForm.css';
 export class PersonalizeProfileForm extends Component {
   static contextType = UserContext;
 
-  state = {
-    success: null,
-    error: null,
-  };
+  // state = {
+  //   success: null,
+  //   error: null,
+  // };
 
-  handleSubmit = ev => {
-    ev.preventDefault();
-    console.log('this works')
+  // handleSubmit = ev => {
+  //   ev.preventDefault();
+  //   console.log('this works')
 
-    this.setState({
-      error: null
-    })
+  //   this.setState({
+  //     error: null
+  //   })
 
-    let userbio = {
-      profile_desc: ev.target.bio.value
-    };
+  //   let userbio = {
+  //     profile_desc: ev.target.bio.value
+  //   };
 
 
-    BurntToastService.updateProfile(userbio)
-    .then(res => {
-      console.log(res)
-      this.setState({
-        success: "Updated Bio Successfully"
-      })
+  //   BurntToastService.updateProfile(userbio)
+  //   .then(res => {
+  //     console.log(res)
+  //     this.setState({
+  //       success: "Updated Bio Successfully"
+  //     })
 
-      setTimeout(() => {
-        this.setState({
-          success: false
-        })
-      }, 4000)
-    })
-      .catch(res => {
-       this.setState({ error: res.error });
-      });
-  };
+  //     setTimeout(() => {
+  //       this.setState({
+  //         success: false
+  //       })
+  //     }, 4000)
+  //   })
+  //     .catch(res => {
+  //      this.setState({ error: res.error });
+  //     });
+  // };
 
   render() {
-    const { error, success} = this.state;
+    const { error, success} = this.props;
     const { bio } = this.props;
 
     return (
