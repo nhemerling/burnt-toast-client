@@ -1,53 +1,22 @@
 import React, { Component } from 'react';
-import { Input, Textarea, Label } from '../Form/Form';
+import { Textarea, Label } from '../Form/Form';
 import UserContext from '../../contexts/UserContext';
-import BurntToastService from '../../services/burnt-toast-api-service';
 import Button from '../Button/Button';
 import './PersonalizeProfileForm.css';
 
 
 export class PersonalizeProfileForm extends Component {
+
+  static defualtProps = {
+    error: null,
+    success: null,
+    bio: '',
+  }
+
   static contextType = UserContext;
 
-  // state = {
-  //   success: null,
-  //   error: null,
-  // };
-
-  // handleSubmit = ev => {
-  //   ev.preventDefault();
-  //   console.log('this works')
-
-  //   this.setState({
-  //     error: null
-  //   })
-
-  //   let userbio = {
-  //     profile_desc: ev.target.bio.value
-  //   };
-
-
-  //   BurntToastService.updateProfile(userbio)
-  //   .then(res => {
-  //     console.log(res)
-  //     this.setState({
-  //       success: "Updated Bio Successfully"
-  //     })
-
-  //     setTimeout(() => {
-  //       this.setState({
-  //         success: false
-  //       })
-  //     }, 4000)
-  //   })
-  //     .catch(res => {
-  //      this.setState({ error: res.error });
-  //     });
-  // };
-
   render() {
-    const { error, success} = this.props;
-    const { bio } = this.props;
+    const { error, success, bio } = this.props;
 
     return (
       <form
