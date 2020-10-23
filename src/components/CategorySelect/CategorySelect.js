@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import BurntToastContext from '../../contexts/BurntToastContext';
+import UserContext from '../../contexts/UserContext';
 import './CategorySelect.css'
 
 export default class CategorySelect extends Component {
@@ -12,7 +12,7 @@ export default class CategorySelect extends Component {
     selectedCategoryId: 1,
   }
 
-  static contextType = BurntToastContext;
+  static contextType = UserContext;
 
   handleCategoryChange = (ev) => {
     const selectedCategoryId = ev.target.value;

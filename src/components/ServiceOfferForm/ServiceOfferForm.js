@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import { Input, Label } from '../Form/Form';
-// import UserContext from '../../contexts/UserContext';
 import Button from '../Button/Button';
-// import STORE from '../../contexts/Store';
 import BurntToastService from '../../services/burnt-toast-api-service';
-import BurntToastContext from '../../contexts/BurntToastContext';
+import UserContext from '../../contexts/UserContext';
 import './ServiceOfferForm.css';
 
 class LoginForm extends Component {
 
-  static contextType = BurntToastContext;
+  static contextType = UserContext;
 
   state = {
     success: null,
