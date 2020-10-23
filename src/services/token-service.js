@@ -2,7 +2,7 @@ import jwtDecode from 'jwt-decode'
 import config from '../config'
 
 let _timeoutId
-const _THREE_HOURS_IN_MS = 10800000;
+const _TEN_SECONDS_IN_MS = 10000;
 
 const TokenService = {
   saveAuthToken(token) {
@@ -34,7 +34,7 @@ const TokenService = {
     const msUntilExpiry = TokenService._getMsUntilExpiry(
       TokenService.parseAuthToken()
     )
-    _timeoutId = setTimeout(callback, msUntilExpiry - _THREE_HOURS_IN_MS)
+    _timeoutId = setTimeout(callback, msUntilExpiry - _TEN_SECONDS_IN_MS)
   },
   clearCallbackBeforeExpiry() {
     clearTimeout(_timeoutId)
