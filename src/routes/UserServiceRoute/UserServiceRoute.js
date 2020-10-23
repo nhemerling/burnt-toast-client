@@ -32,7 +32,7 @@ export class ServiceCardRoute extends Component {
   render() {
     const serviceList = this.state.userServices.map((service, i) => {
       return (
-        
+
           <ServiceCard
             key={i}
             image={service.primary_img_url}
@@ -47,7 +47,7 @@ export class ServiceCardRoute extends Component {
       <>
       <h2>{this.state.user.full_name}'s Profile</h2>
       <section className='profile-info'>
-        <img src={this.state.user.profile_img_url} alt='user profile picture' className='user-profile-photo'></img>
+        <img src={this.state.user.profile_img_url ? this.state.user.profile_img_url : 'https://miro.medium.com/max/360/1*W35QUSvGpcLuxPo3SRTH4w.png'} alt='user profile avatar' className='user-profile-photo'></img>
         <div>
           <p>{this.state.user.profile_desc}</p>
           <button type='submit'>Contact</button>
