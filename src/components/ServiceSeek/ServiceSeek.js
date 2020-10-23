@@ -34,6 +34,8 @@ export class ServiceSeek extends Component {
           success: false
         })
       }, 4000)
+
+      this.props.reload();
     })
     .catch(res => {
       this.setState({ error: res.error });
