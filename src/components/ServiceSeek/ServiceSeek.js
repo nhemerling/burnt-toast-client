@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Input, Label } from '../Form/Form';
-import BurntToastContext from '../../contexts/BurntToastContext';
+import { Label } from '../Form/Form';
+import UserContext from '../../contexts/UserContext';
 import Button from '../Button/Button';
 import BurntToastService from '../../services/burnt-toast-api-service';
 import './ServiceSeek.css'
@@ -16,7 +16,7 @@ export class ServiceSeek extends Component {
     services: []
   };
   
-  static contextType = BurntToastContext;
+  static contextType = UserContext;
   
   handleSubmit = ev => {
     ev.preventDefault();

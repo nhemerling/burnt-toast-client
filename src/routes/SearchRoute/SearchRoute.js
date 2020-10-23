@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Input, Label } from '../../components/Form/Form';
 import Button from '../../components/Button/Button';
 import ServiceCard from '../../components/ServiceCard/ServiceCard';
-import BurntToastContext from '../../contexts/BurntToastContext';
+import UserContext from '../../contexts/UserContext';
 import BurntToastService from '../../services/burnt-toast-api-service';
 import './SearchRoute.css'
 
@@ -20,7 +20,7 @@ class SearchRoute extends Component {
     searchSubmitted: false,
   };
 
-  static contextType = BurntToastContext;
+  static contextType = UserContext;
 
   componentDidMount() {
     this.context.getCategoriesAndServices();

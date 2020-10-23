@@ -99,8 +99,10 @@ class LandingForm extends Component {
           <Input
             id='registration-zipcode-input'
             name='zipcode'
-            type='zipcode'
+            type='numeric'
+            pattern="^(?(^00000(|-0000))|(\d{5}(|-\d{4})))$"
             placeholder='zipcode'
+            maxLength='5'
           />
         </div>
         <footer>

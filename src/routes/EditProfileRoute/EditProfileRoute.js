@@ -6,7 +6,7 @@ import BurntToastService from '../../services/burnt-toast-api-service';
 import Button from '../../components/Button/Button';
 import './EditProfileRoute.css'
 import ProfileEditImg from '../../images/profile-edit.png'
-import BurntToastContext from '../../contexts/BurntToastContext';
+import UserContext from '../../contexts/UserContext';
 
 export class EditProfileRoute extends Component {
   static defaultProps = {
@@ -41,7 +41,7 @@ export class EditProfileRoute extends Component {
     userServices: []
   }
 
-  static contextType = BurntToastContext;
+  static contextType = UserContext;
 
   componentDidMount() {
     this.context.getCategoriesAndServices();
@@ -96,16 +96,14 @@ export class EditProfileRoute extends Component {
   };
 
   handleDeleteConfirmation = () => {
-    const { history } = this.props;
-    const destination = '/';
+    // const { history } = this.props;
+    // const destination = '/';
     BurntToastService.deleteProfile()
-    .then(res =>
-      // will need to log out and send to home
-      history.push(destination)
-    )
     .catch(res => {
     this.setState({ error: res.error });
      });
+    this.context.processLogout();
+    // history.push(destination)
   };
 
   handleKeepAccount = () => {
