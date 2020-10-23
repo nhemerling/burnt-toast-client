@@ -71,9 +71,22 @@ class LandingRoute extends Component {
             onRegistrationSuccess={this.handleRegistrationSuccess}
           />
         </section>
-        <section className="LandingPage-why">
-          <h2 className='periwinkle'>Still Not Convinced?</h2>
-          <p>Read some reviews of our satisfied users</p>
+        <section className="LandingPage-testimonials">
+          <h2 className='periwinkle'>Toastimonials</h2>
+          <blockquote>"We're loving it. I love your system. Burnt Toast should be nominated for service of the year. 
+            I like the Toasty community more and more each day because it makes my life a lot easier."
+            - Shea Buttah.
+          </blockquote>
+          <blockquote>
+          "It's all good. No matter where you go, Burnt Toast is the coolest, most happening thing around! 
+          Burnt Toast is great. Just what I was looking for."
+            - Peter Pocket.
+          </blockquote>
+          <blockquote>
+            "Burnt Toast is worth much more than a product, it's community. Thanks y'all, keep up the good work! 
+              I would like to personally thank you for your outstanding product."
+            - Rye Kneed.
+          </blockquote>
         </section>
       </div>
     );
