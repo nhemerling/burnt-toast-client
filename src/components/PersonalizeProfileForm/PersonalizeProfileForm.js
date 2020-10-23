@@ -9,9 +9,9 @@ import './PersonalizeProfileForm.css';
 export class PersonalizeProfileForm extends Component {
   static contextType = UserContext;
 
-  state = { 
+  state = {
     success: null,
-    error: null 
+    error: null,
   };
 
   handleSubmit = ev => {
@@ -29,6 +29,7 @@ export class PersonalizeProfileForm extends Component {
 
     BurntToastService.updateProfile(userbio)
     .then(res => {
+      console.log(res)
       this.setState({
         success: "Updated Bio Successfully"
       })
@@ -44,14 +45,14 @@ export class PersonalizeProfileForm extends Component {
       });
   };
 
-
   render() {
     const { error, success} = this.state;
+    const { bio } = this.props;
 
     return (
       <form
         className='PersonalizeProfileForm'
-        onSubmit={this.handleSubmit}
+        onSubmit={(ev) => this.props.handleSubmitEditBio(ev)}
       >
           <div className='form-div' role='alert'>
           {error && <p className='error'>{error}</p>}
@@ -61,10 +62,19 @@ export class PersonalizeProfileForm extends Component {
         <div className='PersonalizeProfile-form-div'>
         <Label htmlFor="user-bio">Your Bio:</Label>
         <br/>
-        <Textarea id="user-bio" name="bio" rows="4" cols="50" placeholder='(optional)' maxLength='300'>
+        <Textarea
+        id="user-bio"
+        name="bio"
+        rows="4"
+        cols="50"
+        placeholder='(optional)'
+        maxLength='300'
+        value={bio}
+        onChange={(ev) => this.props.handleEditBio(ev.target.value)}
+        >
         </Textarea>
         <Button type='submit' className='add-userBio-button'>
-          Add Bio
+          Change Bio
         </Button>
         </div>
       </form>

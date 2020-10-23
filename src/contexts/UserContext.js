@@ -85,7 +85,6 @@ export class UserProvider extends Component {
     TokenService.clearCallbackBeforeExpiry()
     IdleService.unRegisterIdleResets()
     this.setUser({ idle: true })
-    // this.props.history.push('/login')
   }
 
   fetchRefreshToken = () => {

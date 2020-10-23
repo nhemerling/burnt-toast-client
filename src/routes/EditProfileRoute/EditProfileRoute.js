@@ -20,7 +20,14 @@ export class EditProfileRoute extends Component {
     error: null,
     provided: [],
     seeking: [],
-    deleteClicked: false
+    deleteClicked: false,
+    profile: {
+      email: '',
+      fullname: '',
+      image: '',
+      bio: '',
+      zip: '',
+    },
   }
 
   state = {
@@ -36,19 +43,31 @@ export class EditProfileRoute extends Component {
 
   getProfileServices = () => {
     let currentUserId = this.props.match.params.profile_id;
-    BurntToastService.getProfileServices(currentUserId).then(userServices => {
-      let provided = [];
-      let seeking = [];
-      for (let i = 0; i < userServices.length; i++) {
-        if (userServices[i].user_skill_type === 'PROVIDER') {
-          provided.push(userServices[i]);
-        } else {
-          seeking.push(userServices[i]);
+
+    BurntToastService.getProfile(currentUserId).then(profile => {
+
+      BurntToastService.getProfileServices(currentUserId).then(userServices => {
+        console.log(userServices)
+        let provided = [];
+        let seeking = [];
+        for (let i = 0; i < userServices.length; i++) {
+          if (userServices[i].user_skill_type === 'PROVIDER') {
+            provided.push(userServices[i]);
+          } else {
+            seeking.push(userServices[i]);
+          }
         }
-      }
-      this.setState({
-        provided: [...provided],
-        seeking: [...seeking]
+        this.setState({
+          provided: [...provided],
+          seeking: [...seeking],
+          profile : {
+            email: profile.email,
+            fullname: profile.full_name,
+            image: profile.profile_img_url,
+            bio: profile.profile_desc,
+            zip: profile.zip,
+          },
+        });
       });
     });
   }
@@ -72,7 +91,7 @@ export class EditProfileRoute extends Component {
     const { history } = this.props;
     const destination = '/';
     BurntToastService.deleteProfile()
-    .then(res => 
+    .then(res =>
       // will need to log out and send to home
       history.push(destination)
     )
@@ -85,6 +104,24 @@ export class EditProfileRoute extends Component {
     this.setState({
       deleteClicked: false
     })
+  }
+
+  handleEditBio = (bio) => {
+    this.setState({
+      profile: {
+        bio,
+      }
+    });
+  }
+
+  handleSubmitEditBio = (ev) => {
+    ev.preventDefault();
+    const { bio } = this.state.profile;
+    const reqBio = { profile_desc: bio };
+    console.log(reqBio)
+    BurntToastService.updateProfile(reqBio)
+      .then(res => this.setState({ profile: { bio } }))
+      .catch(res => this.setState({ error: res.error }));
   }
 
   renderDeleteConfirmation = () => {
@@ -102,6 +139,7 @@ export class EditProfileRoute extends Component {
   render() {
     let serviceOffer = this.state.provided ? this.state.provided : [];
     let serviceSeek = this.state.seeking ? this.state.seeking : [];
+    let bio = this.state.profile ? this.state.profile.bio : '';
 
     let offers = serviceOffer.map((offer, i) => (
       <div key={i} className='user-card-item'>
@@ -147,12 +185,16 @@ export class EditProfileRoute extends Component {
           <ServiceSeek reload={this.getProfileServices}/>
         </section>
         <section>
-          <PersonalizeProfile />
+          <PersonalizeProfile
+            bio={bio}
+            handleEditBio={this.handleEditBio}
+            handleSubmitEditBio={this.handleSubmitEditBio}
+          />
         </section>
         <section className='user-delete-profile'>
           <h2>Danger Zone</h2>
           <p>Deleting profile will remove you from our records permanently.</p>
-          {/* <Button 
+          {/* <Button
           type='button'
           onClick={this.handleDeleteClick}
           >
