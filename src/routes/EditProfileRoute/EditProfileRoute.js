@@ -14,6 +14,11 @@ export class EditProfileRoute extends Component {
     history: {
       push: () => { },
     },
+    match: {
+      params : {
+        profile_id: '',
+      },
+    },
   };
 
   state = {

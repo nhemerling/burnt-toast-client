@@ -96,13 +96,18 @@ const serviceImages = {
 
 class ServiceCard extends Component {
 
+  static defaultProps = {
+    service: '',
+  }
+
   matchServiceImage(serviceName) {
     const serviceWithoutSpace = serviceName.split(' ').join('');
     return serviceImages[serviceWithoutSpace]
   }
 
   render() {
-    const serviceImage = this.matchServiceImage(this.props.service);
+    const serviceName = this.props.service;
+    const serviceImage = this.matchServiceImage(serviceName);
     return(
         <div className="service-card" >
           <img src={serviceImage} alt={this.props.service} className='service-img'/>
