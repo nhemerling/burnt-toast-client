@@ -15,7 +15,8 @@ class LoginForm extends Component {
     success: null,
     error: null,
     selection: null,
-    category: null,
+    category: '',
+    service: '',
     services: []
   };
 
@@ -24,7 +25,7 @@ class LoginForm extends Component {
 
     let service = {
       user_skill_type: 'PROVIDER',
-      skill_id: this.state.category,
+      skill_id: this.state.service,
       skill_desc: ev.target['service-title-input'].value
     };
 
@@ -48,55 +49,40 @@ class LoginForm extends Component {
   };
 
 
-  handleSelection =ev => {
-    let userSelection = ev.target.value;
-    let services = this.context.services;
+  handleCategorySelect =ev => {
     this.setState({
-      category: null
-    })
+      category: ev.target.value,
+    });
+  }
 
-    let matchingServices = [];
-    for (let i = 0; i < services.length; i++) {
-      if (userSelection == services[i].fk_category_id) {
-        matchingServices.push(services[i]);
+  handleServiceSelect =ev => {
+    this.setState({
+      service: ev.target.value,
+    });
+  }
+
+  generateServiceOptions(allServices) {
+    let serviceOptions = [];
+    let i = 0;
+
+    for (let key in allServices) {
+      if (Number(allServices[key].fk_category_id) === Number(this.state.category)) {
+        let option = (<option key={i} value={allServices[key].id}>{allServices[key].skill_name}</option>);
+        serviceOptions.push(option);
       }
+      i++;
     }
-    let serviceOptions = this.generateServiceSelection(matchingServices);
-    this.setState({
-      error: null,
-      selection: userSelection,
-      services: serviceOptions
-    });
-  }
 
-  handleCategory =ev => {
-    let userSelection = ev.target.value;
-    this.setState({
-      error: null,
-      category: userSelection,
-    });
-  }
-
-  generateServiceSelection(arr) {
-   let services = [];
-    for (let i = 0; i < arr.length; i++) {
-      let option = (<option key={i} value={arr[i].id}>{arr[i].skill_name}</option>);
-      services.push(option);
-    }
-    return services;
+    return serviceOptions;
   };
-
-
-
 
   render() {
     const { error, success} = this.state;
-    let categories = this.context.categories ? this.context.categories : [];
-    const categoryList = categories.map(category => {
-      return (<option key={category.id} value={category.id}>{category.category_name}</option>)
-    })
-    const primaryServices = this.state.services ? this.state.services : [];
-
+    const { categories, services } = this.context;
+    const categoryOptions = categories.map(category => {
+      return <option key={category.id} value={category.id}>{category.category_name}</option>
+    });
+    const serviceOptions = this.generateServiceOptions(services);
     return (
       <form
         className='ServiceOfferForm'
@@ -116,10 +102,10 @@ class LoginForm extends Component {
               name="categories"
               id="primary-category-selection"
               form="ServiceOfferForm"
-              onChange={this.handleSelection}
+              onChange={this.handleCategorySelect}
               >
               <option value=''>------SELECT------</option>
-              {categoryList}
+              {categoryOptions}
 
             </select>
           </div>
@@ -132,10 +118,10 @@ class LoginForm extends Component {
               id="service-category-selection"
               form="ServiceOfferForm"
               //TODO: HANDLE THIS SELECTION VALUE
-              onChange={this.handleCategory}
+              onChange={this.handleServiceSelect}
               >
               <option value=''>------SELECT------</option>
-              {primaryServices}
+              {serviceOptions}
             </select>
           </div>
           <Label htmlFor='service-title-input'>
