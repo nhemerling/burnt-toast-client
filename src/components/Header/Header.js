@@ -74,7 +74,7 @@ export default class Header extends Component {
           <div id="logo" className="Header-item">
             <img src={ToastIcon} alt="PLACEHOLDER TEXT" />
           </div>
-          <span id="username" className="menu-item">{this.context.user.username}</span>
+          <span id="username">{this.context.user.username}</span>
           <div id="username-and-menu" className="menu-group">
             <div onClick={this.handleToggle} className='hamburger-menu'>
               <span className={this.state.menuOpen ? 'rotateDown': ''}></span>

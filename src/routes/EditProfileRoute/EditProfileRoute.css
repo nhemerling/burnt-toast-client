@@ -1,25 +1,121 @@
-select {
-  width:90%;
-  padding:5px;
-  border-radius:10px;
-  font-family: Tahoma;
+.success, .error {
+  margin-top: 15px;
 }
 
-.ServiceOfferForm, .ServiceSeekForm, .PersonalizeProfileForm {
-  padding: 20px 10px;
+.error { 
+  color: rgb(210, 70, 70);
+}
+.success {
+  color: #4862d7;
+}
+
+.user-service-card-display {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-card-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  min-height: 80px;
+  background-color: rgba(188, 198, 237, 0.2);
+}
+
+
+.delete-service-item {
+  background-color: #4e2bc1;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.2em;
+  color: whitesmoke;
+  box-shadow: 5px 5px 5px #6b5898;
+  margin-top: 10px;
+  max-height: 60px;
+  min-width: 95px;
+}
+
+.ServiceOfferForm, .ServiceSeekForm, .PersonalizeProfileForm, .user-delete-profile{
+  padding: 0 0 20px 0 ;
   color: black;
-  background-color: #aebaf2;
-  margin: 25px 20px;
   border-radius: 5px;
-  box-shadow: 5px 10px 10px #29387e;
+  border-bottom: 2px solid #B0BCF2;
+}
+
+.ServiceOfferForm > h3, .ServiceSeekForm > h3, .PersonalizeProfileForm > h3, .service-provided > h2, .service-seeking > h2 , .user-delete-profile > h2{
+  border-top: 2px solid #B0BCF2;
+  border-bottom: 2px solid #B0BCF2;
+  padding: 10px 0;
 }
 
 .add-service-button {
-  background-color: #273b7a;
+  background-color: #4e2bc1;
   border: none;
   border-radius: 50px;
   font-size: 1.2em;
   color: whitesmoke;
   box-shadow: 5px 5px 5px #6b5898;
   min-width: 190px;
+}
+
+.manage-profile-img {
+  max-width: 50%;
+}
+
+.user-delete-profile > p {
+  max-width: 80%;
+  margin: 10px auto 15px auto;
+  color: red;
+}
+
+.delete-confirmation > p {
+  max-width: 80%;
+  margin: 10px auto 15px auto;
+  color: red; 
+}
+
+.delete-button {
+  background-color: #c906c3f0;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2em;
+  color: whitesmoke;
+  box-shadow: 5px 5px 5px #c26dbff0;
+  min-width: 190px;
+  margin-top: 0;
+}
+
+.delete-button-keep {
+  background-color: #4e2bc1;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2em;
+  color: whitesmoke;
+  box-shadow: 5px 5px 5px #6b5898;
+  min-width: 190px;
+  margin: 0 auto 15px auto;
+}
+
+@media all and (min-width: 580px) {
+  .user-service-card-display {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .ServiceOfferForm, .ServiceSeekForm, .PersonalizeProfileForm, .user-delete-profile {
+   max-width: 70%;
+   margin: 0 auto 30px auto;
+   border: 2px solid #B0BCF2;
+   box-shadow: 5px 5px 5px #9ea9d7;
+  }
+
+  .ServiceOfferForm > h3, .ServiceSeekForm > h3, .PersonalizeProfileForm > h3, .user-delete-profile > h2{
+    border-top: none;
+    border-bottom: 2px solid #B0BCF2;
+    padding: 10px 20px;
+  }
 }

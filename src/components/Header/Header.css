@@ -6,7 +6,8 @@
   align-items: center;
   justify-content: space-between;
   text-align: left;
-  background-color: #3A0CA3;
+  position: relative;
+  background-color: #4e2bc1;
 }
 /*logo*/
 #logo {
@@ -16,8 +17,8 @@
 #logo > img {
   max-width: 50px;
 }
-#username-and-menu {
- 
+#username {
+  color: #f8f8ff;
 }
 .menu-group {
   display: flex;
@@ -93,6 +94,9 @@
   border: 1px solid white;
   background-color: white;
   transition-duration: 200ms;
+}
+#username{
+  font-size: 2em;
 }
 
 
