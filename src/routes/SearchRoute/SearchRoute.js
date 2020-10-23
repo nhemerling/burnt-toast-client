@@ -4,7 +4,6 @@ import { Input, Label } from '../../components/Form/Form';
 import Button from '../../components/Button/Button';
 import ServiceCard from '../../components/ServiceCard/ServiceCard';
 import BurntToastContext from '../../contexts/BurntToastContext';
-// import CategorySelect from '../../components/CategorySelect/CategorySelect';
 import BurntToastService from '../../services/burnt-toast-api-service';
 import './SearchRoute.css'
 
@@ -14,40 +13,31 @@ class SearchRoute extends Component {
     searchTerm: '',
     searchCategory: '',
     searchService: '',
-    // categories: [],
-    // services: [],
     searchType: 'PROVIDER',
     searchZip: '',
     serviceResults: [],
+    loading: false,
+    searchSubmitted: false,
   };
 
   static contextType = BurntToastContext;
 
   componentDidMount() {
     this.context.getCategoriesAndServices();
-    // BurntToastService.getAllCategories().then(categories =>
-    //   this.setState({
-    //     categories
-    //   })
-    // );
-    // BurntToastService.getAllServices().then(services =>
-    //   this.setState({
-    //     services
-    //   })
-    // );
   }
 
   handleSearch(e) {
     e.preventDefault();
     const { searchTerm, searchType, searchZip, searchService } = this.state;
-    // const { searchService } = this.context;
-    // console.log('searchService in context: ', searchService)
+
+    this.setState({ loading: true });
 
     BurntToastService.getSearchServices(searchService, searchTerm, searchType, searchZip)
     .then(serviceResults => {
-      console.log(serviceResults)
       this.setState({
-        serviceResults
+        serviceResults,
+        loading: false,
+        searchSubmitted: true,
       })
     });
   }
@@ -87,7 +77,6 @@ class SearchRoute extends Component {
   generateServiceOptions(allServices) {
     let serviceOptions = [];
     let i = 0;
-
     for (let key in allServices) {
       if (Number(allServices[key].fk_category_id) === Number(this.state.searchCategory)) {
         let option = (<option key={i} value={allServices[key].id}>{allServices[key].skill_name}</option>);
@@ -95,11 +84,29 @@ class SearchRoute extends Component {
       }
       i++;
     }
-
     return serviceOptions;
   };
 
-
+  generateServiceResults(serviceResults) {
+    if (serviceResults.length === 0 && this.state.searchSubmitted) {
+      return <li>Sorry, no users have yet to provide this service.</li>
+    }
+    return serviceResults.map((service, i) =>
+      <li key={i}>
+        <Link to={`/profiles/${service.fk_user_id}/services`}>
+          <ServiceCard
+            id={service.id}
+            user_id={service.fk_user_id}
+            service_id={service.fk_skill_id}
+            service={service.skill_name}
+            type={service.user_skill_type}
+            image={service.primary_img_url}
+            description={service.primary_description}
+          />
+        </Link>
+      </li>
+    );
+  }
 
   renderSearchBar() {
     const { categories, services } = this.context;
@@ -125,7 +132,6 @@ class SearchRoute extends Component {
           <option key={0} value=''>SELECT A SERVICE</option>
           {serviceOptions}
         </select>
-        {/* <CategorySelect categories={categories} services={services} /> */}
         <Label htmlFor="type">What are you looking for?</Label>
         <select name="type" id='type' onChange={this.handleTypeChange}>
           <option key={1} value="PROVIDER">People PROVIDING this service.</option>
@@ -139,34 +145,15 @@ class SearchRoute extends Component {
     );
   }
 
-  renderServiceCards() {
-    const { serviceResults } = this.state;
-    // const { searchService } = this.context;
-    return serviceResults.map((service, i) =>
-      // console.log(service)
-      <li key={i}>
-        <Link to={`/profiles/${service.fk_user_id}/services`}>
-          <ServiceCard
-            id={service.id}
-            user_id={service.fk_user_id}
-            service_id={service.fk_skill_id}
-            service={service.skill_name}
-            type={service.user_skill_type}
-            image={service.primary_img_url}
-            description={service.primary_description}
-          />
-        </Link>
-      </li>
-    );
-  }
-
   render() {
+    const serviceResults = this.generateServiceResults(this.state.serviceResults);
     return (
       <>
         <div className="SearchRoute">
           {this.renderSearchBar()}
+          {this.state.loading && <h3>searching...</h3>}
           <ul className="SearchRoute-services-list">
-          {this.renderServiceCards()}
+          {serviceResults}
           </ul>
         </div>
       </>
