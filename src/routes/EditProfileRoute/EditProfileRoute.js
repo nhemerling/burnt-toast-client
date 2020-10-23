@@ -86,6 +86,7 @@ export class EditProfileRoute extends Component {
       .catch(res => {
         this.setState({ error: res.error });
       });
+    this.getProfileServices();
   };
 
   handleProfileDelete = () => {
