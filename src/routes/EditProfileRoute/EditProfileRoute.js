@@ -31,9 +31,11 @@ export class EditProfileRoute extends Component {
 
   componentDidMount() {
     this.context.getCategoriesAndServices();
+    this.getProfileServices();
+  }
 
+  getProfileServices = () => {
     let currentUserId = this.props.match.params.profile_id;
-
     BurntToastService.getProfileServices(currentUserId).then(userServices => {
       let provided = [];
       let seeking = [];
@@ -139,10 +141,10 @@ export class EditProfileRoute extends Component {
           </div>
         </section>
         <section>
-          <ServiceOfferForm />
+          <ServiceOfferForm reload={this.getProfileServices}/>
         </section>
         <section>
-          <ServiceSeek />
+          <ServiceSeek reload={this.getProfileServices}/>
         </section>
         <section>
           <PersonalizeProfile />
