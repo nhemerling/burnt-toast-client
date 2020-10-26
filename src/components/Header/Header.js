@@ -76,7 +76,7 @@ export default class Header extends Component {
         <header className="Header">
           <div id="logo" className="Header-item">
             <Link to={ToastIconLink}>
-              <img src={ToastIcon} alt="toast image"/>
+              <img src={ToastIcon} alt="link redirects to home page"/>
             </Link>
           </div>
           <span id="username">{this.context.user.username}</span>
