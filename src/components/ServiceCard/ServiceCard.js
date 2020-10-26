@@ -42,7 +42,7 @@ import PlusOne from '../../images/Categories/Other/plus-one.jpg';
 import Computer from '../../images/Categories/Repair/computer.jpg';
 import Fences from '../../images/Categories/Repair/fences.jpg';
 import Hearts from '../../images/Categories/Repair/hearts.jpg';
-import ImprovingForm from '../../images/Categories/Sports/improving-form.jpg';
+import Improvingform from '../../images/Categories/Sports/improving-form.jpg';
 import ImprovingScore from '../../images/Categories/Sports/improving-score.jpg';
 import Team from '../../images/Categories/Sports/team.jpg';
 
@@ -89,7 +89,7 @@ const serviceImages = {
   Computer,
   Fences,
   Hearts,
-  ImprovingForm,
+  Improvingform,
   ImprovingScore,
   Team
 };

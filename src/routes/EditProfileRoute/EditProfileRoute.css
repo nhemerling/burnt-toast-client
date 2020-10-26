@@ -19,7 +19,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin: 10px auto;
   padding: 10px 20px;
   min-height: 90px;
   background-color: rgba(188, 198, 237, 0.2);
@@ -28,6 +28,7 @@
 .offer-description {
   max-width: 200px;
   max-height: 80px;
+  overflow: auto;
 }
 
 .delete-service-item {
@@ -54,6 +55,10 @@
   border-top: 2px solid #B0BCF2;
   border-bottom: 2px solid #B0BCF2;
   padding: 10px 0;
+}
+
+#service-title-input {
+  min-width: 85%;
 }
 
 .add-service-button {
