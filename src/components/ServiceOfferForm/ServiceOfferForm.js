@@ -133,7 +133,7 @@ class ServiceOfferForm extends Component {
             </select>
           </div>
           <Label htmlFor='service-title-input'>
-          Service Title/Header
+          Service Description:
           </Label>
           <br/>
           <Input

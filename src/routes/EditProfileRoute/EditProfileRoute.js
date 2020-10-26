@@ -123,7 +123,7 @@ export class EditProfileRoute extends Component {
         this.setState({ bioSuccess: "Updated Bio Successfully" })
         setTimeout(() => {
           this.setState({
-            success: false
+            bioSuccess: false
           })
         }, 4000)
       })
@@ -150,7 +150,7 @@ export class EditProfileRoute extends Component {
       <div key={i} className='user-card-item'>
         <div>
           <h3>{offer.skill_name}</h3>
-          <p>{offer.primary_description}</p>
+          <p className="offer-description">{offer.primary_description}</p>
         </div>
         <Button type='button' className='delete-service-item' value={offer.id} onClick={this.handleServiceDelete}>remove</Button>
       </div>
