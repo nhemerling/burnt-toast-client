@@ -27,7 +27,7 @@ export class PersonalizeProfileForm extends Component {
           {error && <p className='error'>{error}</p>}
           {success && <p className='success'>{success}</p>}
         </div>
-        <h3>Personalize Profile Form</h3>
+        <h3>Personalize Your Profile</h3>
         <div className='PersonalizeProfile-form-div'>
         <Label htmlFor="user-bio">Your Bio:</Label>
         <br/>

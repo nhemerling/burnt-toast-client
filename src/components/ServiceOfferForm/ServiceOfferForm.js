@@ -5,7 +5,7 @@ import BurntToastService from '../../services/burnt-toast-api-service';
 import UserContext from '../../contexts/UserContext';
 import './ServiceOfferForm.css';
 
-class LoginForm extends Component {
+class ServiceOfferForm extends Component {
 
   static contextType = UserContext;
 
@@ -15,7 +15,6 @@ class LoginForm extends Component {
     selection: null,
     category: '',
     service: '',
-    services: []
   };
 
   handleSubmit = ev => {
@@ -30,7 +29,9 @@ class LoginForm extends Component {
     BurntToastService.postProfileService(service)
     .then(res => {
       this.setState({
-        success: "Added 'Service Offer' Successfully"
+        success: "Added 'Service Offer' Successfully",
+        category: '',
+        service: '',
       })
 
       setTimeout(() => {
@@ -39,13 +40,19 @@ class LoginForm extends Component {
         })
       }, 4000)
 
-      this.props.reload();
+      document.getElementById('ServiceOfferForm').reset()
+      this.props.getProfileServices();
     })
     .catch(res => {
       this.setState({ error: res.error });
+
+      setTimeout(() => {
+        this.setState({
+          error: null
+        })
+      }, 10000)
     });
   };
-
 
   handleCategorySelect =ev => {
     this.setState({
@@ -57,6 +64,12 @@ class LoginForm extends Component {
     this.setState({
       service: ev.target.value,
     });
+  }
+
+  generateCategoryOptions(allCategories) {
+    return allCategories.map(category =>
+      <option key={category.id} value={category.id}>{category.category_name}</option>
+    );
   }
 
   generateServiceOptions(allServices) {
@@ -77,12 +90,11 @@ class LoginForm extends Component {
   render() {
     const { error, success} = this.state;
     const { categories, services } = this.context;
-    const categoryOptions = categories.map(category => {
-      return <option key={category.id} value={category.id}>{category.category_name}</option>
-    });
+    const categoryOptions = this.generateCategoryOptions(categories);
     const serviceOptions = this.generateServiceOptions(services);
     return (
       <form
+        id='ServiceOfferForm'
         className='ServiceOfferForm'
         onSubmit={this.handleSubmit}
       >
@@ -104,7 +116,6 @@ class LoginForm extends Component {
               >
               <option value=''>------SELECT------</option>
               {categoryOptions}
-
             </select>
           </div>
           <div className='ServiceOffer-form-div'>
@@ -115,7 +126,6 @@ class LoginForm extends Component {
               name="services"
               id="service-category-selection"
               form="ServiceOfferForm"
-              //TODO: HANDLE THIS SELECTION VALUE
               onChange={this.handleServiceSelect}
               >
               <option value=''>------SELECT------</option>
@@ -141,4 +151,4 @@ class LoginForm extends Component {
   }
 }
 
-export default LoginForm;
+export default ServiceOfferForm;
