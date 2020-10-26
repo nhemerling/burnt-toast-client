@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import TokenService from '../../services/token-service';
 import UserContext from '../../contexts/UserContext';
-import ToastIcon from '../../images/toast.svg'
+import ToastIcon from '../../images/toast.png'
 import './Header.css';
 
 export default class Header extends Component {
@@ -68,11 +68,16 @@ export default class Header extends Component {
   }
 
   render() {
+      let  ToastIconLink = TokenService.hasAuthToken()
+      ? '/search'
+      : '/'
     return (
       <>
         <header className="Header">
           <div id="logo" className="Header-item">
-            <img src={ToastIcon} alt="PLACEHOLDER TEXT" />
+            <Link to={ToastIconLink}>
+              <img src={ToastIcon} alt="link redirects to home page"/>
+            </Link>
           </div>
           <span id="username">{this.context.user.username}</span>
           <div id="username-and-menu" className="menu-group">

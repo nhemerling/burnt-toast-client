@@ -54,6 +54,7 @@ class LandingForm extends Component {
             id='registration-fullname-input'
             name='fullname'
             placeholder='fullname'
+            maxLength='30'
             required
           />
         </div>
@@ -65,6 +66,7 @@ class LandingForm extends Component {
             id='registration-username-input'
             name='username'
             placeholder='username'
+            maxLength='10'
             required
           />
         </div>
@@ -94,13 +96,14 @@ class LandingForm extends Component {
         </div>
         <div className='form-div'>
           <Label htmlFor='registration-zipcode-input' className='hidden'>
-            Your Zipcode (optional)
+            Your Zip Code
           </Label>
           <Input
             id='registration-zipcode-input'
             name='zipcode'
             type='numeric'
-            pattern="^(?(^00000(|-0000))|(\d{5}(|-\d{4})))$"
+            pattern="^\d{5}(?:[-\s]\d{4})?$
+            "
             placeholder='zipcode'
             maxLength='5'
           />
