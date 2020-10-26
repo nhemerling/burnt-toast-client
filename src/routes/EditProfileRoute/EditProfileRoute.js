@@ -4,8 +4,8 @@ import ServiceSeek from '../../components/ServiceSeek/ServiceSeek';
 import PersonalizeProfile from '../../components/PersonalizeProfileForm/PersonalizeProfileForm';
 import BurntToastService from '../../services/burnt-toast-api-service';
 import Button from '../../components/Button/Button';
-import './EditProfileRoute.css'
-import ProfileEditImg from '../../images/profile-edit.png'
+import './EditProfileRoute.css';
+import ProfileEditImg from '../../images/profile-edit.png';
 import UserContext from '../../contexts/UserContext';
 
 export class EditProfileRoute extends Component {
@@ -35,10 +35,7 @@ export class EditProfileRoute extends Component {
     },
     bioError: null,
     bioSuccess: null,
-  }
-
-  state = {
-    userServices: []
+    userServices: [],
   }
 
   static contextType = UserContext;
@@ -54,7 +51,6 @@ export class EditProfileRoute extends Component {
     BurntToastService.getProfile(currentUserId).then(profile => {
 
       BurntToastService.getProfileServices(currentUserId).then(userServices => {
-        console.log(userServices)
         let provided = [];
         let seeking = [];
         for (let i = 0; i < userServices.length; i++) {
@@ -96,20 +92,17 @@ export class EditProfileRoute extends Component {
   };
 
   handleDeleteConfirmation = () => {
-    // const { history } = this.props;
-    // const destination = '/';
     BurntToastService.deleteProfile()
     .catch(res => {
     this.setState({ error: res.error });
      });
     this.context.processLogout();
-    // history.push(destination)
   };
 
   handleKeepAccount = () => {
     this.setState({
       deleteClicked: false
-    })
+    });
   }
 
   handleEditBio = (bio) => {
@@ -124,7 +117,7 @@ export class EditProfileRoute extends Component {
     ev.preventDefault();
     const { bio } = this.state.profile;
     const reqBio = { profile_desc: bio };
-    this.setState({ bioError: null })
+    this.setState({ bioError: null });
     BurntToastService.updateProfile(reqBio)
       .then(res => {
         this.setState({ bioSuccess: "Updated Bio Successfully" })
@@ -149,28 +142,43 @@ export class EditProfileRoute extends Component {
     );
   };
 
-  render() {
-    let serviceOffer = this.state.provided ? this.state.provided : [];
-    let serviceSeek = this.state.seeking ? this.state.seeking : [];
-    let bio = this.state.profile ? this.state.profile.bio : '';
-    const { bioError, bioSuccess } = this.state;
-
-    let offers = serviceOffer.map((offer, i) => (
+  generateServiceOffer(serviceOffers) {
+    if (serviceOffers.length === 0) {
+      return <p>Add services you're offering below!</p>
+    }
+    return serviceOffers.map((offer, i) =>
       <div key={i} className='user-card-item'>
         <div>
           <h3>{offer.skill_name}</h3>
           <p>{offer.primary_description}</p>
         </div>
         <Button type='button' className='delete-service-item' value={offer.id} onClick={this.handleServiceDelete}>remove</Button>
-      </div>))
+      </div>
+    );
+  }
 
-    let seeks = serviceSeek.map((seek, i) => (
+  generateServiceSeeks(serviceSeeks) {
+    if (serviceSeeks.length === 0) {
+      return <p>Add services you're seeking below!</p>
+    }
+    return serviceSeeks.map((seek, i) =>
       <div key={i} className='user-card-item'>
         <div>
           <h3>{seek.skill_name}</h3>
         </div>
         <Button type='button' className='delete-service-item' value={seek.id} onClick={this.handleServiceDelete}>remove</Button>
-      </div>))
+      </div>
+    );
+  }
+
+  render() {
+    let serviceOffers = this.state.provided ? this.state.provided : [];
+    let serviceSeeks = this.state.seeking ? this.state.seeking : [];
+    let bio = this.state.profile ? this.state.profile.bio : '';
+    const { bioError, bioSuccess } = this.state;
+
+    let offers = this.generateServiceOffer(serviceOffers);
+    let seeks = this.generateServiceSeeks(serviceSeeks);
 
     let deleteButton = this.state.deleteClicked
       ? this.renderDeleteConfirmation()
@@ -193,10 +201,10 @@ export class EditProfileRoute extends Component {
           </div>
         </section>
         <section>
-          <ServiceOfferForm reload={this.getProfileServices}/>
+          <ServiceOfferForm getProfileServices={this.getProfileServices}/>
         </section>
         <section>
-          <ServiceSeek reload={this.getProfileServices}/>
+          <ServiceSeek getProfileServices={this.getProfileServices}/>
         </section>
         <section>
           <PersonalizeProfile
@@ -210,18 +218,11 @@ export class EditProfileRoute extends Component {
         <section className='user-delete-profile'>
           <h2>Danger Zone</h2>
           <p>Deleting profile will remove you from our records permanently.</p>
-          {/* <Button
-          type='button'
-          onClick={this.handleDeleteClick}
-          >
-            Delete Profile
-          </Button> */}
-
           {deleteButton}
         </section>
       </div>
-    )
+    );
   }
 }
 
-export default EditProfileRoute
+export default EditProfileRoute;

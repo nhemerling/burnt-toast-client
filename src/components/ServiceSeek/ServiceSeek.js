@@ -6,7 +6,7 @@ import BurntToastService from '../../services/burnt-toast-api-service';
 import './ServiceSeek.css'
 
 export class ServiceSeek extends Component {
-  
+
   state = {
     success: null,
     error: null,
@@ -15,19 +15,22 @@ export class ServiceSeek extends Component {
     service: '',
     services: []
   };
-  
+
   static contextType = UserContext;
-  
+
   handleSubmit = ev => {
     ev.preventDefault();
     let service = {
       user_skill_type: 'SEEKER',
       skill_id: this.state.service,
     };
+
     BurntToastService.postProfileService(service)
     .then(res => {
       this.setState({
-        success: "Added 'Service Seek' Successfully"
+        success: "Added 'Service Seek' Successfully",
+        category: '',
+        service: '',
       })
 
       setTimeout(() => {
@@ -36,10 +39,17 @@ export class ServiceSeek extends Component {
         })
       }, 4000)
 
-      this.props.reload();
+      document.getElementById('ServiceSeekForm').reset()
+      this.props.getProfileServices();
     })
     .catch(res => {
       this.setState({ error: res.error });
+
+      setTimeout(() => {
+        this.setState({
+          error: null
+        })
+      }, 10000)
     });
   };
 
@@ -80,6 +90,7 @@ export class ServiceSeek extends Component {
     const serviceOptions = this.generateServiceOptions(services);
     return (
       <form
+        id='ServiceSeekForm'
         className='ServiceSeekForm'
         onSubmit={this.handleSubmit}
       >
@@ -92,9 +103,9 @@ export class ServiceSeek extends Component {
           <div className='ServiceSeek-form-div'>
             <Label htmlFor='primary-category-selection-seekForm'>
               Select a category:
-            <select 
-              name="categories" 
-              id="primary-category-selection-seekForm" 
+            <select
+              name="categories"
+              id="primary-category-selection-seekForm"
               form="ServiceSeekForm"
               onChange={this.handleCategorySelect}
 
@@ -120,7 +131,7 @@ export class ServiceSeek extends Component {
             </select>
           </div>
         </div>
-         
+
          {/* TODO: FIND A BETTER NAME FOR THIS BUTTON */}
         <Button type='submit' className='add-service-button'>
           Add Service
