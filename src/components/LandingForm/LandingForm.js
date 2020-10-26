@@ -54,6 +54,7 @@ class LandingForm extends Component {
             id='registration-fullname-input'
             name='fullname'
             placeholder='fullname'
+            maxLength='30'
             required
           />
         </div>
@@ -65,6 +66,7 @@ class LandingForm extends Component {
             id='registration-username-input'
             name='username'
             placeholder='username'
+            maxLength='10'
             required
           />
         </div>
