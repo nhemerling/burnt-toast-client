@@ -94,7 +94,7 @@ class LandingForm extends Component {
         </div>
         <div className='form-div'>
           <Label htmlFor='registration-zipcode-input' className='hidden'>
-            Your Zipcode (optional)
+            Your Zip Code
           </Label>
           <Input
             id='registration-zipcode-input'

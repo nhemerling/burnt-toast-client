@@ -38,13 +38,13 @@ class LandingRoute extends Component {
           </div>
 
           <br />
-          <a href="#register-Form" className='signUp-focus'>
+          <a href="#signup-link" className='signUp-focus'>
             Sign up today!
                 </a>
         </section>
         <section className="LandingPage-philosophy">
           <h2 className='periwinkle'>Our Philosophy</h2>
-          <p>Our story begins with a newly born adult that was pushed into the world and ask to adult.
+          <p>Our story begins with a newly born adult that was pushed into the world and asked to adult.
               Where does one begin? How do you lift, bro? Oil change? Or Pickle?</p>
           <p>A common saying struck our collective minds: <q>It takes a village to raise a child.</q></p>
           <p>Thus, Burnt Toast and the Toasty community was born out of the need to share knowledge, without the need to exchange money.</p>
@@ -65,7 +65,7 @@ class LandingRoute extends Component {
           <p>4. Swap services. Repeat.</p>
         </section>
         <section className="LandingPage-register">
-          <h2>Join the Toasty Community!</h2>
+          <h2 id='signup-link'>Join the Toasty Community!</h2>
           <img src={SignupImg} className='register-img' alt=''></img>
           <br />
 
