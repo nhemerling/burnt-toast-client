@@ -112,6 +112,7 @@ class ServiceCard extends Component {
         <div className="service-card" >
           <img src={serviceImage} alt={this.props.service} className='service-img'/>
           {this.props.service && <h3>{this.props.service}</h3>}
+          {this.props.user_fullname && <h4>{this.props.user_fullname}</h4>}
           {this.props.category && <h4>{this.props.category}</h4>}
           {this.props.type && <h5>{this.props.type}</h5>}
           {this.props.description && <p>{this.props.description}</p>}

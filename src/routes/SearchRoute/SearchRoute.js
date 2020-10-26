@@ -97,6 +97,7 @@ class SearchRoute extends Component {
           <ServiceCard
             id={service.id}
             user_id={service.fk_user_id}
+            user_fullname={service.full_name}
             service_id={service.fk_skill_id}
             service={service.skill_name}
             type={service.user_skill_type}
