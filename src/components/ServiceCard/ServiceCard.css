@@ -23,12 +23,30 @@
   border-radius: 10px;
   border: 2px #D4DCFF solid;
   box-shadow: 5px 10px 10px #6874A6;
-  background-color: #D4DCFF;
+  background-color: hsl(229, 100%, 92%, 0.50);
   color: #1B1B1B;
   transition: 200ms;
 }
+
+.service-card:after{
+  background: inherit;
+  filter: blur(10px);
+}
+
 .service-card:hover{
   transform: scale(1.01);
 }
- 
 
+.service-card h3 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.service-card h5 {
+  margin: 5px 0px;
+}
+
+
+.service-card p {
+  overflow: auto;
+}
