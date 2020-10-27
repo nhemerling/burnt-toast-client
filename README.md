@@ -3,9 +3,15 @@
 This is the client for the Burnt Toast App.
 Burnt toast helps users barter services with each other instead of trading currency. We help them provide and seek services, and get connected.
 
+It was created by Jim Smith, Sonali Martinez-Najera, El Moctar Ebnou, Lucas Bigelow, and Nicholas Hemerling.
+
 ## Link to Live App
 
 https://burnt-toast-app.vercel.app/
+
+## Tech Stack
+
+This app was bootstrapped using React.js, and also uses npm packages jwt-decode, classnames, and jest.
 
 ## Where Components Live
 
