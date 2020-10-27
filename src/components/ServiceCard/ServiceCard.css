@@ -21,6 +21,7 @@
   margin: 20px auto;
   padding-bottom: 10px;
   border-radius: 10px;
+  border: 2px #D4DCFF solid;
   box-shadow: 5px 10px 10px #6874A6;
   background-color: #D4DCFF;
   color: #1B1B1B;
@@ -29,5 +30,5 @@
 .service-card:hover{
   transform: scale(1.01);
 }
-
+ 
 
