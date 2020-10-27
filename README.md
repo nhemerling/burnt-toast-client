@@ -18,19 +18,19 @@ https://burnt-toast-app.vercel.app/
 ## Screenshots
 
 Landing/Registration Page
-![LandingRoute]
+![landing-page](https://user-images.githubusercontent.com/65194792/97360646-b30d0e80-185b-11eb-8b09-9e879d657a44.png)
 
 Login Page
-![LoginRoute]
+![login-page](https://user-images.githubusercontent.com/65194792/97360771-dcc63580-185b-11eb-97aa-d4d7cbe0766a.png)
 
 Search Page
-![SearchRoute]
-
-Profile Page
-![UserServiceRoute]
+![search-page](https://user-images.githubusercontent.com/65194792/97360804-e94a8e00-185b-11eb-9b79-75ad90885f49.png)
 
 Edit Profile Page
-![EditProfileRoute]
+![edit-profile-page](https://user-images.githubusercontent.com/65194792/97360820-ee0f4200-185b-11eb-8f01-d86d06d851dd.png)
+
+User Service Page
+![user-service-page](https://user-images.githubusercontent.com/65194792/97360814-ec457e80-185b-11eb-808d-96ed05db0ff9.png)
 
 ## Setting Up
 
