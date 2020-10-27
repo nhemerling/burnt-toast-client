@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ServiceSeek from './ServiceSeek';
+import ServiceSeekForm from './ServiceSeekForm';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
-      <ServiceSeek />,
+      <ServiceSeekForm />,
     div
   );
   ReactDOM.unmountComponentAtNode(div);

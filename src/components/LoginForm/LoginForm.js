@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Input, Label } from '../Form/Form';
 import AuthApiService from '../../services/auth-api-service';
-import TokenService from '../../services/token-service';
 import UserContext from '../../contexts/UserContext';
 import Button from '../Button/Button';
 import LoginIcon from '../../images/userLogin.png'
@@ -15,8 +14,6 @@ class LoginForm extends Component {
   static contextType = UserContext;
 
   state = { error: null };
-
-  // firstInput = React.createRef();
 
   handleSubmit = ev => {
     ev.preventDefault();
@@ -39,10 +36,6 @@ class LoginForm extends Component {
       });
   };
 
-  // componentDidMount() {
-  //   this.firstInput.current.focus();
-  // }
-
   render() {
     const { error } = this.state;
     return (
@@ -59,7 +52,6 @@ class LoginForm extends Component {
             Username
           </Label>
           <Input
-            // ref={this.firstInput}
             id='login-username-input'
             name='username'
             placeholder='username'

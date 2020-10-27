@@ -3,9 +3,8 @@ import { Label } from '../Form/Form';
 import UserContext from '../../contexts/UserContext';
 import Button from '../Button/Button';
 import BurntToastService from '../../services/burnt-toast-api-service';
-import './ServiceSeek.css'
 
-export class ServiceSeek extends Component {
+export class ServiceSeekForm extends Component {
 
   state = {
     success: null,
@@ -108,7 +107,7 @@ export class ServiceSeek extends Component {
               id="primary-category-selection-seekForm"
               form="ServiceSeekForm"
               onChange={this.handleCategorySelect}
-
+              required
               >
               <option value=''>------SELECT------</option>
               {categoryOptions}
@@ -123,8 +122,9 @@ export class ServiceSeek extends Component {
             <select
               name="services"
               id="service-category-selection-seekForm"
-              form="ServiceOfferForm"
+              form="ServiceSeekForm"
               onChange={this.handleServiceSelect}
+              required
               >
               <option value=''>------SELECT------</option>
               {serviceOptions}
@@ -132,8 +132,7 @@ export class ServiceSeek extends Component {
           </div>
         </div>
 
-         {/* TODO: FIND A BETTER NAME FOR THIS BUTTON */}
-        <Button type='submit' className='add-service-button'>
+        <Button type='submit' form='ServiceSeekForm' className='add-service-button'>
           Add Service
         </Button>
       </form>
@@ -141,4 +140,4 @@ export class ServiceSeek extends Component {
   }
 }
 
-export default ServiceSeek
+export default ServiceSeekForm

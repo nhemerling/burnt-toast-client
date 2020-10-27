@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { Input, Required, Label } from '../Form/Form';
 import AuthApiService from '../../services/auth-api-service';
 import Button from '../Button/Button';
-import './LandingForm.css'
+import './RegistrationForm.css'
 
-class LandingForm extends Component {
+class RegistrationForm extends Component {
   static defaultProps = {
     onRegistrationSuccess: () => { }
   };
@@ -102,8 +102,6 @@ class LandingForm extends Component {
             id='registration-zipcode-input'
             name='zipcode'
             type='numeric'
-            pattern="^\d{5}(?:[-\s]\d{4})?$
-            "
             placeholder='zipcode'
             maxLength='5'
           />
@@ -122,4 +120,4 @@ class LandingForm extends Component {
   }
 }
 
-export default LandingForm;
+export default RegistrationForm;

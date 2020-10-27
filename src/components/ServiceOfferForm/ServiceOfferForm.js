@@ -3,7 +3,6 @@ import { Input, Label } from '../Form/Form';
 import Button from '../Button/Button';
 import BurntToastService from '../../services/burnt-toast-api-service';
 import UserContext from '../../contexts/UserContext';
-import './ServiceOfferForm.css';
 
 class ServiceOfferForm extends Component {
 
@@ -113,6 +112,7 @@ class ServiceOfferForm extends Component {
               id="primary-category-selection"
               form="ServiceOfferForm"
               onChange={this.handleCategorySelect}
+              required
               >
               <option value=''>------SELECT------</option>
               {categoryOptions}
@@ -127,6 +127,7 @@ class ServiceOfferForm extends Component {
               id="service-category-selection"
               form="ServiceOfferForm"
               onChange={this.handleServiceSelect}
+              required
               >
               <option value=''>------SELECT------</option>
               {serviceOptions}
@@ -143,7 +144,7 @@ class ServiceOfferForm extends Component {
           />
         </div>
 
-        <Button type='submit' className='add-service-button'>
+        <Button type='submit' form='ServiceOfferForm' className='add-service-button'>
           Add Service
         </Button>
       </form>

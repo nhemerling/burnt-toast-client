@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import ServiceOfferForm from '../../components/ServiceOfferForm/ServiceOfferForm';
-import ServiceSeek from '../../components/ServiceSeek/ServiceSeek';
+import ServiceSeekForm from '../../components/ServiceSeekForm/ServiceSeekForm';
 import PersonalizeProfile from '../../components/PersonalizeProfileForm/PersonalizeProfileForm';
 import BurntToastService from '../../services/burnt-toast-api-service';
 import Button from '../../components/Button/Button';
-import './EditProfileRoute.css';
 import ProfileEditImg from '../../images/profile-edit.png';
 import UserContext from '../../contexts/UserContext';
+import './EditProfileRoute.css';
 
 export class EditProfileRoute extends Component {
   static defaultProps = {
@@ -204,10 +204,11 @@ export class EditProfileRoute extends Component {
           <ServiceOfferForm getProfileServices={this.getProfileServices}/>
         </section>
         <section>
-          <ServiceSeek getProfileServices={this.getProfileServices}/>
+          <ServiceSeekForm getProfileServices={this.getProfileServices}/>
         </section>
         <section>
           <PersonalizeProfile
+          // TODO: Fix console error when bio is null upon initial sign up. Will probably need to conditionally render a value
             bio={bio}
             error={bioError}
             success={bioSuccess}

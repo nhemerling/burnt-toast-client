@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './ServiceCard.css'
 import ArtClasses from '../../images/Categories/Art/art-classes.jpg';
-import ArtCommission from '../../images/Categories/Art/art-commission.jpg';
+import Commissions from '../../images/Categories/Art/art-commission.jpg';
 import BumperRepair from '../../images/Categories/Automotive/bumper-repair.jpg';
 import CarPainting from '../../images/Categories/Automotive/car-painting.jpg';
 import MaintenanceTraining from '../../images/Categories/Automotive/maintenance-training.jpg';
 import RideShare from '../../images/Categories/Automotive/ride-share.jpg';
 import Tires from '../../images/Categories/Automotive/tires.jpg';
-import HomemadeMakeup from '../../images/Categories/Beauty/homemade-makeup.jpg';
+import Homemade from '../../images/Categories/Beauty/homemade-makeup.jpg';
 import Makeup from '../../images/Categories/Beauty/makeup.jpg';
 import SkinCare from '../../images/Categories/Beauty/skincare.jpg';
 import HardwareFix from '../../images/Categories/Computers/hardware-fix.jpg';
@@ -17,7 +17,7 @@ import WebDevelopment from '../../images/Categories/Computers/web-development.jp
 import LanguageLearning from '../../images/Categories/Education/language-learning.jpg';
 import Tutorials from '../../images/Categories/Education/tutorials.jpg';
 import Tutoring from '../../images/Categories/Education/tutoring.jpg';
-import HowTo from '../../images/Categories/Electronics/how-to.jpg';
+import Howto from '../../images/Categories/Electronics/how-to.jpg';
 import QuickFix from '../../images/Categories/Electronics/quick-fix.jpg';
 import Diet from '../../images/Categories/Food/diet.jpg';
 import HomeCook from '../../images/Categories/Food/home-cook.jpg';
@@ -25,7 +25,7 @@ import MealPrep from '../../images/Categories/Food/meal-prep.jpg';
 import Produce from '../../images/Categories/Food/produce.jpg';
 import Blacksmith from '../../images/Categories/Handmade/blacksmith.jpg';
 import Knitting from '../../images/Categories/Handmade/knitting.jpg';
-import Leather from '../../images/Categories/Handmade/leather.jpg';
+import LeatherCraft from '../../images/Categories/Handmade/leather.jpg';
 import Woodworking from '../../images/Categories/Handmade/woodworking.jpg';
 import Exercise from '../../images/Categories/Health/exercise.jpg';
 import Healing from '../../images/Categories/Health/healing.jpg';
@@ -39,7 +39,7 @@ import Roofing from '../../images/Categories/Home/roofing.jpg';
 import ActiveListening from '../../images/Categories/Other/active-listening.jpg';
 import DancePartner from '../../images/Categories/Other/dance-partner.jpg';
 import PlusOne from '../../images/Categories/Other/plus-one.jpg';
-import Computer from '../../images/Categories/Repair/computer.jpg';
+import Computers from '../../images/Categories/Repair/computer.jpg';
 import Fences from '../../images/Categories/Repair/fences.jpg';
 import Hearts from '../../images/Categories/Repair/hearts.jpg';
 import Improvingform from '../../images/Categories/Sports/improving-form.jpg';
@@ -48,13 +48,13 @@ import Team from '../../images/Categories/Sports/team.jpg';
 
 const serviceImages = {
   ArtClasses,
-  ArtCommission,
+  Commissions,
   BumperRepair,
   CarPainting,
   MaintenanceTraining,
   RideShare,
   Tires,
-  HomemadeMakeup,
+  Homemade,
   Makeup,
   SkinCare,
   HardwareFix,
@@ -64,7 +64,7 @@ const serviceImages = {
   LanguageLearning,
   Tutorials,
   Tutoring,
-  HowTo,
+  Howto,
   QuickFix,
   Diet,
   HomeCook,
@@ -72,7 +72,7 @@ const serviceImages = {
   Produce,
   Blacksmith,
   Knitting,
-  Leather,
+  LeatherCraft,
   Woodworking,
   Exercise,
   Healing,
@@ -86,7 +86,7 @@ const serviceImages = {
   ActiveListening,
   DancePartner,
   PlusOne,
-  Computer,
+  Computers,
   Fences,
   Hearts,
   Improvingform,

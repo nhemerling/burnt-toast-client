@@ -40,7 +40,6 @@ h2{
   background-color: #ffce00;
 }
 
-
 @media all and (min-device-width: 800px) {
   .service-card-list{
     display: flex;
@@ -52,5 +51,4 @@ h2{
     margin: 0 auto 80px;
     justify-content: space-evenly;
   }
-  
 }

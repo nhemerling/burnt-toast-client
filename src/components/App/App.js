@@ -9,8 +9,8 @@ import SearchRoute from '../../routes/SearchRoute/SearchRoute';
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute';
 import EditProfile from '../../routes/EditProfileRoute/EditProfileRoute';
 import UserServices from '../../routes/UserServiceRoute/UserServiceRoute';
-import './App.css';
 import TokenService from '../../services/token-service';
+import './App.css';
 
 export default class App extends Component {
   static defaultProps = {
@@ -31,7 +31,6 @@ export default class App extends Component {
     const { hasError } = this.state;
     return (
       <div className='App'>
-        {/* <UserContext.Provider value={value}> */}
           <Header />
           <main>
             {hasError && (
@@ -68,7 +67,6 @@ export default class App extends Component {
               />
             </Switch>
           </main>
-        {/* </UserContext.Provider> */}
       </div>
     );
   }

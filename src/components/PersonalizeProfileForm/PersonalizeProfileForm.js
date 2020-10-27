@@ -7,7 +7,7 @@ import './PersonalizeProfileForm.css';
 
 export class PersonalizeProfileForm extends Component {
 
-  static defualtProps = {
+  static defaultProps = {
     error: null,
     success: null,
     bio: '',
@@ -16,12 +16,12 @@ export class PersonalizeProfileForm extends Component {
   static contextType = UserContext;
 
   render() {
-    const { error, success, bio } = this.props;
+    const { error, success, bio, handleEditBio, handleSubmitEditBio } = this.props;
 
     return (
       <form
         className='PersonalizeProfileForm'
-        onSubmit={(ev) => this.props.handleSubmitEditBio(ev)}
+        onSubmit={(ev) => handleSubmitEditBio(ev)}
       >
           <div className='form-div' role='alert'>
           {error && <p className='error'>{error}</p>}
@@ -39,7 +39,7 @@ export class PersonalizeProfileForm extends Component {
         placeholder='(optional)'
         maxLength='300'
         value={bio}
-        onChange={(ev) => this.props.handleEditBio(ev.target.value)}
+        onChange={(ev) => handleEditBio(ev.target.value)}
         >
         </Textarea>
         <Button type='submit' className='add-userBio-button'>

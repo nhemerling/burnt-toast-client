@@ -16,9 +16,6 @@
 }
 
 /* removes standard form styles */
-.hidden {
-  display: none;
-}
 
 input:focus, textarea:focus, select:focus{
   outline: none;

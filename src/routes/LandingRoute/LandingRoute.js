@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LandingForm from '../../components/LandingForm/LandingForm';
+import LandingForm from '../../components/LandingForm/RegistrationForm';
 import HeroImg from '../../images/LandingPage/hero.png';
 import PostImg from '../../images/LandingPage/forms.png';
 import SearchImg from '../../images/LandingPage/searchPosts.png';

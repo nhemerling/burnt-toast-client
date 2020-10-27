@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CategorySelect from './CategorySelect';
+import { BrowserRouter } from 'react-router-dom';
+import RegistrationForm from './RegistrationForm';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
-    <CategorySelect />,
+    <BrowserRouter>
+      <RegistrationForm />
+    </BrowserRouter>,
     div
   );
   ReactDOM.unmountComponentAtNode(div);

@@ -19,6 +19,6 @@ a{
   color: whitesmoke;
 }
 
-.hide {
+.hide, .hidden {
   display: none;
 }

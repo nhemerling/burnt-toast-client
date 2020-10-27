@@ -12,7 +12,6 @@ const BurntToastService = {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
-
   getProfileServices(profileId) {
     return fetch(`${config.API_ENDPOINT}/user_skills/${profileId}`, {
       method: 'GET',
@@ -23,7 +22,6 @@ const BurntToastService = {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
-
   postProfile(profile) {
     return fetch(`${config.API_ENDPOINT}/profiles`, {
       method: 'POST',
@@ -36,7 +34,6 @@ const BurntToastService = {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
-
   postProfileService(service) {
     return fetch(`${config.API_ENDPOINT}/user_skills`, {
       method: 'POST',
@@ -60,7 +57,6 @@ const BurntToastService = {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
-
   getAllCategories() {
     return fetch(`${config.API_ENDPOINT}/categories`, {
       method: 'GET',
@@ -71,7 +67,6 @@ const BurntToastService = {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
-
   getAllServices() {
     return fetch(`${config.API_ENDPOINT}/skills`, {
       method: 'GET',

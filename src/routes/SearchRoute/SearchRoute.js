@@ -44,14 +44,13 @@ class SearchRoute extends Component {
 
   handleSearchTerm(e) {
     this.setState({
-      searchTerm: e.target.value
+      searchTerm: e.target.value,
     });
   }
 
   handleTypeChange = (ev) => {
-    const searchType = ev.target.value;
     this.setState({
-      searchType,
+      searchType: ev.target.value,
     });
   }
 
@@ -89,7 +88,7 @@ class SearchRoute extends Component {
 
   generateServiceResults(serviceResults) {
     if (serviceResults.length === 0 && this.state.searchSubmitted) {
-      return <li>Sorry, no users have yet to provide this service.</li>
+      return <li>Sorry, no services found matching your search.</li>
     }
     return serviceResults.map((service, i) =>
       <li key={i}>

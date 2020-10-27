@@ -15,7 +15,7 @@ label {
   margin: 5px 0;
 }
 
-/* PlaceholderText Color by browswer*/
+/* PlaceholderText Color by browser*/
 #search::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #777777;
   opacity: 1; /* Firefox */
@@ -38,7 +38,6 @@ select {
   font-family: Tahoma;
 }
 
-
 .search-button {
   background-color: #4e2bc1;
   border: none;
@@ -48,6 +47,7 @@ select {
   box-shadow: 5px 5px 5px #48386c;
   min-width: 190px;
 }
+
 @media all and (min-device-width: 800px){
   .SearchRoute-services-list{
     display: flex;
