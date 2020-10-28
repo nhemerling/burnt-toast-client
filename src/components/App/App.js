@@ -54,7 +54,7 @@ export default class App extends Component {
               />
               <PrivateRoute
                 exact
-                path={'/profiles/:profile_id'}
+                path={'/profile'}
                 component={EditProfile}
               />
               <PrivateRoute
