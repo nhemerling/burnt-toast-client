@@ -14,11 +14,6 @@ export class EditProfileRoute extends Component {
     history: {
       push: () => { },
     },
-    match: {
-      params : {
-        profile_id: '',
-      },
-    },
   };
 
   state = {
@@ -46,7 +41,7 @@ export class EditProfileRoute extends Component {
   }
 
   getProfileServices = () => {
-    let currentUserId = this.props.match.params.profile_id;
+    let currentUserId = this.context.user.id;
 
     BurntToastService.getProfile(currentUserId).then(profile => {
 

@@ -49,3 +49,11 @@ User Service Page
 - Compile the application for production build: `npm run build`
 
 - Test the application: `npm test`
+
+## CONTRIBUTORS
+
+* @elmoctarebnou
+* @jsmith774
+* @nhemerling
+* @sonalinajera
+* @the-gamblers-fallacy

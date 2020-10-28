@@ -31,7 +31,7 @@ export default class Header extends Component {
           </Link>
         </li>
         <li>
-          <Link onClick={this.handleMenuClick} to={`/profiles/${this.context.user.id}`}>
+          <Link onClick={this.handleMenuClick} to={`/profile`}>
             Profile
           </Link>
         </li>
