@@ -15,6 +15,10 @@
   font-size: 1.5em;
 }
 
+.error {
+  margin-bottom: 5px;
+}
+
 /* removes standard form styles */
 
 input:focus, textarea:focus, select:focus{
