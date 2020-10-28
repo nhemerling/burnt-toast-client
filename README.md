@@ -1,9 +1,12 @@
 # Burnt Toast Client
 
 This is the client for the Burnt Toast App.
-Burnt toast helps users barter services with each other instead of trading currency. We help them provide and seek services, and get connected.
 
-It was created by Jim Smith, Sonali Martinez-Najera, El Moctar Ebnou, Lucas Bigelow, and Nicholas Hemerling.
+## App Summary
+
+Burnt Toast helps users barter services with each other instead of trading currency. We help them provide and seek services, and get connected.
+
+It was created by Lucas Bigelow, El Moctar Ebnou, Nicholas Hemerling, Sonali Martinez-Najera, and Jim Smith.
 
 ## Link to Live App
 
