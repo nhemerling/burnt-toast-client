@@ -46,7 +46,6 @@ export class UserServiceRoute extends Component {
             key={i}
             image={service.primary_img_url}
             service={service.skill_name}
-            category={service.category_name}
             type={service.user_skill_type}
             description={service.primary_description}
           />
@@ -59,7 +58,7 @@ export class UserServiceRoute extends Component {
           <section className='profile-info'>
             <div>
               <img src={'https://miro.medium.com/max/360/1*W35QUSvGpcLuxPo3SRTH4w.png'} alt='user profile avatar' className='user-profile-photo'></img>
-              <p>ZIP Code: {this.state.user.zip}</p>
+              <p><b>ZIP Code:</b> {this.state.user.zip}</p>
             </div>
             <div>
               <p>{this.state.user.profile_desc}</p>
