@@ -1,5 +1,6 @@
-h2{
+h3{
   text-align: center;
+
 }
 .profile-info {
   display: flex;
@@ -10,7 +11,7 @@ h2{
   border-radius: 10px;
   padding: 10px;
   color: black;
-  margin: 0 10px 50px;
+  margin: 20px;
 }
 .profile-info img{
   height: 150px;
@@ -40,6 +41,14 @@ h2{
   background-color: #ffce00;
 }
 
+.profile-info div > p {
+  word-break: break-word;
+}
+
+#user-name-services {
+  margin: 0;
+}
+
 @media all and (min-device-width: 800px) {
   .service-card-list{
     display: flex;
@@ -48,7 +57,7 @@ h2{
   } 
   .profile-info{
     max-width: 500px;
-    margin: 0 auto 80px;
+    margin: 30px auto;
     justify-content: space-evenly;
   }
 }

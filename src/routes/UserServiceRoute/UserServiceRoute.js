@@ -32,12 +32,12 @@ export class ServiceCardRoute extends Component {
   render() {
     const serviceList = this.state.userServices.map((service, i) => {
       return (
-
           <ServiceCard
             key={i}
             image={service.primary_img_url}
             service={service.skill_name}
             category={service.category_name}
+            type={service.user_skill_type}
             description={service.primary_description}
           />
       )
@@ -45,22 +45,19 @@ export class ServiceCardRoute extends Component {
     if (this.state.user) {
       return (
       <>
-      <h2>{this.state.user.full_name}'s Profile</h2>
       <section className='profile-info'>
         <img src={this.state.user.profile_img_url ? this.state.user.profile_img_url : 'https://miro.medium.com/max/360/1*W35QUSvGpcLuxPo3SRTH4w.png'} alt='user profile avatar' className='user-profile-photo'></img>
         <div>
           <p>{this.state.user.profile_desc}</p>
-          <button type='submit'>Contact</button>
+          <button type='submit'><a href={`mailto:${this.state.user.email}?subject=Burnt Toast: Inquiry About Your Profile`}>Contact</a></button>
         </div>
       </section>
+      <h3 id='user-name-services'>{this.state.user.full_name}'s Services</h3>
       <div className='service-card-list'>
         {serviceList}
       </div>
     </>
-    );
-    } else {
-      return <h1>YOU DONE EFFED UP</h1>;
-    }
+    );}
   }
 }
 
