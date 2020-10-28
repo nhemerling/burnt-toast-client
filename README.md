@@ -11,7 +11,7 @@ https://burnt-toast-app.vercel.app/
 
 ## Tech Stack
 
-This app was bootstrapped using React.js, and also uses npm packages jwt-decode, classnames, and jest.
+This app was bootstrapped using React.js, HTML, CSS.
 
 ## Where Components Live
 
