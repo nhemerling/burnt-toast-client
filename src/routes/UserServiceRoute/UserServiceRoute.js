@@ -51,12 +51,16 @@ export class UserServiceRoute extends Component {
             description={service.primary_description}
           />
       )
-    })
+    });
     if (this.state.user.id) {
       return (
         <>
+          <h2>{this.state.user.full_name}</h2>
           <section className='profile-info'>
-            <img src={'https://miro.medium.com/max/360/1*W35QUSvGpcLuxPo3SRTH4w.png'} alt='user profile avatar' className='user-profile-photo'></img>
+            <div>
+              <img src={'https://miro.medium.com/max/360/1*W35QUSvGpcLuxPo3SRTH4w.png'} alt='user profile avatar' className='user-profile-photo'></img>
+              <p>ZIP Code: {this.state.user.zip}</p>
+            </div>
             <div>
               <p>{this.state.user.profile_desc}</p>
               <button type='submit'><a href={`mailto:${this.state.user.email}?subject=Burnt Toast: Inquiry About Your Profile`}>Contact</a></button>
