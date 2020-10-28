@@ -27,7 +27,7 @@ This app was bootstrapped using React.js, HTML, CSS.
 ## Screenshots
 
 Landing/Registration Page
-![landing-page](https://user-images.githubusercontent.com/65194792/97360646-b30d0e80-185b-11eb-8b09-9e879d657a44.png)
+![landing-page](https://user-images.githubusercontent.com/65194792/97482175-0bebae00-1913-11eb-887d-fc9681e6e1ef.png)
 
 Login Page
 ![login-page](https://user-images.githubusercontent.com/65194792/97360771-dcc63580-185b-11eb-97aa-d4d7cbe0766a.png)
@@ -39,7 +39,7 @@ Edit Profile Page
 ![edit-profile-page](https://user-images.githubusercontent.com/65194792/97360820-ee0f4200-185b-11eb-8f01-d86d06d851dd.png)
 
 User Service Page
-![user-service-page](https://user-images.githubusercontent.com/65194792/97360814-ec457e80-185b-11eb-808d-96ed05db0ff9.png)
+![user-service-page](https://user-images.githubusercontent.com/65194792/97482167-09895400-1913-11eb-878f-ce1b153e8b9a.png)
 
 ## Setting Up
 
@@ -53,7 +53,7 @@ User Service Page
 
 - Test the application: `npm test`
 
-## CONTRIBUTORS
+## Contributors
 
 * @elmoctarebnou
 * @jsmith774
