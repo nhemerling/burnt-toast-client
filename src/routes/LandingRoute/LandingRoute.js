@@ -6,6 +6,7 @@ import SearchImg from '../../images/LandingPage/searchPosts.png';
 import ChatImg from '../../images/LandingPage/chat.png';
 import SwapImg from '../../images/LandingPage/swap.png';
 import SignupImg from '../../images/LandingPage/signup.png';
+import Button from '../../components/Button/Button';
 import './LandingRoute.css'
 class LandingRoute extends Component {
   static defaultProps = {
@@ -18,8 +19,6 @@ class LandingRoute extends Component {
     const { history } = this.props
     history.push('/login');
   }
-
-
 
   render() {
     return (
@@ -72,19 +71,22 @@ class LandingRoute extends Component {
           <LandingForm
             onRegistrationSuccess={this.handleRegistrationSuccess}
           />
+          <h3>To demo our app, log in with the following:</h3>
+          <p>username: fred</p>
+          <p>password: password</p>
         </section>
         <section className="LandingPage-testimonials">
           <h2 className='periwinkle'>Toastimonials</h2>
-          <blockquote>"We're loving it. I love your system. Burnt Toast should be nominated for service of the year. 
+          <blockquote>"We're loving it. I love your system. Burnt Toast should be nominated for service of the year.
             I like the Toasty community more and more each day because it makes my life a lot easier." -Shea Buttah.
           </blockquote>
           <blockquote>
-          "It's all good. No matter where you go, Burnt Toast is the coolest, most happening thing around! 
+          "It's all good. No matter where you go, Burnt Toast is the coolest, most happening thing around!
           Burnt Toast is great. Just what I was looking for."
             -Peter Pocket.
           </blockquote>
           <blockquote>
-            "Burnt Toast is worth much more than a product, it's community. Thanks y'all, keep up the good work! 
+            "Burnt Toast is worth much more than a product, it's community. Thanks y'all, keep up the good work!
               I would like to personally thank you for your outstanding product."
             -Rye Kneed.
           </blockquote>
