@@ -56,7 +56,7 @@ export class UserServiceRoute extends Component {
       return (
         <>
           <section className='profile-info'>
-            <img src={this.state.user.profile_img_url ? this.state.user.profile_img_url : 'https://miro.medium.com/max/360/1*W35QUSvGpcLuxPo3SRTH4w.png'} alt='user profile avatar' className='user-profile-photo'></img>
+            <img src={'https://miro.medium.com/max/360/1*W35QUSvGpcLuxPo3SRTH4w.png'} alt='user profile avatar' className='user-profile-photo'></img>
             <div>
               <p>{this.state.user.profile_desc}</p>
               <button type='submit'><a href={`mailto:${this.state.user.email}?subject=Burnt Toast: Inquiry About Your Profile`}>Contact</a></button>
